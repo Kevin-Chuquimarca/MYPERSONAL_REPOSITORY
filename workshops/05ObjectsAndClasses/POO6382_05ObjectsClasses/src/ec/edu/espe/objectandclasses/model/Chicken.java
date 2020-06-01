@@ -11,12 +11,21 @@ package ec.edu.espe.objectandclasses.model;
  */
 public class Chicken {
 
+    private int id;
     private String name;
     private String color;
     private int age;
     private boolean isMolting;
 
-    public void doStuff() {
+    public Chicken(int id, String name, String color, int age, boolean isMolting) {
+        this.id = id;
+        this.name = name;
+        this.color = color;
+        this.age = age;
+        this.isMolting = isMolting;
+    }
+    
+    public void doStuff(int forTime) {
         cluck();
         wander();
         eat();
@@ -49,10 +58,19 @@ public class Chicken {
     }
 
     private Egg layAndEgg() {
-        Egg egg = new Egg();
+        Egg egg = new Egg(1);
         if (!isMolting) {
             System.out.println("The chicken " + name + " is laying and egg");
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Chicken{" + "id=" + id + ", name=" + name + ", color=" + color + ", age=" + age + ", isMolting=" + isMolting + '}';
+    }
+    
+    public String generateCsvData(){
+        return id + "," + name + "," + color + "," + age + "," + isMolting + '}';
     }
 }
