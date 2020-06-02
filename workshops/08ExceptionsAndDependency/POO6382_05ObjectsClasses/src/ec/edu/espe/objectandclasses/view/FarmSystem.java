@@ -29,13 +29,5 @@ public class FarmSystem {
         fileManager.read(fileName);
         
         System.out.println(fileManager.read(fileName));
-        
-        //chicken.id = 4;
-        //chicken.name = "Luci";
-        
-        chicken.setId(0);
-        chicken.setName("Lucia");
-        
-        System.out.println(chicken.getName());
     }
 }

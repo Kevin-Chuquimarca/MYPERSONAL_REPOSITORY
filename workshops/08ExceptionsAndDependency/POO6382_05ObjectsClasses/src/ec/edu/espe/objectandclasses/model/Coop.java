@@ -19,8 +19,7 @@ public class Coop {
     }
     
     public void add(Chicken chicken){
-        chicken.setId(2);
-        chicken.setName("Lucy");
+        
     } 
     
     public void remove(int chickenId){
