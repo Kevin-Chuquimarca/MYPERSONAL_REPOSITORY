@@ -1,4 +1,3 @@
-2569847,Galaxy A50,Samsung,Black,320.55
-9635872,iPhone x,Apple,white,1025.56
-6987631,Galaxy S20,Samsung,Gold,1100.23
-3698563,Huawey P40,Huawey,Red,950.25
+2365878,Galaxy A50,Samsung,blue,320.25
+3212521,iphone x,Apple,white,950.25
+9865321,Redmi 9s,Xiaomi,black,235.59

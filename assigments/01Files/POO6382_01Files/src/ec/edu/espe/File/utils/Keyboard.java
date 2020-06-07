@@ -1,4 +1,4 @@
-package ec.edu.espe.File.controller;
+package ec.edu.espe.File.utils;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class Keyboard {
     public String getString(String title) {
         String data = "";
         while (data.equals("")) {
-            System.out.print(title);
+            System.out.println(title);
             data = string.nextLine();
         }
         return data;
@@ -22,7 +22,7 @@ public class Keyboard {
     public int getInt(String title, int characters) {
         String data = "";
         while (data.equals("")) {
-            System.out.print(title);
+            System.out.println(title);
             data = string.nextLine();
             if (!data.matches("[0-9]{" + characters + "}")) {
                 data = "";
