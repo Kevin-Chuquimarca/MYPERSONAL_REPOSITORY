@@ -14,6 +14,6 @@ public class FoodPile {
     private Cell position;
     
     public void yieldFood(Food amount){
-        
+        Food foods[];
     }
 }

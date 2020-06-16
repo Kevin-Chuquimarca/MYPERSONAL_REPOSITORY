@@ -11,4 +11,6 @@ package ec.edu.espe.antcolonysimulation.model;
  */
 public class Food {
     private int cantidad;
+    
+    Ant ants[];
 }

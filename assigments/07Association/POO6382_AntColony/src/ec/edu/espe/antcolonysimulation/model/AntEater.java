@@ -15,7 +15,7 @@ public class AntEater {
     private int runCounter;
     enum state{};
             
-    public void Run(){
+    public void run(){
         
     }                  
 }

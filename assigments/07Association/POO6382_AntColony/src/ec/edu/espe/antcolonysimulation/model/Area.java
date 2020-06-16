@@ -15,23 +15,32 @@ public class Area {
     private int initNumberOfFoodPiles;
     private int tickDuration;
     
-    public void Setup(){
+    Colony colonies[];
+    AntEater antEaters[];
+    FoodPile foodPiles[];
+    Cell cells[];
+    
+    public void setup(){
         
     }
     
-    public void Add(Colony colony){
+    public void add(Colony colony){
         
     }
     
-    public void Add(AntEater antEater){
+    public void add(AntEater antEater){
         
     }
     
-    public void IsAnyFoodRemaining(){
+    public boolean isAnyFoodRemaining(){
+        return false;
         
     }
     
-    public void Getcell(Cell row, Cell col){
+    public Cell getcell(Cell row, Cell col){
+        Cell cell = new Cell();
+        //TODO code to handle the cell
         
+        return cell;
     }
 }

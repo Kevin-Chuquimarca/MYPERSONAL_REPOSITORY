@@ -11,4 +11,7 @@ package ec.edu.espe.antcolonysimulation.model;
  */
 public class Nest {
     private Cell position;
+    
+    Food foods[];
+    Colony colonies[];
 }

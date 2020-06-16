@@ -11,7 +11,9 @@ package ec.edu.espe.antcolonysimulation.model;
  */
 public class Colony {
     
-    public void Run(){
+    Ant ants[];
+    
+    public void run(){
         
     }
 }

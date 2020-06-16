@@ -13,11 +13,13 @@ public class Cell {
     private int row;
     private int col;
     
-    public void ReceivePheromone(PheromoneDrop pheromoneDrop){
+    PheromoneDrop pheromons[];
+    
+    public void receivePheromone(PheromoneDrop pheromoneDrop){
         
     }
     
-    public void GetAnts(){
+    public void getAnts(){
         
     }
 }

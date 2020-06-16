@@ -13,7 +13,7 @@ public class Ant {
     private Cell position;
     private int weight;
     
-    public void Run(){
-        
+    public void run(){
+        PheromoneDrop pheromonsDrops[];
     }
 }

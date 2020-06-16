@@ -12,7 +12,7 @@ package ec.edu.espe.antcolonysimulation.model;
 public class PheromoneDrop {
     private int currentLevel;
     
-    public void Run(){
+    public void run(){
         
     }
 }
