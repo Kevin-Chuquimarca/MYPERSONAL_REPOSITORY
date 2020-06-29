@@ -58,9 +58,15 @@ public class RegisterLogin {
         String keyEncrypt = "";
         for (int i = 0; i < key.length(); i++) {
             auxKey = key.charAt(i);
-            auxKey = auxKey + 1;
-            auxChar = (char) (auxKey);
-            keyEncrypt = keyEncrypt + auxChar;
+            if (auxKey > 64 & auxKey < 123) {
+                auxKey = auxKey -4;
+                auxChar = (char) (auxKey);
+                keyEncrypt = keyEncrypt + auxChar;
+            } else {
+                auxKey = auxKey +10;
+                auxChar = (char) (auxKey);
+                keyEncrypt = keyEncrypt + auxChar;
+            }
         }
         return keyEncrypt;
     }
