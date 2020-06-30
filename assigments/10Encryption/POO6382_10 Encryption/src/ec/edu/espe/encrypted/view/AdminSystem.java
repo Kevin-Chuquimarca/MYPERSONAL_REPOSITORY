@@ -12,7 +12,7 @@ import ec.edu.espe.encrypted.utils.DataValidation;
  *
  * @author Kevin Chuquimarca ESPE-DCCO
  */
-public class EncryptedSystem {
+public class AdminSystem {
 
     public static void main(String[] args) {
         DataValidation in = new DataValidation();
