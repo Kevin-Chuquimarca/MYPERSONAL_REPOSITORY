@@ -13,9 +13,9 @@ public class UserToRegister {
     private String nameUser;
     private String userkey;
 
-    public UserToRegister(String nameCustomer, String keyCustomer) {
-        this.nameUser = nameCustomer;
-        this.userkey = keyCustomer;
+    public UserToRegister(String nameUser, String userKey) {
+        this.nameUser = nameUser;
+        this.userkey = userKey;
     }
 
     @Override

@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.encrypted.controller;
 
+import ec.edu.espe.encrypted.utils.EncryptedKey;
+import ec.edu.espe.encrypted.utils.FileManager;
 import ec.edu.espe.encrypted.model.UserToRegister;
 import ec.edu.espe.encrypted.utils.DataValidation;
 
@@ -14,7 +16,7 @@ import ec.edu.espe.encrypted.utils.DataValidation;
  */
 public class RegisterLogin {
 
-    private UserToRegister customer;
+    private UserToRegister user;
     private FileManager file;
     
     DataValidation in = new DataValidation();
@@ -26,7 +28,7 @@ public class RegisterLogin {
         String name = in.getString("Enter your name of user: ");
         if (file.findUser(name)) {
             String key = in.getString("Enter your key of user: ");
-            if (key.equals(UserKey.decryptKey(searchUserKey(name)))) {
+            if (key.equals(EncryptedKey.decryptKey(searchUserKey(name)))) {
                 System.out.println("Correct key");
                 answer = "Welcome " + name;
             } else {
@@ -42,15 +44,15 @@ public class RegisterLogin {
         return access;
     }
 
-    public String searchUserKey(String key) {
+    public String searchUserKey(String keyEntered) {
         String[] userSearched = null;
-        int a = 0;
+        int cont = 0;
         file = new FileManager("LoginList.csv");
-        file.findUser(key);
-        file.getDataSeekerLine();
-        while (a < 1) {
-            userSearched = file.getDataSeekerLine().split(",");
-            a++;
+        file.findUser(keyEntered);
+        file.getLineSeekered();
+        while (cont < 1) {
+            userSearched = file.getLineSeekered().split(",");
+            cont++;
         }
         return userSearched[1];
     }
@@ -59,11 +61,12 @@ public class RegisterLogin {
         String answer;
         String name = in.getString("Enter the name of new user: ");
         String key = in.getString("Enter the key of new user: ");
-        String question = in.getStringAnswer("You want to save your user data: ");
+        String question = in.getStringAnswer("You want to save your "
+                + "user data:");
         if ("yes".equals(question)) {
-            customer = new UserToRegister(name, UserKey.encryptKey(key));
+            user = new UserToRegister(name, EncryptedKey.encryptKey(key));
             file = new FileManager("LoginList.csv");
-            file.writeFile(customer.toString());
+            file.writeFile(user.toString());
             System.out.println("Information saved");
             answer = "User register";
         } else {

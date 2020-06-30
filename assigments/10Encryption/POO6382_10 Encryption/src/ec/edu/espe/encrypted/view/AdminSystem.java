@@ -20,7 +20,8 @@ public class AdminSystem {
         RegisterLogin registry = new RegisterLogin();
         int option;
         do {
-            option = in.getInt(" 1: Login \n 2: Registrar a new user \n 3: Exit \nEnter the option: ", 1);
+            option = in.getInt(" 1: Login \n 2: Registrar a new user \n 3: Exit"
+                    + " \nEnter the option: ", 1);
             switch (option) {
                 case 1:
                     registry.Login();

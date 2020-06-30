@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espe.encrypted.controller;
+package ec.edu.espe.encrypted.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +23,7 @@ public class FileManager {
     private String fileName;
     private boolean answer = true;
     private File file;
-    private String dataSeekerLine;
+    private String lineSeekered;
 
     public FileManager(String fileName) {
         this.fileName = fileName;
@@ -52,17 +52,19 @@ public class FileManager {
             try {
                 fileWriter.close();
             } catch (IOException ex) {
-                Logger.getLogger(Object.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Object.class.getName()).log(Level.SEVERE,
+                        null, ex);
                 answer = false;
             }
         } catch (IOException ex) {
-            Logger.getLogger(Object.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Object.class.getName()).log(Level.SEVERE, null,
+                    ex);
             answer = false;
         }
         return answer;
     }
 
-    public boolean findUser(String seeker) {
+    public boolean findUser(String wordSeekered) {
         createFile();
         boolean flat = false;
         String line;
@@ -71,9 +73,9 @@ public class FileManager {
             BufferedReader bufferReader = new BufferedReader(fileReader);
             while ((line = bufferReader.readLine()) != null) {
                 String searchWord[] = line.split(",");
-                if (searchWord[0].equals(seeker)) {
+                if (searchWord[0].equals(wordSeekered)) {
                     flat = true;
-                    setDataSeekerLine(line);
+                    setLineSeekered(line);
                 }
             }
             if (flat == false) {
@@ -81,16 +83,17 @@ public class FileManager {
                 answer = false;
             }
         } catch (IOException ex) {
-            Logger.getLogger(Object.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Object.class.getName()).log(Level.SEVERE,
+                    null, ex);
         }
         return answer;
     }
 
-    public String getDataSeekerLine() {
-        return dataSeekerLine;
+    public String getLineSeekered() {
+        return lineSeekered;
     }
 
-    public void setDataSeekerLine(String dataSeekerLine) {
-        this.dataSeekerLine = dataSeekerLine;
+    public void setLineSeekered(String dataSeekerLine) {
+        this.lineSeekered = dataSeekerLine;
     }
 }

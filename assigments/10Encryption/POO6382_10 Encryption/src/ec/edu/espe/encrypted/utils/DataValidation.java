@@ -12,31 +12,31 @@ import java.util.Scanner;
  * @author Kevin Chuquimarca ESPE-DCCO
  */
 public class DataValidation {
-     Scanner string;
-    
-    
+
+    Scanner scanner;
+
     public DataValidation() {
-        string = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
     public String getString(String title) {
         String data = "";
         while (data.equals("")) {
             System.out.println(title);
-            data = string.nextLine();
-            if((!data.matches("^[ A-Za-z0-9]+$"))){
+            data = scanner.nextLine();
+            if ((!data.matches("^[ A-Za-z0-9]+$"))) {
                 data = "";
                 System.out.println("Special Characters Not Allowed\n");
             }
         }
         return data;
     }
-    
+
     public String getStringAnswer(String title) {
         String data = "";
         while (data.equals("")) {
             System.out.print(title);
-            data = string.nextLine();
+            data = scanner.nextLine();
             if (!"yes".equals(data) & !"no".equals(data)) {
                 data = "";
             }
@@ -48,7 +48,7 @@ public class DataValidation {
         String data = "";
         while (data.equals("")) {
             System.out.println(title);
-            data = string.nextLine();
+            data = scanner.nextLine();
             if (!data.matches("[0-9]{" + characters + "}")) {
                 data = "";
                 System.out.println("\nIncorrect data\n");
