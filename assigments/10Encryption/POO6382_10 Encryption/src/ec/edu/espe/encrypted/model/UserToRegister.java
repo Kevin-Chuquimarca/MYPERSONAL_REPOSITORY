@@ -9,17 +9,17 @@ package ec.edu.espe.encrypted.model;
  *
  * @author Kevin Chuquimarca ESPE-DCCO
  */
-public class CustomerKey {
-    private String nameCustomer;
-    private String keyCustomer;
+public class UserToRegister {
+    private String nameUser;
+    private String userkey;
 
-    public CustomerKey(String nameCustomer, String keyCustomer) {
-        this.nameCustomer = nameCustomer;
-        this.keyCustomer = keyCustomer;
+    public UserToRegister(String nameCustomer, String keyCustomer) {
+        this.nameUser = nameCustomer;
+        this.userkey = keyCustomer;
     }
 
     @Override
     public String toString() {
-        return nameCustomer + "," + keyCustomer;
+        return nameUser + "," + userkey;
     }
 }

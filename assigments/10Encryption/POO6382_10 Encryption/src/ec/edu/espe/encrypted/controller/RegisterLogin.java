@@ -5,9 +5,8 @@
  */
 package ec.edu.espe.encrypted.controller;
 
-import ec.edu.espe.encrypted.model.CustomerKey;
+import ec.edu.espe.encrypted.model.UserToRegister;
 import ec.edu.espe.encrypted.utils.DataValidation;
-import java.util.Scanner;
 
 /**
  *
@@ -15,59 +14,61 @@ import java.util.Scanner;
  */
 public class RegisterLogin {
 
-    CustomerKey customer;
-    FileManager file;
-    Scanner scan = new Scanner(System.in);
+    private UserToRegister customer;
+    private FileManager file;
+    
     DataValidation in = new DataValidation();
 
-    public void registerOfUser() {
-        int option;
-        do {
-            option = in.getInt(" 1: Login \n 2: Exit \nEnter the option: ", 1);
-            switch (option) {
-                case 1:
-                    registerData();
-                    break;
-                case 2:
-                    break;
-                default:
-                    System.out.println("Incorrect option");
-                    break;
+    public boolean Login() {
+        boolean access = true;
+        file = new FileManager("LoginList.csv");
+        String answer = "";
+        String name = in.getString("Enter your name of user: ");
+        if (file.findUser(name)) {
+            String key = in.getString("Enter your key of user: ");
+            if (key.equals(UserKey.decryptKey(searchUserKey(name)))) {
+                System.out.println("Correct key");
+                answer = "Welcome " + name;
+            } else {
+                System.out.println("Incorrect key");
+                answer = "Access denied";
+                access = false;
             }
-        } while (option != 2);
+        }
+        else{
+            access = false;
+        }
+        System.out.println(answer);
+        return access;
     }
 
-    public boolean registerData() {
-        boolean repeat = false;
-        String name = in.getString("Enter the name of user: ");
-        String key = in.getString("Enter the key of user: ");
+    public String searchUserKey(String key) {
+        String[] userSearched = null;
+        int a = 0;
+        file = new FileManager("LoginList.csv");
+        file.findUser(key);
+        file.getDataSeekerLine();
+        while (a < 1) {
+            userSearched = file.getDataSeekerLine().split(",");
+            a++;
+        }
+        return userSearched[1];
+    }
+
+    public String registerNewUser() {
+        String answer;
+        String name = in.getString("Enter the name of new user: ");
+        String key = in.getString("Enter the key of new user: ");
         String question = in.getStringAnswer("You want to save your user data: ");
         if ("yes".equals(question)) {
-            customer = new CustomerKey(name, encryptKey(key));
+            customer = new UserToRegister(name, UserKey.encryptKey(key));
             file = new FileManager("LoginList.csv");
             file.writeFile(customer.toString());
             System.out.println("Information saved");
-            repeat = true;
+            answer = "User register";
+        } else {
+            answer = "Unregistered user";
         }
-        return repeat;
-    }
-
-    public String encryptKey(String key) {
-        int auxKey;
-        char auxChar;
-        String keyEncrypt = "";
-        for (int i = 0; i < key.length(); i++) {
-            auxKey = key.charAt(i);
-            if (auxKey > 64 & auxKey < 123) {
-                auxKey = auxKey -4;
-                auxChar = (char) (auxKey);
-                keyEncrypt = keyEncrypt + auxChar;
-            } else {
-                auxKey = auxKey +10;
-                auxChar = (char) (auxKey);
-                keyEncrypt = keyEncrypt + auxChar;
-            }
-        }
-        return keyEncrypt;
+        return answer;
     }
 }

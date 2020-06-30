@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.encrypted.controller;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,8 +21,9 @@ import java.util.logging.Logger;
 public class FileManager {
 
     private String fileName;
-    private boolean answer;
+    private boolean answer = true;
     private File file;
+    private String dataSeekerLine;
 
     public FileManager(String fileName) {
         this.fileName = fileName;
@@ -31,6 +34,7 @@ public class FileManager {
         if (!file.exists()) {
             try {
                 file.createNewFile();
+                writeFile("Kevin,OizmrIWTI'()");
             } catch (IOException ex) {
                 Logger.getLogger(Object.class.getName()).log(Level.SEVERE, null, ex);
                 answer = false;
@@ -56,5 +60,37 @@ public class FileManager {
             answer = false;
         }
         return answer;
+    }
+
+    public boolean findUser(String seeker) {
+        createFile();
+        boolean flat = false;
+        String line;
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferReader = new BufferedReader(fileReader);
+            while ((line = bufferReader.readLine()) != null) {
+                String searchWord[] = line.split(",");
+                if (searchWord[0].equals(seeker)) {
+                    flat = true;
+                    setDataSeekerLine(line);
+                }
+            }
+            if (flat == false) {
+                System.out.println("The User don't exist");
+                answer = false;
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Object.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return answer;
+    }
+
+    public String getDataSeekerLine() {
+        return dataSeekerLine;
+    }
+
+    public void setDataSeekerLine(String dataSeekerLine) {
+        this.dataSeekerLine = dataSeekerLine;
     }
 }
