@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="20ClassRelations">
+  <ClassDiagramComponents>
+    <Class name="A" package="ec.edu.espe.relations.model" visibility="public" xPosition="247.0" yPosition="20.0">
+      <Fields>
+        <Field name="b" type="B" visibility="private"/>
+        <Field name="cs" type="ArrayList&lt;C&gt;" visibility="private"/>
+        <Field name="d" type="D" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="B" name="b"/>
+          <Argument type="ArrayList&lt;C&gt;" name="cs"/>
+          <Argument type="D" name="d"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="m" returnType="void" visibility="public">
+          <Argument type="E" name="e"/>
+        </Method>
+        <Method name="m" returnType="D" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="B" package="ec.edu.espe.relations.model" visibility="public" xPosition="260.0" yPosition="378.0">
+      <Fields>
+        <Field name="c" type="C" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="C" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="m" returnType="void" visibility="public">
+          <Argument type="E" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="C" package="ec.edu.espe.relations.model" visibility="public" xPosition="850.0" yPosition="194.0">
+      <Fields>
+        <Field name="q" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="q"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="D" package="ec.edu.espe.relations.model" visibility="public" xPosition="850.0" yPosition="20.0">
+      <Fields>
+        <Field name="c" type="C" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="C" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="E" package="ec.edu.espe.relations.model" visibility="public" xPosition="549.0" yPosition="217.0">
+      <Fields>
+        <Field name="cs" type="ArrayList&lt;C&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ArrayList&lt;C&gt;" name="cs"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="App" package="ec.edu.espe.relations.view" visibility="public" xPosition="17.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="ec.edu.espe.relations.model.B" target="ec.edu.espe.relations.model.E" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="d" source="ec.edu.espe.relations.model.A" target="ec.edu.espe.relations.model.D" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="c" source="ec.edu.espe.relations.model.D" target="ec.edu.espe.relations.model.C" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.relations.model.A" target="ec.edu.espe.relations.model.E" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cs" source="ec.edu.espe.relations.model.E" target="ec.edu.espe.relations.model.C" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;C&gt;"/>
+    <UseRelation source="ec.edu.espe.relations.model.A" target="ec.edu.espe.relations.model.D" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cs" source="ec.edu.espe.relations.model.A" target="ec.edu.espe.relations.model.C" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;C&gt;"/>
+    <HasRelation name="b" source="ec.edu.espe.relations.model.A" target="ec.edu.espe.relations.model.B" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="c" source="ec.edu.espe.relations.model.B" target="ec.edu.espe.relations.model.C" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
