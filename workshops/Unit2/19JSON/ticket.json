@@ -1,0 +1,25 @@
+{
+	"ticket": [
+		{
+			"key": 1235987,
+			"seat": 12,
+			"titleMovie": "Avengers",
+			"roomAssigment": 5,
+			"ticketPrice": 6.36
+		},
+		{
+			"key": 1278987,
+			"seat": 13,
+			"titleMovie": "Avatar",
+			"roomAssigment": 4,
+			"ticketPrice": 5.36
+		},
+		{
+			"key": 4735987,
+			"seat": 15,
+			"titleMovie": "Avengers end game",
+			"roomAssigment": 6,
+			"ticketPrice": 4.36
+		}
+	]
+}

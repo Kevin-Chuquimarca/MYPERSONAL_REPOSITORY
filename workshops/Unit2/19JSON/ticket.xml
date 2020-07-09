@@ -1,0 +1,21 @@
+<ticket>
+	<key>1235987</key>
+	<seat>12</seat>
+	<titleMovie>Avengers</titleMovie>
+	<roomAssigment>5</roomAssigment>
+	<ticketPrice>6.36</ticketPrice>
+</ticket>
+<ticket>
+	<key>1278987</key>
+	<seat>13</seat>
+	<titleMovie>Avatar</titleMovie>
+	<roomAssigment>4</roomAssigment>
+	<ticketPrice>5.36</ticketPrice>
+</ticket>
+<ticket>
+	<key>4735987</key>
+	<seat>15</seat>
+	<titleMovie>Avenger end game</titleMovie>
+	<roomAssigment>6</roomAssigment>
+	<ticketPrice>4.36</ticketPrice>
+</ticket>
