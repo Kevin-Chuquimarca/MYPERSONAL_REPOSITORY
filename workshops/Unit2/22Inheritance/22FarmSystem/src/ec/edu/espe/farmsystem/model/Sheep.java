@@ -11,16 +11,28 @@ import java.util.Date;
  *
  * Kevin Chuquimarca ESPE-DCCO
  */
-public class Sheep extends FarmAnimal{
-    private static boolean hasWool;
+public class Sheep extends FarmAnimal {
 
-    public Sheep(boolean hasWool, int id, String breed, Date bornOn) {
-        super(id, breed, bornOn);
+    private static boolean hasWool;
+    private static String colorWool;
+
+    public Sheep(int id, String breed, Date bornOn, int sexOfAnimal,
+            boolean hasWool, String colorWool) {
+        super(id, breed, bornOn, sexOfAnimal);
         Sheep.hasWool = hasWool;
+        Sheep.colorWool = colorWool;
     }
-    
-    public static String cutTheWool(){
-        if (hasWool==true){
+
+    public static Date recordForNextCutWool(Date date, int months){
+        if (months >= 6){
+            Sheep.hasWool = true;
+            return new Date(date.getYear(), date.getMonth() + 5, date.getDay());
+        }
+        return null;
+    }
+
+    public static String cutTheWool() {
+        if (hasWool == true) {
             return "The sheep is ready that cut her wool";
         }
         return "The sheep isn't ready that cut her wool";
@@ -28,14 +40,25 @@ public class Sheep extends FarmAnimal{
 
     @Override
     public String toString() {
-        return "Sheep{" + "hasWool=" + hasWool + super.toString() + '}';
+        return "Sheep{" + super.toString() + ", hasWool= " + hasWool
+                + ", colorWool= " + colorWool + '}';
     }
 
-    public boolean isHasWool() {
+    public static boolean isHasWool() {
         return hasWool;
     }
 
-    public void setHasWool(boolean hasWool) {
+    public static void setHasWool(boolean hasWool) {
         Sheep.hasWool = hasWool;
     }
+
+    public static String getColorWool() {
+        return colorWool;
+    }
+
+    public static void setColorWool(String colorWool) {
+        Sheep.colorWool = colorWool;
+    }
+    
+    
 }

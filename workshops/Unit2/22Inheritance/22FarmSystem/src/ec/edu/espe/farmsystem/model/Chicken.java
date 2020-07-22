@@ -10,36 +10,51 @@ import java.util.Date;
  */
 public class Chicken extends FarmAnimal {
 
-    private static boolean isMolting;
+    private static boolean laysEggs;
+    private static int numberOfEggs;
 
-    public Chicken(int id, String breed, Date bornOn, boolean isMolting) {
-        super(id, breed, bornOn);
-        Chicken.isMolting = isMolting;
+    public Chicken(int id, String breed, Date bornOn, int sexOfAnimal,
+            boolean laysEggs, int numberOfEggs) {
+        super(id, breed, bornOn, sexOfAnimal);
+        Chicken.laysEggs = laysEggs;
+        Chicken.numberOfEggs = numberOfEggs;
     }
-    
-    public static String putEgg(int month){
-        if (month>5 & isMolting==true){
-            return "The Chicken does put eggs";
+
+    public static int calculateEggsOfChicken(int daysLife) {
+        if (daysLife > 140) {
+            return (daysLife - 140);
         }
-        return "The Chicken doesn't put eggs";
+        Chicken.laysEggs = false;
+        return 0;
+    }
+
+    public static float calculatePriceOfEggs(int totalEggs, int priceOfOneEgg) {
+        Chicken.numberOfEggs = totalEggs;
+        float price = priceOfOneEgg;
+        return (price/100) * totalEggs;
     }
 
     @Override
     public String toString() {
-        String basicInformation = super.toString();
-
-        String chicken = "Chicken{" + getId() + ", breed " + getBreed()
-                + ", bornOn " + getBornOn() + ", isMolting " + isMolting;
-
-        //return "Chicken{" + basicInformation + ", isMolting=" + isMolting + '}';
-        return chicken;
+        return "Chicken{" + super.toString() + ", laysEggs=" + laysEggs
+                + ", numberOfEggs=" + numberOfEggs + '}';
     }
 
-    public boolean isIsMolting() {
-        return isMolting;
+    public static boolean isLaysEggs() {
+        return laysEggs;
     }
 
-    public void setIsMolting(boolean isMolting) {
-        Chicken.isMolting = isMolting;
+    public static void setLaysEggs(boolean laysEggs) {
+        Chicken.laysEggs = laysEggs;
     }
+
+    public static int getNumberOfEggs() {
+        return numberOfEggs;
+    }
+
+    public static void setNumberOfEggs(int numberOfEggs) {
+        Chicken.numberOfEggs = numberOfEggs;
+    }
+
+    
 }

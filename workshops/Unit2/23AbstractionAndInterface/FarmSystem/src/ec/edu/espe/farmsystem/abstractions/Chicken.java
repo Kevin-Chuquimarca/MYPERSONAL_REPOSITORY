@@ -11,6 +11,8 @@ package ec.edu.espe.farmsystem.abstractions;
  */
 public class Chicken extends FarmAnimal{
 
+    
+    
     @Override
     public float computeEarningMoney(float product, int quantity) {
           //TODO compute earning money for the Chicken

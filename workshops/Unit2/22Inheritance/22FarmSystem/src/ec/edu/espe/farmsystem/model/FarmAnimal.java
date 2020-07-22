@@ -1,6 +1,5 @@
 /** Copyright ESPE-DECC
-*/
-
+ */
 package ec.edu.espe.farmsystem.model;
 
 import java.util.Date;
@@ -10,78 +9,82 @@ import java.util.Date;
  * @author Kevin Chuquimarca ESPE-DCCO
  */
 public class FarmAnimal {
+
     private int id;
     private String breed;
     private Date bornOn;
+    private int sexOfTheAnimal;
 
-    public int getAgeInMonths(){
-        Date date = new Date();
-        String[] months;
-        months = date.toLocaleString().split("/");
-        String[] years;
-        years = months[2].split(" ");
-        String year = years[0];
-        int month = (Integer.parseInt(year) - bornOn.getYear() - 1900)*12;
-        return Integer.parseInt(months[1]) - bornOn.getMonth() - 1 + month;
-    }
-
-
-    public FarmAnimal(int id, String breed, Date bornOn) {
+    public FarmAnimal(int id, String breed, Date bornOn, int sexOfAnimal) {
         this.id = id;
         this.breed = breed;
         this.bornOn = bornOn;
+        this.sexOfTheAnimal = sexOfAnimal;
+    }
+
+    public int getAgeInMonths() {
+        Date date = new Date();
+        String[] currentsDate = date.toLocaleString().split("/");
+        String[] years = currentsDate[2].split(" ");
+        int year = Integer.parseInt(years[0]) - 1900 - bornOn.getYear();
+        int month = Integer.parseInt(currentsDate[1]);
+        int day = Integer.parseInt(currentsDate[0]) - bornOn.getDay();
+        if (day <= 0) {
+            return month - bornOn.getMonth() + (year * 12);
+        } else {
+            return month - bornOn.getMonth() + (year * 12) - 1;
+        }
+    }
+
+    public int getAgeInDays() {
+        Date date = new Date();
+        String[] currentsDate = date.toLocaleString().split("/");
+        int day = Integer.parseInt(currentsDate[0]) - bornOn.getDay();
+        return (getAgeInMonths())*30 + day;
+    }
+    
+    public String defineSexOfAnimal(){
+        if (sexOfTheAnimal == 1){
+            return "female";
+        }
+        return "male";
     }
 
     @Override
     public String toString() {
-        return "FarmAnimal{" + "id=" + id + ", breed=" + breed + ", bornOn=" + bornOn + '}';
+        return "FarmAnimal{" + "id=" + id + ", breed=" + breed + ", bornOn="
+                + bornOn + ", sexAnimal=" + defineSexOfAnimal() + '}';
     }
-    
-    
 
-    /**
-     * @return the id
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the breed
-     */
     public String getBreed() {
         return breed;
     }
 
-    /**
-     * @param breed the breed to set
-     */
     public void setBreed(String breed) {
         this.breed = breed;
     }
 
-    /**
-     * @return the bornOn
-     */
     public Date getBornOn() {
         return bornOn;
     }
 
-    /**
-     * @param bornOn the bornOn to set
-     */
     public void setBornOn(Date bornOn) {
         this.bornOn = bornOn;
     }
-    
-    
-    
 
+    public int getSexOfAnimal() {
+        return sexOfTheAnimal;
+    }
+
+    public void setSexOfAnimal(int sexOfAnimal) {
+        this.sexOfTheAnimal = sexOfAnimal;
+    }
 }

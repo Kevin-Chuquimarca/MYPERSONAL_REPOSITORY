@@ -11,31 +11,53 @@ import java.util.Date;
  *
  * @author santi
  */
-public class Crow extends FarmAnimal{
-    private static String sex;
+public class Cow extends FarmAnimal {
 
-    public Crow(String sex, int id, String breed, Date bornOn) {
-        super(id, breed, bornOn);
-        Crow.sex = sex;
+    private static boolean itProduceMilk;
+    private static float litersOfMilkPerDay;
+
+    public Cow(int id, String breed, Date bornOn, int sexOfAnimal,
+            boolean itProduceMilk, float litersOfMilkPerDay) {
+        super(id, breed, bornOn, sexOfAnimal);
+        Cow.itProduceMilk = itProduceMilk;
+        Cow.litersOfMilkPerDay = litersOfMilkPerDay;
     }
-    
-    public static String fly(int month){
-        if (month > 5){
-            return "The crow can fly";
+
+    public static float calculateLitersOfMilkMonthly(int monthOfLifeCow) {
+        if (monthOfLifeCow >= 24) {
+            return litersOfMilkPerDay * 30;
         }
-       return "The crow can't fly";
+        return 0f;
+    }
+
+    public static Date determineInseminationDate(int month, Date date) {
+        if (month <= 15 | itProduceMilk == false) {
+            int monthOfBorn = date.getMonth() + 15;
+            int yearOfBorn = date.getYear();
+            return new Date(yearOfBorn, monthOfBorn, 0);
+        }
+        return null;
     }
 
     @Override
     public String toString() {
-        return "Crow{" + "sex=" + sex + super.toString() + '}';
+        return "Crow{" + super.toString() + ", itProduceMilk=" + itProduceMilk
+                + ", litersOfMilkPerDay= " + litersOfMilkPerDay + '}';
     }
 
-    public String getSex() {
-        return sex;
+    public static boolean isItProduceMilk() {
+        return itProduceMilk;
     }
 
-    public void setSex(String sex) {
-        Crow.sex = sex;
+    public static void setItProduceMilk(boolean itProduceMilk) {
+        Cow.itProduceMilk = itProduceMilk;
+    }
+
+    public static float getLitersOfMilk() {
+        return litersOfMilkPerDay;
+    }
+
+    public static void setLitersOfMilk(float litersOfMilkPerDay) {
+        Cow.litersOfMilkPerDay = litersOfMilkPerDay;
     }
 }

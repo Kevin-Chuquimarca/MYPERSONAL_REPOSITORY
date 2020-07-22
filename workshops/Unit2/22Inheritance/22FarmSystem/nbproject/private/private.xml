@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Chicken.java</file>
             <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/view/FarmSystem.java</file>
-            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Crow.java</file>
-            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Sheep.java</file>
-            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/controller/FarmAnimalRegistry.java</file>
             <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/FarmAnimal.java</file>
-            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Pig.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Cow.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/test/ec/edu/espe/farmsystem/model/ChickenTest.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/controller/FarmAnimalRegistry.java</file>
             <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/utils/ImputValidation.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Chicken.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Sheep.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Pig.java</file>
+            <file>file:/C:/Users/santi/Desktop/Programacion_O_Objetos/Talleres/02-POO_MYPERSONAL_REPOSITORY/workshops/Unit2/22Inheritance/22FarmSystem/src/ec/edu/espe/farmsystem/model/Horse.java</file>
         </group>
     </open-files>
 </project-private>

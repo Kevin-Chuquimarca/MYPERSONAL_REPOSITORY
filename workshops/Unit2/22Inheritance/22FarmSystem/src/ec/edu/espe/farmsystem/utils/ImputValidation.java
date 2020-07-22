@@ -12,9 +12,9 @@ import java.util.Scanner;
  * @author Kevin Chuquimarca ESPE-DCCO
  */
 public class ImputValidation {
-     Scanner string;
-    
-    
+
+    Scanner string;
+
     public ImputValidation() {
         string = new Scanner(System.in);
     }
@@ -24,7 +24,7 @@ public class ImputValidation {
         while (data.equals("")) {
             System.out.println(title);
             data = string.nextLine();
-            if((!data.matches("^[ A-Za-z0-9]+$"))){
+            if ((!data.matches("^[ A-Za-z0-9]+$"))) {
                 data = "";
                 System.out.println("Special Characters Not Allowed\n");
             }
@@ -43,5 +43,17 @@ public class ImputValidation {
             }
         }
         return Integer.parseInt(data);
+    }
+
+    public String getYesOrNo(String title) {
+        String data = "";
+        while (data.equals("")) {
+            System.out.print(title);
+            data = string.nextLine();
+            if (!"yes".equals(data) & !"no".equals(data)) {
+                data = "";
+            }
+        }
+        return data;
     }
 }

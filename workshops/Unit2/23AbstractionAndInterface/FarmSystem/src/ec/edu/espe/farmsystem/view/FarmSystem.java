@@ -10,6 +10,7 @@ import ec.edu.espe.farmsystem.abstractions.Cow;
 import ec.edu.espe.farmsystem.abstractions.FarmAnimal;
 import ec.edu.espe.farmsystem.abstractions.Food;
 import ec.edu.espe.farmsystem.interfaces.IFarmAnimal;
+import java.util.Date;
 
 /**
  *
@@ -18,7 +19,7 @@ import ec.edu.espe.farmsystem.interfaces.IFarmAnimal;
 public class FarmSystem {
 
     public static void main(String[] args) {
-        System.out.println("Kevin Chuquimarca --> Abstraction And Interfae");
+        /*System.out.println("Kevin Chuquimarca --> Abstraction And Interfae");
         FarmAnimal farmAnimal;
         //farmAnimal = new FarmAnimal();
         farmAnimal = new Chicken();
@@ -41,6 +42,11 @@ public class FarmSystem {
         farmAnimal2 = new ec.edu.espe.farmsystem.interfaces.Chicken();
         ec.edu.espe.farmsystem.interfaces.Chicken chicken = new ec.edu.espe.farmsystem.interfaces.Chicken();
         farmAnimal2.computeFoodMoney(new Food());
-        farmAnimal2.computeEarningMoney(0);
+        farmAnimal2.computeEarningMoney(0);*/
+        
+        FarmAnimal farmAnimal = new Chicken();
+       
+        System.out.println(farmAnimal.computeAgeInMonths(120, 04, 20));
+        System.out.println(farmAnimal.computeAgeInMonths(new Date(120,04,20)));
     }
 }

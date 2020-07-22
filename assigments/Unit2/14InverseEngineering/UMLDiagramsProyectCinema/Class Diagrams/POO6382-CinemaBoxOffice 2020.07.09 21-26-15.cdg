@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="POO6382-CinemaBoxOffice">
+  <ClassDiagramComponents>
+    <Class name="FileManager" package="ec.edu.espe.cinemaboxoffice.controller" visibility="public" isFinal="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="fileName" type="String" visibility="private"/>
+        <Field name="answer" type="boolean" visibility="private"/>
+        <Field name="file" type="File" visibility="private"/>
+        <Field name="dataSeekerLine" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fileName"/>
+          <Argument type="String" name="dataSeekerLine"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="createFile" returnType="boolean" visibility="public"/>
+        <Method name="findRecord" returnType="void" visibility="public">
+          <Argument type="String" name="seeker"/>
+        </Method>
+        <Method name="getDataSeekerLine" returnType="String" visibility="public"/>
+        <Method name="setDataSeekerLine" returnType="void" visibility="public">
+          <Argument type="String" name="dataSeekerLine"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="RecordInformation" package="ec.edu.espe.cinemaboxoffice.controller" visibility="public" xPosition="367.0" yPosition="20.0">
+      <Fields>
+        <Field name="movie" type="Movie" visibility="private"/>
+        <Field name="in" type="DataValidation" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="createMovie" returnType="void" visibility="public"/>
+        <Method name="defineRoomFormat" returnType="String" visibility="public">
+          <Argument type="int" name="roomNumberForMovie"/>
+          <Argument type="String" name="roomFormatForMovie"/>
+          <Argument type="float" name="moviePrice"/>
+        </Method>
+        <Method name="calculateMoviePrice" returnType="float" visibility="public">
+          <Argument type="String" name="roomFormatForMovie"/>
+          <Argument type="float" name="moviePrice"/>
+        </Method>
+        <Method name="deleteMovie" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="createPromotion" returnType="void" visibility="public"/>
+        <Method name="deletePromotion" returnType="void" visibility="public">
+          <Argument type="String" name="fileName"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Admin" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="367.0" yPosition="344.0">
+      <Fields>
+        <Field name="userName" type="String" visibility="private"/>
+        <Field name="keyUser" type="int" visibility="private"/>
+        <Field name="in" type="DataValidation" visibility="package"/>
+        <Field name="infoRecord" type="RecordInformation" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="userName"/>
+          <Argument type="int" name="keyUser"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="adminMenu" returnType="void" visibility="public"/>
+        <Method name="enterUser" returnType="void" visibility="public"/>
+        <Method name="organizeMovieList" returnType="void" visibility="public"/>
+        <Method name="organizePromotions" returnType="void" visibility="public"/>
+        <Method name="getUserName" returnType="String" visibility="public"/>
+        <Method name="setUserName" returnType="void" visibility="public">
+          <Argument type="String" name="userName"/>
+        </Method>
+        <Method name="getKeyUser" returnType="int" visibility="public"/>
+        <Method name="setKeyUser" returnType="void" visibility="public">
+          <Argument type="int" name="keyUser"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Bill" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="1089.0" yPosition="146.0">
+      <Fields>
+        <Field name="customer" type="Customer" visibility="private"/>
+        <Field name="billId" type="int" visibility="private"/>
+        <Field name="priceToPay" type="float" visibility="private"/>
+        <Field name="payment" type="Payment" visibility="package"/>
+        <Field name="in" type="DataValidation" visibility="package"/>
+        <Field name="file" type="FileManagerLib" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Customer" name="customer"/>
+          <Argument type="int" name="idBill"/>
+          <Argument type="float" name="priceToPay"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="showBillData" returnType="String" visibility="public">
+          <Argument type="float" name="moviePriceTicket"/>
+        </Method>
+        <Method name="getCustomer" returnType="Customer" visibility="public"/>
+        <Method name="setCustomer" returnType="void" visibility="public">
+          <Argument type="Customer" name="customer"/>
+        </Method>
+        <Method name="getBillId" returnType="int" visibility="public"/>
+        <Method name="setBillId" returnType="void" visibility="public">
+          <Argument type="int" name="billId"/>
+        </Method>
+        <Method name="getPriceToPay" returnType="float" visibility="public"/>
+        <Method name="setPriceToPay" returnType="void" visibility="public">
+          <Argument type="float" name="priceToPay"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Billboard" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="794.0" yPosition="305.0">
+      <Fields>
+        <Field name="room" type="Room" visibility="private"/>
+        <Field name="admin" type="Admin" visibility="private"/>
+        <Field name="in" type="DataValidation" visibility="package"/>
+        <Field name="fileManagerLib" type="FileManagerLib" visibility="package"/>
+        <Field name="seat" type="Seat" visibility="package"/>
+        <Field name="ticket" type="Ticket" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="billboardMenu" returnType="void" visibility="public"/>
+        <Method name="showBillboard" returnType="void" visibility="public"/>
+        <Method name="showPromotions" returnType="void" visibility="public"/>
+        <Method name="chooseMovie" returnType="void" visibility="public">
+          <Argument type="String" name="selection"/>
+        </Method>
+        <Method name="choosePromotion" returnType="void" visibility="public">
+          <Argument type="int" name="PromotionNumber"/>
+        </Method>
+        <Method name="chooseSeat" returnType="int" visibility="public">
+          <Argument type="String" name="selection"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Customer" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="2470.0" yPosition="305.0">
+      <Fields>
+        <Field name="id" type="String" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="age" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="id"/>
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="age"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="enterBillboard" returnType="void" visibility="public"/>
+        <Method name="exitBillboard" returnType="void" visibility="public"/>
+        <Method name="getId" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="int" name="age"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FoodCombo" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="2163.0" yPosition="20.0">
+      <Fields>
+        <Field name="comboNumber" type="int" visibility="private"/>
+        <Field name="drink" type="String" visibility="private"/>
+        <Field name="snack" type="String" visibility="private"/>
+        <Field name="fastFood" type="String" visibility="private"/>
+        <Field name="foodPrice" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numberCombo"/>
+          <Argument type="String" name="drink"/>
+          <Argument type="String" name="snack"/>
+          <Argument type="String" name="fastFood"/>
+          <Argument type="float" name="priceFood"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="menuCombo" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Movie" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="1459.0" yPosition="20.0">
+      <Fields>
+        <Field name="movieTitle" type="String" visibility="private"/>
+        <Field name="movieGender" type="String" visibility="private"/>
+        <Field name="roomNumber" type="int" visibility="private"/>
+        <Field name="movieFormat" type="String" visibility="private"/>
+        <Field name="moviePrice" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="movieTitle"/>
+          <Argument type="String" name="movieGender"/>
+          <Argument type="int" name="roomNumberForMovie"/>
+          <Argument type="String" name="roomFormatForMovie"/>
+          <Argument type="float" name="moviePrice"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getMovieTitle" returnType="String" visibility="public"/>
+        <Method name="setMovieTitle" returnType="void" visibility="public">
+          <Argument type="String" name="movieTitle"/>
+        </Method>
+        <Method name="getMovieGender" returnType="String" visibility="public"/>
+        <Method name="setMovieGender" returnType="void" visibility="public">
+          <Argument type="String" name="movieGender"/>
+        </Method>
+        <Method name="getRoomNumber" returnType="int" visibility="public"/>
+        <Method name="setRoomNumber" returnType="void" visibility="public">
+          <Argument type="int" name="roomNumber"/>
+        </Method>
+        <Method name="getMovieFormat" returnType="String" visibility="public"/>
+        <Method name="setMovieFormat" returnType="void" visibility="public">
+          <Argument type="String" name="movieFormat"/>
+        </Method>
+        <Method name="getMoviePrice" returnType="float" visibility="public"/>
+        <Method name="setMoviePrice" returnType="void" visibility="public">
+          <Argument type="float" name="moviePrice"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Payment" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="1357.0" yPosition="524.0">
+      <Fields>
+        <Field name="customer" type="Customer" visibility="private"/>
+        <Field name="cardHolder" type="String" visibility="private"/>
+        <Field name="cardNumber" type="String" visibility="private"/>
+        <Field name="year" type="int" visibility="private"/>
+        <Field name="month" type="int" visibility="private"/>
+        <Field name="in" type="DataValidation" visibility="package"/>
+        <Field name="file" type="FileManagerLib" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cardHolder"/>
+          <Argument type="String" name="creditCard"/>
+          <Argument type="int" name="year"/>
+          <Argument type="int" name="month"/>
+        </Constructor>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="createPayment" returnType="boolean" visibility="public">
+          <Argument type="boolean" name="condition"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PremierMovie" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="20.0" yPosition="305.0">
+      <Fields>
+        <Field name="titlePremierMovie" type="String" visibility="private"/>
+        <Field name="datePremier" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Promotion" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="2291.0" yPosition="751.0">
+      <Fields>
+        <Field name="indexEnumerator" type="int" visibility="private" isStatic="true"/>
+        <Field name="promotionKey" type="int" visibility="private"/>
+        <Field name="promotionName" type="String" visibility="private"/>
+        <Field name="promotionDay" type="String" visibility="private"/>
+        <Field name="foodPricePromotion" type="float" visibility="private"/>
+        <Field name="pricePurchases" type="PurchasePrice" visibility="private"/>
+        <Field name="foodCombos" type="FoodCombo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="namePromotion"/>
+          <Argument type="String" name="dayPromotion"/>
+          <Argument type="float" name="pricePromotionFood"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getPromotionKey" returnType="int" visibility="public"/>
+        <Method name="setPromotionKey" returnType="void" visibility="public">
+          <Argument type="int" name="promotionKey"/>
+        </Method>
+        <Method name="getPromotionName" returnType="String" visibility="public"/>
+        <Method name="setPromotionName" returnType="void" visibility="public">
+          <Argument type="String" name="promotionName"/>
+        </Method>
+        <Method name="getPromotionDay" returnType="String" visibility="public"/>
+        <Method name="setPromotionDay" returnType="void" visibility="public">
+          <Argument type="String" name="promotionDay"/>
+        </Method>
+        <Method name="getFoodPricePromotion" returnType="float" visibility="public"/>
+        <Method name="setFoodPricePromotion" returnType="void" visibility="public">
+          <Argument type="float" name="foodPricePromotion"/>
+        </Method>
+        <Method name="setPricePurchases" returnType="void" visibility="public">
+          <Argument type="PurchasePrice[]" name="pricePurchases"/>
+        </Method>
+        <Method name="setFoodCombos" returnType="void" visibility="public">
+          <Argument type="FoodCombo[]" name="foodCombos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PurchasePrice" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="984.0" yPosition="829.0">
+      <Fields>
+        <Field name="bills" type="Bill" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="calculateTicketPrice" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="ticketTitleMovie"/>
+        </Method>
+        <Method name="searchTicketData" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="nameFile"/>
+          <Argument type="String" name="titleMovie"/>
+          <Argument type="int" name="positionData"/>
+        </Method>
+        <Method name="calculatePricePromotion" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Room" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="1181.0" yPosition="1002.0">
+      <Fields>
+        <Field name="roomNumber" type="int" visibility="private"/>
+        <Field name="seatNumber" type="int" visibility="private"/>
+        <Field name="roomFormat" type="String" visibility="private"/>
+        <Field name="roomTypePrice" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numberRoom"/>
+          <Argument type="int" name="numberSeats"/>
+          <Argument type="String" name="formatRoom"/>
+          <Argument type="float" name="priceTypeRoom"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="showRoomData" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getRoomNumber" returnType="int" visibility="public"/>
+        <Method name="setRoomNumber" returnType="void" visibility="public">
+          <Argument type="int" name="roomNumber"/>
+        </Method>
+        <Method name="getSeatNumber" returnType="int" visibility="public"/>
+        <Method name="setSeatNumber" returnType="void" visibility="public">
+          <Argument type="int" name="seatNumber"/>
+        </Method>
+        <Method name="getRoomFormat" returnType="String" visibility="public"/>
+        <Method name="setRoomFormat" returnType="void" visibility="public">
+          <Argument type="String" name="roomFormat"/>
+        </Method>
+        <Method name="getRoomTypePrice" returnType="float" visibility="public"/>
+        <Method name="setRoomTypePrice" returnType="void" visibility="public">
+          <Argument type="float" name="roomTypePrice"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Seat" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="742.0" yPosition="1002.0">
+      <Fields>
+        <Field name="movieSeat" type="String" visibility="private"/>
+        <Field name="seatNumber" type="int" visibility="private"/>
+        <Field name="availability" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="seatMovie"/>
+          <Argument type="int" name="numberSeat"/>
+          <Argument type="boolean" name="freeOrOccupied"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ticket" package="ec.edu.espe.cinemaboxoffice.model" visibility="public" xPosition="1844.0" yPosition="589.0">
+      <Fields>
+        <Field name="indexCounter" type="int" visibility="private" isStatic="true"/>
+        <Field name="key" type="int" visibility="private"/>
+        <Field name="seat" type="int" visibility="private"/>
+        <Field name="titleMovie" type="String" visibility="private"/>
+        <Field name="roomAssignment" type="String" visibility="private"/>
+        <Field name="ticketPrice" type="float" visibility="private"/>
+        <Field name="pricePurchase" type="PurchasePrice" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="seat"/>
+          <Argument type="String" name="titleMovie"/>
+          <Argument type="String" name="roomAssignment"/>
+          <Argument type="float" name="priceTicket"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="generateTicket" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="seat"/>
+          <Argument type="String" name="selection"/>
+        </Method>
+        <Method name="showTicketData" returnType="void" visibility="public"/>
+        <Method name="getIndexCounter" returnType="int" visibility="public" isStatic="true"/>
+        <Method name="setIndexCounter" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="aIndexCounter"/>
+        </Method>
+        <Method name="getKey" returnType="int" visibility="public"/>
+        <Method name="setKey" returnType="void" visibility="public">
+          <Argument type="int" name="key"/>
+        </Method>
+        <Method name="getSeat" returnType="int" visibility="public"/>
+        <Method name="setSeat" returnType="void" visibility="public">
+          <Argument type="int" name="seat"/>
+        </Method>
+        <Method name="getTitleMovie" returnType="String" visibility="public"/>
+        <Method name="setTitleMovie" returnType="void" visibility="public">
+          <Argument type="String" name="titleMovie"/>
+        </Method>
+        <Method name="getRoomAssignment" returnType="String" visibility="public"/>
+        <Method name="setRoomAssignment" returnType="void" visibility="public">
+          <Argument type="String" name="roomAssignment"/>
+        </Method>
+        <Method name="getTicketPrice" returnType="float" visibility="public"/>
+        <Method name="setTicketPrice" returnType="void" visibility="public">
+          <Argument type="float" name="ticketPrice"/>
+        </Method>
+        <Method name="getPricePurchase" returnType="PurchasePrice" visibility="public"/>
+        <Method name="setPricePurchase" returnType="void" visibility="public">
+          <Argument type="PurchasePrice" name="pricePurchase"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DataValidation" package="ec.edu.espe.cinemaboxoffice.utils" visibility="public" xPosition="646.0" yPosition="678.0">
+      <Fields>
+        <Field name="string" type="Scanner" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getString" returnType="String" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getStringAnswer" returnType="String" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getInt" returnType="int" visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="int" name="characters"/>
+        </Method>
+        <Method name="getLong" returnType="long" visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="long" name="characters"/>
+        </Method>
+        <Method name="getFloat" returnType="float" visibility="public">
+          <Argument type="String" name="title"/>
+          <Argument type="int" name="characters"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SpecialValidation" package="ec.edu.espe.cinemaboxoffice.utils" visibility="public" xPosition="20.0" yPosition="468.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="checkCard" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="card"/>
+        </Method>
+        <Method name="validateCI" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="CI"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AdminSystem" package="ec.edu.espe.cinemaboxoffice.view" visibility="public" xPosition="20.0" yPosition="619.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="manager" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cover" package="ec.edu.espe.cinemaboxoffice.view" visibility="public" xPosition="20.0" yPosition="751.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CustomerSystem" package="ec.edu.espe.cinemaboxoffice.view" visibility="public" xPosition="20.0" yPosition="876.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buyer" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TicketSystem" package="ec.edu.espe.cinemaboxoffice.view" visibility="public" xPosition="216.0" yPosition="876.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="customer" source="ec.edu.espe.cinemaboxoffice.model.Payment" target="ec.edu.espe.cinemaboxoffice.model.Customer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="in" source="ec.edu.espe.cinemaboxoffice.model.Billboard" target="ec.edu.espe.cinemaboxoffice.utils.DataValidation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.cinemaboxoffice.model.Promotion" target="ec.edu.espe.cinemaboxoffice.model.PurchasePrice" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="in" source="ec.edu.espe.cinemaboxoffice.controller.RecordInformation" target="ec.edu.espe.cinemaboxoffice.utils.DataValidation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="room" source="ec.edu.espe.cinemaboxoffice.model.Billboard" target="ec.edu.espe.cinemaboxoffice.model.Room" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="foodCombos" source="ec.edu.espe.cinemaboxoffice.model.Promotion" target="ec.edu.espe.cinemaboxoffice.model.FoodCombo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ticket" source="ec.edu.espe.cinemaboxoffice.model.Billboard" target="ec.edu.espe.cinemaboxoffice.model.Ticket" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pricePurchase" source="ec.edu.espe.cinemaboxoffice.model.Ticket" target="ec.edu.espe.cinemaboxoffice.model.PurchasePrice" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.cinemaboxoffice.model.Bill" target="ec.edu.espe.cinemaboxoffice.model.Customer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="in" source="ec.edu.espe.cinemaboxoffice.model.Payment" target="ec.edu.espe.cinemaboxoffice.utils.DataValidation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="pricePurchases" source="ec.edu.espe.cinemaboxoffice.model.Promotion" target="ec.edu.espe.cinemaboxoffice.model.PurchasePrice" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bills" source="ec.edu.espe.cinemaboxoffice.model.PurchasePrice" target="ec.edu.espe.cinemaboxoffice.model.Bill" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="in" source="ec.edu.espe.cinemaboxoffice.model.Bill" target="ec.edu.espe.cinemaboxoffice.utils.DataValidation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="movie" source="ec.edu.espe.cinemaboxoffice.controller.RecordInformation" target="ec.edu.espe.cinemaboxoffice.model.Movie" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="infoRecord" source="ec.edu.espe.cinemaboxoffice.model.Admin" target="ec.edu.espe.cinemaboxoffice.controller.RecordInformation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.cinemaboxoffice.model.Ticket" target="ec.edu.espe.cinemaboxoffice.model.PurchasePrice" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="seat" source="ec.edu.espe.cinemaboxoffice.model.Billboard" target="ec.edu.espe.cinemaboxoffice.model.Seat" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="admin" source="ec.edu.espe.cinemaboxoffice.model.Billboard" target="ec.edu.espe.cinemaboxoffice.model.Admin" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="payment" source="ec.edu.espe.cinemaboxoffice.model.Bill" target="ec.edu.espe.cinemaboxoffice.model.Payment" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="customer" source="ec.edu.espe.cinemaboxoffice.model.Bill" target="ec.edu.espe.cinemaboxoffice.model.Customer" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="in" source="ec.edu.espe.cinemaboxoffice.model.Admin" target="ec.edu.espe.cinemaboxoffice.utils.DataValidation" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="ec.edu.espe.cinemaboxoffice.model.Promotion" target="ec.edu.espe.cinemaboxoffice.model.FoodCombo" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,12 @@
+[
+  {
+    "sterilized": false,
+    "amountOfManure": 0.0,
+    "weightOfAnimal": 2.0,
+    "id": 2016,
+    "breed": "2",
+    "bornOn": "Feb 1, 2020 12:00:00 AM",
+    "sexOfTheAnimal": "2",
+    "priceOfProduct": 1.0
+  }
+]
