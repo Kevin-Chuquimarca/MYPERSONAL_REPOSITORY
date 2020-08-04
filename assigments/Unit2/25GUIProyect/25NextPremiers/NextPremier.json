@@ -1,0 +1,50 @@
+[
+  {
+    "title": "The new mutants",
+    "gender": "Action",
+    "ageRestriction": 18,
+    "sinopsis": "This film, which was already delayed, seems to make itself wait even longer and will be released later this year.",
+	"namePicture": "Mutants.jpg",
+	"premierDate": "Dec 1, 2020 12:00:00 AM"
+  },
+  {
+    "title": "Peter Rabbit 2",
+    "gender": "Action",
+    "ageRestriction": 0,
+    "sinopsis": "The Runaway: Sony cambió la fecha de lanzamiento del 3 de abril al 7 de agosto en los EE. UU.",
+	"namePicture": "Peter.jpg",
+	"premierDate": "Aug 7, 2020 12:00:00 AM"
+  },
+  {
+   "title": "The Lovebirds",
+    "gender": "Action",
+    "ageRestriction": 12,
+    "sinopsis": "The comedy starring Issa Rae and Kumail Nanjiani will no longer premiere on April 3. Paramount has yet to win a new date.",
+	"namePicture": "Lovebirds.jpg",
+	"premierDate": "Apr 3, 2020 12:00:00 AM"
+  },
+  {
+   "title": "Trolls 2",
+    "gender": "Action",
+    "ageRestriction": 0,
+    "sinopsis": "Universal announced it will be available on the VOD streaming video platform on April 10.",
+	"namePicture": "Trolls.jpg",
+	"premierDate": "Dec 2, 2020 12:00:00 AM"
+  },
+  {
+    "title": "No Time to Die",
+    "gender": "Action",
+    "ageRestriction": 18,
+    "sinopsis": "MGM postponed the U.S. release of the latest James Bond movie from April 10 to November 25.",
+	"namePicture": "Die.jpg",
+	"premierDate": "Nov 25, 2020 12:00:00 AM"
+  },
+  {
+    "title": "Antlers",
+    "gender": "Action",
+    "ageRestriction": 18,
+    "sinopsis": "The thriller produced by Guillermo Del Toro was scheduled to premiere on April 17. Disney has yet to announce a new date.",
+	"namePicture": "Antlers.jpg",
+	"premierDate": "Apr 17, 2020 12:00:00 AM"
+  }
+]
