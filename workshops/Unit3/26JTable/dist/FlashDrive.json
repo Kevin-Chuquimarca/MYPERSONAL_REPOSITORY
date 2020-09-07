@@ -1,0 +1,26 @@
+[
+  {
+    "id": "001",
+    "brand": "HP",
+    "storage": 16,
+    "color": "white"
+  },
+  {
+    "id": "002",
+    "brand": "Kingston",
+    "storage": 32,
+    "color": "red"
+  },
+  {
+    "id": "003",
+    "brand": "Adata",
+    "storage": 64,
+    "color": "black"
+  },
+  {
+    "id": "004",
+    "brand": "Kingston",
+    "storage": 128,
+    "color": "green"
+  }
+]
