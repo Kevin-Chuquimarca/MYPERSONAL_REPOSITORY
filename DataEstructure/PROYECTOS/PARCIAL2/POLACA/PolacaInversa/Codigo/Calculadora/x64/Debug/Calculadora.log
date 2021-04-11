@@ -1,0 +1,9 @@
+﻿  Calculadora.cpp
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\PORYECTOPARCIAL2\PolacaInversa\Codigo\Calculadora\Polaca.h(65,23): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\PORYECTOPARCIAL2\PolacaInversa\Codigo\Calculadora\Polaca.h(80,23): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\PORYECTOPARCIAL2\PolacaInversa\Codigo\Calculadora\Calculadora.cpp(24,54): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Calculadora.vcxproj -> C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\PORYECTOPARCIAL2\PolacaInversa\Codigo\x64\Debug\Calculadora.exe

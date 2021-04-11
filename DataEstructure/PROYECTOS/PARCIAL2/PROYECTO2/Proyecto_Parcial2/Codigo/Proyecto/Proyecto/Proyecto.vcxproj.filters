@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Aplicativo.cpp" />
+    <ClCompile Include="CalculoEdad.cpp" />
+    <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="GenerarQR.cpp" />
+    <ClCompile Include="IngresoDatos.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Persona.cpp" />
+    <ClCompile Include="QrCode.cpp" />
+    <ClCompile Include="Operaciones.cpp" />
+    <ClCompile Include="DireccionCorreo.cpp" />
+    <ClCompile Include="Hora.cpp" />
+    <ClCompile Include="CreatePdf.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CalculoEdad.h" />
+    <ClInclude Include="Fecha.h" />
+    <ClInclude Include="GenerarQR.h" />
+    <ClInclude Include="IngresoDatos.h" />
+    <ClInclude Include="ListaDoble.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Persona.h" />
+    <ClInclude Include="QrCode.hpp" />
+    <ClInclude Include="Operaciones.h" />
+    <ClInclude Include="DireccionCorreo.h" />
+    <ClInclude Include="Archivo.h" />
+    <ClInclude Include="Busqueda.h" />
+    <ClInclude Include="Quicksort.h" />
+    <ClInclude Include="Secuencial.h" />
+    <ClInclude Include="Hora.h" />
+    <ClInclude Include="Aspose.Pdf.h" />
+    <ClInclude Include="PdfExamples.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>
