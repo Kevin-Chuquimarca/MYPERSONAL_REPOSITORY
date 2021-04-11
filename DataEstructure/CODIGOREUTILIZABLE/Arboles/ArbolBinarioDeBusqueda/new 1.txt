@@ -1,0 +1,14 @@
+template <class T>
+NodoArbolBB<T>* ArbolBB<T>::busqueda(NodoArbolBB<T>* aux, T dato)
+{
+	if (aux)
+		if (dato < aux->getDato())
+			return busqueda(aux->getHijoIzq(), dato);
+		else
+			if (dato > aux->getDato())
+				return busqueda(aux->getHijoDer(), dato);
+			else
+				return aux;
+	else
+		return NULL;
+}
