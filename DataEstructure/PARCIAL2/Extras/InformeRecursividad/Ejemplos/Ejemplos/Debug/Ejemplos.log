@@ -1,0 +1,7 @@
+﻿  Aplicativo.cpp
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\RECURSIVIDAD\InformeRecursividad\Ejemplos\Ejemplos\Aplicativo.cpp(43,37): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Hanoi.cpp
+  RecursividadDirecta.cpp
+  RecursividadIndirecta.cpp
+  Generando código...
+  Ejemplos.vcxproj -> C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\RECURSIVIDAD\InformeRecursividad\Ejemplos\Debug\Ejemplos.exe

@@ -1,0 +1,9 @@
+﻿  Aplicativo.cpp
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL2\Deberes\3_Burbuja\Burbuja\Burbuja.h(37,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL2\Deberes\3_Burbuja\Burbuja\Burbuja.h(36): message : al compilar la función del miembro clase plantilla "void Burbuja<int>::generar(T *)"
+          with
+          [
+              T=int
+          ]
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL2\Deberes\3_Burbuja\Burbuja\Aplicativo.cpp(17): message : Vea la referencia a la creación de una instancia de clase plantilla "Burbuja<int>" que se está compilando
+  Burbuja.vcxproj -> C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL2\Deberes\3_Burbuja\Debug\Burbuja.exe

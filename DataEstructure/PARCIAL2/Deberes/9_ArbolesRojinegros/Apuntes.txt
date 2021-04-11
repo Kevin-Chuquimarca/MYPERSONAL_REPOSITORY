@@ -1,0 +1,27 @@
+Insertar
+
+si al insertar un nodo se tiene como abuelo un nodo de color negro y el padre y tio de color rojo
+estos cambian de color, el abuelo pasa a ser de color rojo y el padre y tio pasan a ser de color negro.
+
+Si un nodo padre es rojo sus hijos siempre deben ser negros.
+
+si nodo padre es negro sus hijos pueden ser rojos o negros.
+
+la rotacion simple o doble se da cuando el numero de nodos negros de todos los caminos de la raiz a las hojas 
+no es igual, y si se tiene 2 nodos de color rojo seguidos.
+
+Elininar
+
+Se basa en las propiedades de elimnar de arboles binarios.
+
+Cuando se elimina un nodo y se evaluan las 4 reglas principales de arboles rojinegros para cada raiz del arbol.
+
+si un nodo raiz no cumple con la regla de que todos los caminos de la raiz a las hojas deben tener el mismo numero 
+de nodos negros primero verifica si cambiando de colores a sus nodos hijos cumple la propiedad dicha anteriormente
+caso contrario toma sus dos nodo siguiente y los rota de preferencia simple.
+
+Una rotacion doble como dos rotaciones simples, la primera rotando el nodo de la mitad con el ultimo
+y luego rotanto los tres nodos involucrados, el primero, mitad y ultimo.
+
+
+
