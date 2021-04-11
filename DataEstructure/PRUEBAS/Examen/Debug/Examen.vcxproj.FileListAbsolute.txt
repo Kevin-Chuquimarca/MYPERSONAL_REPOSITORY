@@ -1,0 +1,4 @@
+C:\Users\KEVIN\Desktop\Examen\Debug\Examen.exe
+C:\Users\KEVIN\Desktop\Examen\Debug\Examen.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\PRUEBAS\Examen\Debug\Examen.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\PRUEBAS\Examen\Debug\Examen.pdb

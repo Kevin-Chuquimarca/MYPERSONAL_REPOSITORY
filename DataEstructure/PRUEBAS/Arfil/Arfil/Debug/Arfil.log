@@ -1,0 +1,3 @@
+﻿  Arfil.cpp
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\PRUEBAS\Arfil\Arfil\Arfil.h(158,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Arfil.vcxproj -> C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\PRUEBAS\Arfil\Debug\Arfil.exe
