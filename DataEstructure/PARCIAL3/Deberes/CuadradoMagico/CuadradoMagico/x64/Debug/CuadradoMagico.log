@@ -1,0 +1,3 @@
+﻿  CuadradoMagico.cpp
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL3\Deberes\TrabajoEnGrupo\CuadradoMagico\CuadradoMagico\Operaciones.h(68,23): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  CuadradoMagico.vcxproj -> C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL3\Deberes\TrabajoEnGrupo\CuadradoMagico\x64\Debug\CuadradoMagico.exe

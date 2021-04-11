@@ -1,0 +1,272 @@
+solucion 0*0
+
+Solucion N 1
+        B B G G         
+        B B G G         
+        B B O R         
+        W Y O G         
+G R O O Y Y W Y W W W O 
+O O O Y Y O Y Y R R R R 
+Y Y R Y O R G G R O W W 
+W W O O O W G G W R Y Y 
+        R R B B         
+        G G W W         
+        G G B B         
+        Y G B B         
+        R O B B         
+        R Y B B         
+        Y R W W         
+        R G W O         
+
+Solucion N 2
+        B B G G         
+        B B G G         
+        B B Y B         
+        R R B R         
+R Y Y W Y R O W W W R G 
+O O O W Y O Y Y G R R R 
+Y Y G W O R O R Y B W W 
+W W G R O W O G O B Y Y 
+        O W W Y         
+        G G O R         
+        G G B B         
+        W G B B         
+        R O W W         
+        R Y B B         
+        O R O O         
+        Y Y G G         
+
+Solucion N 3
+        B B G G         
+        B B G G         
+        B B Y W         
+        Y B B O         
+W R W O W G Y O O O Y Y 
+O O O W Y O Y Y R R R R 
+Y Y O W O R Y B W W W W 
+W W O G O W B R W B Y Y 
+        G G R R         
+        G G B Y         
+        G G B B         
+        R G B B         
+        R O R O         
+        R Y Y W         
+        G R G R         
+        O W R G         
+
+Solucion N 4
+        B B G G         
+        B B G G         
+        B B W O         
+        R B W G         
+G G O Y W O W W R G O W 
+O O O O Y O Y Y B R R R 
+Y Y Y O O R Y W W R W W 
+W W B R O W B O O Y Y Y 
+        G R Y B         
+        G G W W         
+        G G B B         
+        Y G B B         
+        R O Y B         
+        R Y R R         
+        Y R O G         
+        G R W R         
+
+Solucion N 5
+        B B G G         
+        B B G G         
+        B B W B         
+        G Y R G         
+R O W W O Y O O G O G R 
+O O O G Y O Y Y W R R R 
+Y Y Y R O R W O O Y W W 
+W W B B O W W G Y R Y Y 
+        R W R B         
+        G G R W         
+        G G B B         
+        O G B B         
+        R O W W         
+        R Y B Y         
+        W R B R         
+        Y Y G O         
+
+Solucion N 6
+        B B G G         
+        B B G G         
+        B B O W         
+        O R Y R         
+W Y O O R Y W Y R B Y Y 
+O O O O Y O Y Y O R R R 
+Y Y W G O R W B G W W W 
+W W W W O W R G W B Y Y 
+        O G G Y         
+        G G Y O         
+        G G B B         
+        G G B B         
+        R O W R         
+        R Y B R         
+        R R B B         
+        W O R G         
+
+Solucion N 7
+        B B G G         
+        B B G G         
+        B B R R         
+        Y B R O         
+G Y Y W G W O W B B W O 
+O O O B Y O Y Y B R R R 
+Y Y W R O R O W O W W W 
+W W R O O W Y R O B Y Y 
+        G R O R         
+        G G W G         
+        G G B B         
+        Y G B B         
+        R O O Y         
+        R Y Y G         
+        Y R W W         
+        R G W G         
+
+Solucion N 8
+        B B G G         
+        B B G G         
+        B B G Y         
+        Y B G G         
+R W W O R W Y O W W R G 
+O O O B Y O Y Y W R R R 
+Y Y O B O R R R B O W W 
+W W Y B O W R O W Y Y Y 
+        G W Y B         
+        G G W O         
+        G G B B         
+        W G B B         
+        R O G W         
+        R Y R O         
+        O R R O         
+        Y Y G R         
+
+Solucion N 9
+        B B G G         
+        B B G G         
+        B B R W         
+        W Y O G         
+W W O Y B O W W O R Y Y 
+O O O W Y O Y Y R R R R 
+Y Y R W O R G Y B G W W 
+W W R W O W G G O R Y Y 
+        R G Y B         
+        G G O B         
+        G G B B         
+        R G B B         
+        R O O W         
+        R Y B Y         
+        G R Y B         
+        O W R O         
+
+Solucion N 10
+        B B G G         
+        B B G G         
+        B B B W         
+        W R Y R         
+G O W W W R O O B Y O W 
+O O O R Y O Y Y Y R R R 
+Y Y G O O R R W W O W W 
+W W G R O W O G Y B Y Y 
+        O R W Y         
+        G G G B         
+        G G B B         
+        Y G B B         
+        R O B O         
+        R Y B Y         
+        Y R R W         
+        G R W G         
+
+Solucion N 11
+        B B G G         
+        B B G G         
+        B B W O         
+        O B Y O         
+R R O O O G W Y W R G R 
+O O O Y Y O Y Y W R R R 
+Y Y R B O R B W R B W W 
+W W O Y O W Y R W B Y Y 
+        G W W R         
+        G G O W         
+        G G B B         
+        O G B B         
+        R O B G         
+        R Y Y W         
+        W R G R         
+        Y Y G G         
+
+Solucion N 12
+        B B G G         
+        B B G G         
+        B B O G         
+        R B W G         
+W G Y W B R O W R G Y Y 
+O O O R Y O Y Y W R R R 
+Y Y B W O R W O Y B W W 
+W W Y W O W Y O O Y Y Y 
+        G G O B         
+        G G B R         
+        G G B B         
+        G G B B         
+        R O W O         
+        R Y R W         
+        R R O Y         
+        W O R R         
+
+Solucion N 13
+        B B G G         
+        B B G G         
+        B B B O         
+        G Y W G         
+G R W O W B Y O Y O W O 
+O O O G Y O Y Y O R R R 
+Y Y W R O R O G R W W W 
+W W Y W O W W G W R Y Y 
+        R R R B         
+        G G B Y         
+        G G B B         
+        Y G B B         
+        R O R B         
+        R Y B O         
+        Y R Y W         
+        R G W O         
+
+Solucion N 14
+        B B G G         
+        B B G G         
+        B B W B         
+        R R O R         
+R B O Y R W W W W Y R G 
+O O O O Y O Y Y G R R R 
+Y Y O Y O R B O G R W W 
+W W W O O W W G O B Y Y 
+        O W G Y         
+        G G W R         
+        G G B B         
+        W G B B         
+        R O Y B         
+        R Y B R         
+        O R Y W         
+        Y Y G G         
+
+Solucion N 15
+        B B G G         
+        B B G G         
+        B B R B         
+        B B R O         
+W W W W Y O O O W Y Y Y 
+O O O Y Y O Y Y O R R R 
+Y Y B W O R W B O Y W W 
+W W W G O W O R Y B Y Y 
+        G G R R         
+        G G R G         
+        G G B B         
+        R G B B         
+        R O R W         
+        R Y Y G         
+        G R W O         
+        O W R G         
+

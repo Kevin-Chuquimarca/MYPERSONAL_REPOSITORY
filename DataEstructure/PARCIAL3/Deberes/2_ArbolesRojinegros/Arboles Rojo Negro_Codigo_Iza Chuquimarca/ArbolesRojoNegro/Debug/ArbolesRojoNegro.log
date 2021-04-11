@@ -1,0 +1,38 @@
+﻿  Menu.cpp
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\Nodo.h(28,1): warning C4812: estilo de declaración obsoleto: utilice 'Nodo<T>::Nodo' en su lugar
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\ArbolRB.h(34,1): warning C4812: estilo de declaración obsoleto: utilice 'ArbolRB<T>::ArbolRB' en su lugar
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\ArbolRB.h(34,1): warning C4812: estilo de declaración obsoleto: utilice 'ArbolRB<int>::ArbolRB' en su lugar
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\ArbolRB.h(35): message : al compilar la función del miembro clase plantilla "ArbolRB<int>::ArbolRB(void)"
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\Menu.cpp(15): message : Vea la referencia a la creación de una instancia de la función plantilla "ArbolRB<int>::ArbolRB(void)" que se está compilando
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\Menu.cpp(15): message : Vea la referencia a la creación de una instancia de clase plantilla "ArbolRB<int>" que se está compilando
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\Nodo.h(28,1): warning C4812: estilo de declaración obsoleto: utilice 'Nodo<T>::Nodo' en su lugar
+          with
+          [
+              T=int
+          ]
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\Nodo.h(28): message : al compilar la función del miembro clase plantilla "Nodo<T>::Nodo(T)"
+          with
+          [
+              T=int
+          ]
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\ArbolRB.h(62): message : Vea la referencia a la creación de una instancia de la función plantilla "Nodo<T>::Nodo(T)" que se está compilando
+          with
+          [
+              T=int
+          ]
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\ArbolRB.h(62): message : Vea la referencia a la creación de una instancia de clase plantilla "Nodo<T>" que se está compilando
+          with
+          [
+              T=int
+          ]
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\ArbolRB.h(61): message : al compilar la función del miembro clase plantilla "void ArbolRB<int>::insertar(T)"
+          with
+          [
+              T=int
+          ]
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\ArbolesRojoNegro\Menu.cpp(26): message : Vea la referencia a la creación de una instancia de la función plantilla "void ArbolRB<int>::insertar(T)" que se está compilando
+          with
+          [
+              T=int
+          ]
+  ArbolesRojoNegro.vcxproj -> C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCILA3\Deberes\2_ArbolesRojinegros\Arboles Rojo Negro_Codigo_Iza Chuquimarca\Debug\ArbolesRojoNegro.exe
