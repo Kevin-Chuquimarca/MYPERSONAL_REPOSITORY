@@ -1,0 +1,4 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\Registro\Registro\Debug\Registro.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\Registro\Registro\Debug\Registro.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\RegistroPersonas\Registro\Debug\Registro.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\RegistroPersonas\Registro\Debug\Registro.pdb

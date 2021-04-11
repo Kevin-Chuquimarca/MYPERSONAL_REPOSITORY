@@ -1,0 +1,3 @@
+﻿  SerieDeTaylor.cpp
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\SerieDeTaylor\SerieDeTaylor\Radian.h(6,18): warning C4305: 'inicializando': truncamiento de 'double' a 'const float'
+  SerieDeTaylor.vcxproj -> C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\SerieDeTaylor\SerieDeTaylor\Debug\SerieDeTaylor.exe

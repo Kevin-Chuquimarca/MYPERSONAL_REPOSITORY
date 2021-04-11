@@ -1,0 +1,6 @@
+﻿  Datos.cpp
+  IngresoDato.cpp
+  Template.cpp
+  Generando código...
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\IngresoDeDatos\IngresoDatosTemplate\ingresoDato.h(27): warning C4172: devolución de dirección de la variable local o temporal: valor
+  Template.vcxproj -> C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\IngresoDeDatos\IngresoDatosTemplate\x64\Debug\Template.exe

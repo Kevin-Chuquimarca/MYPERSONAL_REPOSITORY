@@ -1,0 +1,6 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\EXTRAS1\ListasCirculares\ListaCircular\Debug\ListaCircular.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\EXTRAS1\ListasCirculares\ListaCircular\Debug\ListaCircular.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\EXTRAS1\ListasCircularesDobles\ListaCircular\Debug\ListaCircularDoble.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\EXTRAS1\ListasCircularesDobles\ListaCircular\Debug\ListaCircularDoble.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\EXTRAS1\ListasCircularesDobles\ListaCircularDoble\Debug\ListaCircularDoble.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\EXTRAS1\ListasCircularesDobles\ListaCircularDoble\Debug\ListaCircularDoble.pdb

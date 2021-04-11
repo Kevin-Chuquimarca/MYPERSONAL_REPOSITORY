@@ -1,0 +1,7 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.pdb
+C:\Users\KEVIN\Documents\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\MemoriaDinamica\Debug\MemoriaDinamica.exe

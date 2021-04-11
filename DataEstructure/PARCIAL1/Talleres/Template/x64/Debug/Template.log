@@ -1,0 +1,6 @@
+﻿  IngresoDato.cpp
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Template\IngresoDato.cpp(7,9): warning C4477: 'printf' : la cadena de formato '%s' requiere un argumento de tipo 'char *', pero el argumento variádico 1 tiene el tipo 'std::string'
+  Template.cpp
+  Generando código...
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Template\IngresoDato.cpp(14): warning C4172: devolución de dirección de la variable local o temporal: valor
+  Template.vcxproj -> C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Template\x64\Debug\Template.exe

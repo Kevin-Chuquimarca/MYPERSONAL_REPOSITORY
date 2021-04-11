@@ -1,0 +1,6 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\SerieDeTaylor\Debug\SerieDeTaylor.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\SerieDeTaylor\Debug\SerieDeTaylor.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\SerieDeTaylor\SerieDeTaylor\Debug\SerieDeTaylor.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\SerieDeTaylor\SerieDeTaylor\Debug\SerieDeTaylor.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\SerieDeTaylor\SerieDeTaylor\Debug\SerieDeTaylor.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\SerieDeTaylor\SerieDeTaylor\Debug\SerieDeTaylor.pdb

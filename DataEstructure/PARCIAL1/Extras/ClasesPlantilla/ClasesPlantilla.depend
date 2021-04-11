@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1607380120 source:c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\main.cpp
+	<stdio.h>
+	<iostream>
+	"InputData.h"
+
+1607429499 c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\inputdata.h
+	<stdio.h>
+	<iostream>
+	"Car.h"
+	"Date.h"
+	"Person.h"
+	"SmartPhone.h"
+	"Studient.h"
+
+1607429481 c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\car.h
+	<iostream>
+
+1607429488 c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\date.h
+	<iostream>
+
+1607429509 c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\person.h
+	<iostream>
+
+1607429516 c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\smartphone.h
+	<iostream>
+
+1607429524 c:\users\kevin\desktop\estructura de datos\codigo\clasesplantilla\studient.h
+	<iostream>
+

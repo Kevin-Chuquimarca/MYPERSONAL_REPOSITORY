@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1608094366 source:c:\users\ismae\onedrive\escritorio\sobrecarga de operadores\sobrercarga\main.cpp
+	<iostream>
+	"Complejo.hpp"
+	"Fraccion.hpp"
+
+1608092102 source:c:\users\ismae\onedrive\escritorio\sobrecarga de operadores\sobrercarga\src\complejo.cpp
+	"Complejo.hpp"
+	<iostream>
+
+1608090820 c:\users\ismae\onedrive\escritorio\sobrecarga de operadores\sobrercarga\include\complejo.hpp
+	<iostream>
+
+1608094382 source:c:\users\ismae\onedrive\escritorio\sobrecarga de operadores\sobrercarga\src\fraccion.cpp
+	"Fraccion.hpp"
+	<iostream>
+
+1608094161 c:\users\ismae\onedrive\escritorio\sobrecarga de operadores\sobrercarga\include\fraccion.hpp
+

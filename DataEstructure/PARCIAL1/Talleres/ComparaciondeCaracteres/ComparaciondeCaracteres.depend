@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1607479093 source:c:\users\kevin\desktop\estructura de datos\codigo\comparaciondecaracteres\main.cpp
+	<iostream>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"cadena.h"
+
+1607434180 c:\users\kevin\desktop\estructura de datos\codigo\comparaciondecaracteres\cadena.h
+	<conio.h>
+	<string.h>
+	<stdio.h>
+

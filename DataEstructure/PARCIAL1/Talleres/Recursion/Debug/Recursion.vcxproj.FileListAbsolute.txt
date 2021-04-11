@@ -1,0 +1,4 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Recursion\Debug\Recursion.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Recursion\Debug\Recursion.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Talleres\Recursion\Debug\Recursion.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Talleres\Recursion\Debug\Recursion.pdb

@@ -1,0 +1,6 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\CalculoDeLaEdad\x64\Debug\Registro.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\CalculoDeLaEdad\x64\Debug\Registro.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\Deberes\CalculoDeLaEdad\x64\Debug\Registro.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\Deberes\CalculoDeLaEdad\x64\Debug\Registro.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\CalculoDeLaEdad\x64\Debug\Registro.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\CalculoDeLaEdad\x64\Debug\Registro.pdb

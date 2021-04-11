@@ -1,0 +1,12 @@
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\9-12-2020\Template\Template\x64\Debug\Template.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\9-12-2020\Template\Template\x64\Debug\Template.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Template\x64\Debug\Template.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Talleres\Template\x64\Debug\Template.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\Template\x64\Debug\Template.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA DE DATOS\CODIGO\Deberes\Template\x64\Debug\Template.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\Deberes\Template\x64\Debug\Template.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\Deberes\Template\x64\Debug\Template.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\IngresoDatosTemplate\x64\Debug\Template.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\IngresoDatosTemplate\x64\Debug\Template.pdb
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\IngresoDeDatos\IngresoDatosTemplate\x64\Debug\Template.exe
+C:\Users\KEVIN\Desktop\ESTRUCTURA_DE_DATOS\CODIGO\PARCIAL1\Deberes\IngresoDeDatos\IngresoDatosTemplate\x64\Debug\Template.pdb
