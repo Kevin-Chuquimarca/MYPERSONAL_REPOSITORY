@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEsCiudadTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEsCiudadEmpty}" rendered="#{esCiudadController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{esCiudadController.items.rowCount > 0}">
+                    <h:outputText value="#{esCiudadController.pagination.pageFirstItem + 1}..#{esCiudadController.pagination.pageLastItem + 1}/#{esCiudadController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{esCiudadController.previous}" value="#{bundle.Previous} #{esCiudadController.pagination.pageSize}" rendered="#{esCiudadController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{esCiudadController.next}" value="#{bundle.Next} #{esCiudadController.pagination.pageSize}" rendered="#{esCiudadController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{esCiudadController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEsCiudadTitle_esCiudadId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.esCiudadId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEsCiudadTitle_esCiudadNm}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.esCiudadNm}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEsCiudadTitle_cp}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cp}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEsCiudadTitle_esProvId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.esProvId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{esCiudadController.prepareView}" value="#{bundle.ListEsCiudadViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{esCiudadController.prepareEdit}" value="#{bundle.ListEsCiudadEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{esCiudadController.destroy}" value="#{bundle.ListEsCiudadDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{esCiudadController.prepareCreate}" value="#{bundle.ListEsCiudadCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEsCiudadIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

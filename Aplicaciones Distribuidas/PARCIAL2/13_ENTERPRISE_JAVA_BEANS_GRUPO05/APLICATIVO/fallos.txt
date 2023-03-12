@@ -1,0 +1,4 @@
+esta practica no pudo concluir por que algunos modulos y dependencias no estan disponibles en las nuevas versiones del jdk, a partir de la version 9.
+
+tratando con el jdk 8 tampoco fue posible pues se presentaba el siguiente error con poca informacion para solucionar: 
+-Xbootclasspath/p is no longer a supported option.

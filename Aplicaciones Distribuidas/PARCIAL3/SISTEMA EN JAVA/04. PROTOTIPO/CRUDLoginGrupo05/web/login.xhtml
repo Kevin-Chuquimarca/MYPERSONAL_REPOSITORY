@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>ECUASOFT</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panelGrid class="d-flex justify-content-center align-items-center" columns="1">
+                <h:panelGrid class="d-flex justify-content-center align-items-center" columns="1">
+                    <h2 style="color: blue; font-weight: bold;" class="text-center">ECUASOFT</h2>
+                </h:panelGrid>
+                <h:panelGrid id="grid" style="width: 50vw;" columns="2">
+                    <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/img/Picture1.jpg" />
+                    <h:panelGrid columns="1" styleClass="showcase-text-align-center">
+                        <h:panelGrid class="d-flex justify-content-center align-items-center" columns="1">
+                            <p:inputText id="email" style="width: 20vw;" value="#{inicioSesionControlador.email}" required="true" requiredMessage="Ingrese su email" placeholder="Email">
+                                <f:validator validatorId="emailValidator"/>
+                            </p:inputText>
+                            <p:message for="email"/>
+                            <p:password style="width: 20vw;" id="userPass" value="#{inicioSesionControlador.contrasenia}" required="true" requiredMessage="Ingrese su contraseña" placeholder="Contraseña"/>
+                            <p:message for="userPass"/>
+                        </h:panelGrid>
+                        <h:panelGrid class="m-0 p-0 d-flex justify-content-center align-items-center" columns="1">
+                            <p:commandButton style="width: 20vw;" styleClass="ui-button-success" action="#{inicioSesionControlador.validarUsuario()}" value="Iniciar Sesión" update="grid" />
+                        </h:panelGrid>
+                        <h:panelGrid class="d-flex justify-content-center align-items-center" columns="1">
+                            <p:commandLink style="color: blue;" value="¿Has olvidado tu contraseña?" onclick="PF('miModal').show()"/>
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </h:panelGrid>
+            </p:panelGrid>
+        </h:form>
+
+        <h:form>
+            <p:dialog header="Recuperar Contraseña" widgetVar="miModal" modal="true">
+                <h:panelGrid columns="1">
+                    <p:outputLabel value="Nota: Para recuperar su contraseña, debe ingresar su dirección email." />
+                    <p:inputText value="#{inicioSesionControlador.emailRecuperacion}" required="true"/>
+                    <p:commandButton styleClass="ui-button-success mt-3" value="Confirmar" action="#{inicioSesionControlador.recuperarContrasenia()}" />
+                </h:panelGrid>
+            </p:dialog>
+        </h:form>
+
+    </h:body>
+</html>

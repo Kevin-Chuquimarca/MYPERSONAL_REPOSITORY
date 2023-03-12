@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<NoWarn>$(NoWarn);SYSLIB0023</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="itextsharp">
+	    <HintPath>..\..\..\.nuget\packages\itextsharp\5.5.13.3\lib\itextsharp.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+</Project>

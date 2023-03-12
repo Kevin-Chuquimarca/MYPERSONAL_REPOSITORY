@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditXeperPerfiTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditXeperPerfiLabel_xeperCodigo}" for="xeperCodigo" />
+                    <h:inputText id="xeperCodigo" value="#{xeperPerfiController.selected.xeperCodigo}" title="#{bundle.EditXeperPerfiTitle_xeperCodigo}" required="true" requiredMessage="#{bundle.EditXeperPerfiRequiredMessage_xeperCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditXeperPerfiLabel_xeperDescri}" for="xeperDescri" />
+                    <h:inputText id="xeperDescri" value="#{xeperPerfiController.selected.xeperDescri}" title="#{bundle.EditXeperPerfiTitle_xeperDescri}" required="true" requiredMessage="#{bundle.EditXeperPerfiRequiredMessage_xeperDescri}"/>
+                    <h:outputLabel value="#{bundle.EditXeperPerfiLabel_xeperObser}" for="xeperObser" />
+                    <h:inputTextarea rows="4" cols="30" id="xeperObser" value="#{xeperPerfiController.selected.xeperObser}" title="#{bundle.EditXeperPerfiTitle_xeperObser}" />
+                </h:panelGrid>
+                <h:commandLink action="#{xeperPerfiController.update}" value="#{bundle.EditXeperPerfiSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditXeperPerfiViewLink}"/>
+                <br />
+                <h:commandLink action="#{xeperPerfiController.prepareList}" value="#{bundle.EditXeperPerfiShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditXeperPerfiIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

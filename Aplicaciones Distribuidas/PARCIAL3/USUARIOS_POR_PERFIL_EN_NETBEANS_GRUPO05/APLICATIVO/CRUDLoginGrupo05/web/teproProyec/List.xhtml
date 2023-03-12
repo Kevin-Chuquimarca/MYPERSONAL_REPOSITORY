@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <!--<h:outputText style="font-size: 2rem; font-weight: bold; display: block; width:100%; text-align:center;" value="GESTIÓN DE PROYECTOS"></h:outputText>-->
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="form">
+
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:linkButton style="margin-right: .5rem" icon="pi pi-arrow-left" styleClass="ui-button-secondary" value="Regresar" outcome="/usuario" />
+                        <p:linkButton style="margin-right: .5rem" value="Tipos de Proyecto" outcome="/tetprTippro/List" />
+                        <p:linkButton style="margin-right: .5rem" value="Agregar Empleados a Proyecto" outcome="/asignacionEmpleParaProy" />
+                        <p:commandButton icon="pi pi-plus" styleClass="ui-button-success" style="margin-right: .5rem" action="#{teproProyecController.prepareCreate}" value="Crear Nuevo Proyecto"/>
+                    </p:toolbarGroup>
+                </p:toolbar>
+
+                <p:dataTable id="dt-proyects" var="item" value="#{teproProyecController.items}" widgetVar="customersTable3"
+                             emptyMessage="No se encontraron coincidencias."
+                             filteredValue="#{teproProyecController.selectedProyects}"
+                             globalFilterFunction="#{teproProyecController.globalFilterFunction}"
+                             selection="#{teproProyecController.selectedProyects}" reflow="true"
+                             rowKey="#{item.teproCodigo}" paginator="true" rows="5" rowSelectMode="add" paginatorPosition="bottom">
+
+                    <!--                    <f:facet name="header">
+                                            <div class="flex justify-content-end">
+                                                <span style="font-weight: bold">PROYECTOS </span>
+                                                <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                                                    <p:inputText id="globalFilter" onkeyup="PF('customersTable3').filter()" style="width:300px"
+                                                                 placeholder="Buscar" />
+                                                </span>
+                                            </div>
+                                        </f:facet>-->
+
+                    <p:column headerText="Nombre" sortBy="#{item.teproNombr}">
+                        <h:outputText value="#{item.teproNombr}" />
+                    </p:column>
+
+                    <p:column headerText="Descripción" sortBy="#{item.tetprTeprod}">
+                        <h:outputText value="#{item.tetprTeprod}" />
+                    </p:column>
+
+                    <p:column headerText="Fecha de inicio" sortBy="#{item.teproFechai}">
+                        <h:outputText value="#{item.teproFechai}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Fecha de fin" sortBy="#{item.teproFechaf}">
+                        <h:outputText value="#{item.teproFechaf}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="Costo" sortBy="#{item.teproCosto}">
+                        <h:outputText value="$#{item.teproCosto}" />
+                    </p:column>
+
+                    <p:column exportable="false">
+                        <p:commandButton rendered="false" style="margin-right: 1vw;" icon="pi pi-pencil" action="#{teproProyecController.prepareEdit}"
+                                         styleClass="edit-button rounded-button ui-button-success" process="@this">
+                            <f:setPropertyActionListener value="#{item}" target="#{teproProyecController.current}" />
+                        </p:commandButton>
+                        <p:commandButton rendered="false" class="ui-button-warning rounded-button" icon="pi pi-trash"
+                                         process="@this"
+                                         oncomplete="PF('deleteProductDialog').show()">
+                            <f:setPropertyActionListener value="#{item}" target="#{teproProyecController.current}" />
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+
+            <h:form id="dialogs" enctype="multipart/form-data">
+                <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300"
+                                 message="Desea borrar el proyecto?" header="Confirmar" severity="warn">
+                    <p:commandButton value="Si" icon="pi pi-check" actionListener="#{teproProyecController.destroy()}"
+                                     process="@this"
+                                     oncomplete="PF('deleteProductDialog').hide()" />
+                    <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                     onclick="PF('deleteProductDialog').hide()" />
+                </p:confirmDialog>
+
+                <p:confirmDialog global="true" showEffect="fade" width="300">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                                     icon="pi pi-times" />
+                </p:confirmDialog>
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+
+</html>

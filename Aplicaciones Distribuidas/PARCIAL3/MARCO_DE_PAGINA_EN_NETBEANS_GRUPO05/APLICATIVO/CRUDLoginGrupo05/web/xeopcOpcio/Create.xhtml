@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateXeopcOpcioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateXeopcOpcioLabel_xeopcCodigo}" for="xeopcCodigo" />
+                    <h:inputText id="xeopcCodigo" value="#{xeopcOpcioController.selected.xeopcCodigo}" title="#{bundle.CreateXeopcOpcioTitle_xeopcCodigo}" required="true" requiredMessage="#{bundle.CreateXeopcOpcioRequiredMessage_xeopcCodigo}"/>
+                    <h:outputLabel value="#{bundle.CreateXeopcOpcioLabel_xeopcDescri}" for="xeopcDescri" />
+                    <h:inputText id="xeopcDescri" value="#{xeopcOpcioController.selected.xeopcDescri}" title="#{bundle.CreateXeopcOpcioTitle_xeopcDescri}" required="true" requiredMessage="#{bundle.CreateXeopcOpcioRequiredMessage_xeopcDescri}"/>
+                    <h:outputLabel value="#{bundle.CreateXeopcOpcioLabel_xesisCodigo}" for="xesisCodigo" />
+                    <h:selectOneMenu id="xesisCodigo" value="#{xeopcOpcioController.selected.xesisCodigo}" title="#{bundle.CreateXeopcOpcioTitle_xesisCodigo}" required="true" requiredMessage="#{bundle.CreateXeopcOpcioRequiredMessage_xesisCodigo}">
+                        <f:selectItems value="#{xesisSisteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{xeopcOpcioController.create}" value="#{bundle.CreateXeopcOpcioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{xeopcOpcioController.prepareList}" value="#{bundle.CreateXeopcOpcioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateXeopcOpcioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditXesisSisteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditXesisSisteLabel_xesisCodigo}" for="xesisCodigo" />
+                    <h:inputText id="xesisCodigo" value="#{xesisSisteController.selected.xesisCodigo}" title="#{bundle.EditXesisSisteTitle_xesisCodigo}" required="true" requiredMessage="#{bundle.EditXesisSisteRequiredMessage_xesisCodigo}"/>
+                    <h:outputLabel value="#{bundle.EditXesisSisteLabel_xesisDescri}" for="xesisDescri" />
+                    <h:inputText id="xesisDescri" value="#{xesisSisteController.selected.xesisDescri}" title="#{bundle.EditXesisSisteTitle_xesisDescri}" required="true" requiredMessage="#{bundle.EditXesisSisteRequiredMessage_xesisDescri}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{xesisSisteController.update}" value="#{bundle.EditXesisSisteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditXesisSisteViewLink}"/>
+                <br />
+                <h:commandLink action="#{xesisSisteController.prepareList}" value="#{bundle.EditXesisSisteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditXesisSisteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

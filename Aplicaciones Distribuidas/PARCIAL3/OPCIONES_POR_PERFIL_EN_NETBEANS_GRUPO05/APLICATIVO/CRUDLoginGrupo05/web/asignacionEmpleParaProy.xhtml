@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./template.xhtml">
+
+            <ui:define name="title">
+                <h:outputText style="font-size: 2rem; font-weight: bold; display: block; width:100%; text-align:center;" value="ASIGNACIÓN DE EMPLEADOS A PROYECTOS"></h:outputText>
+            </ui:define>
+
+            <ui:define name="body">
+                <h:form>
+                    <p:panelGrid columns="3">
+                        <p:linkButton style="margin-right: .5rem" icon="pi pi-arrow-left" styleClass="ui-button-secondary" value="Regresar" outcome="/teproProyec/List" />
+                        <p:outputLabel style="font-weight: bold;" value="Proyectos" for="xeperPerfi"/>
+                        <p:selectOneMenu id="xeperPerfi" value="#{asignacionEmpleParaProyController.currentProy}" required="true" requiredMessage="Selecione el perfil del usuario" >
+                            <p:ajax event="valueChange" update="usuariosConPerfil"/> 
+                            <f:selectItems value="#{asignacionEmpleParaProyController.proyects}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:panelGrid columns="3" style="width: 100%">
+                        <p:panel id="usuariosSinPerfil" header="Empleados sin Proyectos" style="width: 100%">
+                            <p:selectOneListbox  style="width: 100%;" value="#{asignacionEmpleParaProyController.idEmpleWithoutProy}">
+                                <f:selectItems value="#{asignacionEmpleParaProyController.empleWithoutProy}"
+                                               var="usuarioSinPerfi"
+                                               itemLabel="#{usuarioSinPerfi.peempApelli} #{usuarioSinPerfi.peempNombre}" 
+                                               itemValue="#{usuarioSinPerfi.peempCodigo}"/>
+                            </p:selectOneListbox>
+                        </p:panel>
+                        <p:panel header="Operaciones">
+                            <p:panelGrid columns="1" style="width: 100%; border: 0px; ">
+                                <p:commandButton icon="pi pi-angle-right" style="width: 100%;text-align: center;" actionListener="#{asignacionEmpleParaProyController.addEmpleToProy()}" update="usuariosSinPerfil usuariosConPerfil" />
+                                <p:commandButton icon="pi pi-angle-double-right" style="width: 100%;text-align: center;" actionListener="#{asignacionEmpleParaProyController.addEmplesToProy()}" update="usuariosSinPerfil usuariosConPerfil" />
+                                <p:commandButton icon="pi pi-angle-left" style="width: 100%;text-align: center;" actionListener="#{asignacionEmpleParaProyController.removeEmpleToProy()}" update="usuariosSinPerfil usuariosConPerfil" />
+                                <p:commandButton icon="pi pi-angle-double-left" style="width: 100%;text-align: center;" actionListener="#{asignacionEmpleParaProyController.removeEmplesToPro()}" update="usuariosSinPerfil usuariosConPerfil" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel id="usuariosConPerfil" header="Empleados con Proyectos" style="width: 100%">
+                            <p:selectOneListbox style="width: 100%;"  value="#{asignacionEmpleParaProyController.idEmpleInProy}">
+                                <f:selectItems value="#{asignacionEmpleParaProyController.empleInProy}" 
+                                               var="usuarioConPerfi"
+                                               itemLabel="#{usuarioConPerfi.peempApelli} #{usuarioConPerfi.peempNombre}" 
+                                               itemValue="#{usuarioConPerfi.peempCodigo}"/>
+                            </p:selectOneListbox>
+                        </p:panel>
+                    </p:panelGrid>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

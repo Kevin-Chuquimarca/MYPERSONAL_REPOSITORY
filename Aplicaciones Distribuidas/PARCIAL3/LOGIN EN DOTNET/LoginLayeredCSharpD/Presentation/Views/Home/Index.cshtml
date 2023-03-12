@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Monster";
+}
+<div class="container">
+    <div class="card mb-3" style="max-width: 900px; margin-left: 150px">
+        <h4 class="card-title text-center mt-4 text-primary">Inicio de Sesión Monster</h4>
+        <hr />
+        <div class="row g-0">
+            <div class="col-md-6">
+                <img src="https://i.pinimg.com/originals/81/9e/22/819e22dd972d0c1364d4b6bf09421ac9.gif" class="img-fluid rounded-start mt-2" alt="monster">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" id="txtUser">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" id="txtPassword">
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-success w-100" onclick="sendDataLogin()">Ingresar</button>
+                    </div>
+
+                </div>
+                <div class="card-footer text-center">
+                    <a class="text-center" onclick="resetPassword()" data-bs-target="#staticBackdrop">¿Has olvidado tu contraseña?</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-email" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cambiar contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Ingrese su correo electrónico para verificar su identidad.
+                <br />
+                <b>Nota: </b> Le llegará un correo electrónico con su nueva contraseña.
+                <div class="mt-4">
+                    <input type="email" class="form-control" placeholder="Correo electrónico" aria-label="Usuario" id="email">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar</button>
+                <button class="btn btn-success" onclick="recoverPassword()">Envíar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-welcome">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2 class="text-center text-primary">BIENVENIDO</h2>
+                <h4 class="text-center">Espere...</h4>
+                <p class="text-center"><img src="https://media.tenor.com/1qrYT711uEoAAAAC/cargando.gif" /></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-send-email">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3 class="text-center">Enviando Correo Electrónico</h3>
+                <p class="text-center"><img src="https://media.tenor.com/-a5MFIkPtfIAAAAC/correo-email.gif" class="w-50" /></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <script type="text/javascript">
+
+        function getDataForm() {
+            var name = document.getElementById("txtUser").value;
+            var password = document.getElementById("txtPassword").value;
+            var dataLogin = {
+                name,
+                password
+            }
+            return dataLogin;
+        }
+
+        function sendDataLogin() {
+            var dataLogin = getDataForm();
+            if (!validateData()) {
+                Swal.fire(
+                    'Ingrese sus credenciales',
+                    '',
+                    'error'
+                )
+                return;
+            }
+            fetch('/Home/Login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataLogin)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "true") {
+                        $('#modal-welcome').modal('show');
+                        setTimeout(function () {
+                            $('#modal-welcome').modal('hide');
+                            window.location.href = "/Application/Index";
+                        }, 3000);
+
+                    } else {
+                        Swal.fire(
+                            'Credenciales incorrectas',
+                            '',
+                            'error'
+                        )
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+
+        function validateData() {
+            var data = getDataForm();
+            if (data["name"].toString() !== "" && data["password"].toString() !== "") {
+                return true;
+            }
+            return false;
+        }
+
+        function resetPassword() {
+            $('#modal-email').modal('show');
+        }
+
+        function getEmail() {
+            var email = document.getElementById("email").value;
+            return email;
+        }
+
+        function validateEmail() {
+            var email = getEmail();
+            if (email === "") {
+                return false;
+            }
+            return true;
+        }
+
+        function recoverPassword() {
+            $('#modal-email').modal('hide');
+            $('#modal-send-email').modal('show');
+            var email = getEmail();
+            console.log(email);
+            if (validateData()) {
+                Swal.fire(
+                    'Ingrese el correo electrónico',
+                    '',
+                    'error'
+                )
+                return;
+            }
+            fetch('/Home/RecoverPassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(email)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "true") {
+                        setTimeout(function () {
+                            $('#modal-send-email').modal('hide');
+                            Swal.fire(
+                                'Ha sido enviada su nueva contraseña al correo electrónico.',
+                                '',
+                                'success'
+                            )
+                            $("#email").val("");
+                        }, 2000);
+
+                    } else {
+                        Swal.fire(
+                            'El correo ingresado no se encuentra registrado',
+                            '',
+                            'error'
+                        )
+                    }
+                })
+                .catch(error => console.error(error));
+
+        }
+
+        function register() {
+            window.location.href = "/Register/Register";
+        }
+
+    </script>
+}

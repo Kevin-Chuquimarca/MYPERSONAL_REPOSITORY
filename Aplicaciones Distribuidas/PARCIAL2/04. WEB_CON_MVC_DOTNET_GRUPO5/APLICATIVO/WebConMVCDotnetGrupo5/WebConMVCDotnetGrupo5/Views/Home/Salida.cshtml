@@ -1,0 +1,21 @@
+﻿@model WebConMVCDotnetGrupo5.Models.DatosEncuesta
+
+@{
+    Layout = null;
+    ViewBag.Title = "Datos de la encuesta";
+}
+
+<h2>Gracias por llenar la encuesta</h2>
+<p>@Model.getTxtNombre() @Model.getTxtApellido() , has respondido que estas familiarizado con los siguientes lenguajes de programación:</p>
+<img src="~/resources/@Model.getImgProfile()" name="datosEncuesta" property="imgProfile" width="200" height="250" alt="Archivo no seleccionado"/>
+<ul>
+	@if (@Model.getChkProgLeng() != null)
+	{
+		for (int i = 0; i < @Model.getChkProgLeng().Length; i++)
+		{
+            <li>
+				@Model.getChkProgLeng()[i]
+            </li>
+		}
+	}
+</ul>

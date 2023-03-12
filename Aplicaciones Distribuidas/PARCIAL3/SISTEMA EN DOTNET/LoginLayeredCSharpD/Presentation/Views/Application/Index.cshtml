@@ -1,0 +1,753 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+@Html.Partial("Navbar")
+<div class="container">
+    <h2 class="text-center">BIENVENIDO A ECUASOFT</h2>
+    <div class="card mb-3 w-100">
+        <div class="row card-body">
+            <div class="col-md-12">
+                <p class="text-center">
+                    <img src="https://i.pinimg.com/originals/81/9e/22/819e22dd972d0c1364d4b6bf09421ac9.gif"
+                         style="width: 300px">
+                </p>
+                <h5 class="card-title text-center" id="name-lastname"></h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-center"><b>Cargo:</b> <span id="rol"></span></li>
+                    <li class="list-group-item text-center"><b>Cédula:</b> <span id="identification-card"></span></li>
+                    <li class="list-group-item text-center"><b>Correo electrónico:</b> <span id="email"></span></li>
+                    <li class="list-group-item text-center"><b>Teléfono:</b> <span id="phone"></span></li>
+                    <li class="list-group-item text-center mt-4"><button class="btn btn-primary " onclick="showModalUpdate()">Actualizar Datos</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-user">
+
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <h5 class="card-header text-center">Registro de nuevo usuario</h5>
+            <div class="modal-body">
+                <div class="step-app" id="demo">
+                    <ul class="step-steps">
+                        <li data-step-target="step1">Datos Personales</li>
+                        <li data-step-target="step2">Fechas/Direcciones</li>
+                        <li data-step-target="step3">Correo/Teléfono</li>
+                    </ul>
+                    <div class="step-content">
+                        <div class="step-tab-panel" data-step="step1">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" maxlength="50">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastname" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" id="lastname" maxlength="50">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label for="identificationCard" class="form-label">Cédula</label>
+                                    <input type="text" class="form-control" id="identificationCard" maxlength="10">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="passport" class="form-label">Pasaporte</label>
+                                    <input type="text" class="form-control" id="passport" maxlength="15">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-tab-panel" data-step="step2">
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label for="birthday" class="form-label">Fecha de nacimiento</label>
+                                    <input type="date" class="form-control" id="birthday" max="2022-02-15">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="departureDate" class="form-label">Fecha de salida</label>
+                                    <input type="date" class="form-control" id="departureDate" max="2022-02-15">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label for="address" class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="address" maxlength="200">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="photo" class="form-label">Foto</label>
+                                    <input type="file" class="form-control" id="photo">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="step-tab-panel" data-step="step3">
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="user-email" maxlength="100">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phoneNumber" class="form-label">Teléfono</label>
+                                    <input type="text" class="form-control" id="phoneNumber" maxlength="15">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="step-footer">
+                        <button data-step-action="prev" class="step-btn">Anterior</button>
+                        <button data-step-action="next" class="step-btn">Siguiente</button>
+                        <button data-step-action="finish" class="step-btn" onclick="showCaptcha()">Finalizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="modal-captcha">
+    <div class="modal-sm modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <p id="text-captcha"></p>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="captcha">
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success w-100" onclick="sendInformation()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cambiar contraseña</h5>
+            </div>
+            <div class="modal-body">
+                <p id="change-pass"><b>Nota: </b>Se deberá actualizar a una nueva contraseña para utilizar el sistema.</p>
+                <p id="update-pass"><b>Nota: </b>Actualizar contraseña</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="rol" class="form-label">Contraseña nueva</label>
+                        <input type="password" class="form-control" id="change-password">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="rol" class="form-label">Confirmar contraseña</label>
+                        <input type="password" class="form-control" id="confirm-password">
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <button class="btn btn-success w-100" onclick="changePassword()">Confirmar</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-update">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <h5 class="card-header text-center">Editar información</h5>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="update-name" maxlength="50">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastname" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="update-lastname" maxlength="50">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label for="identificationCard" class="form-label">Cédula</label>
+                        <input type="text" class="form-control" id="update-identificationCard" maxlength="10">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="update-phoneNumber" maxlength="15">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="update-user-email" maxlength="100">
+                    </div>
+
+                </div>
+                <div class="row mt-4">
+                    <button class="btn btn-success" onclick="sendUserUpdate()">Confirmar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade " id="modal-user-rol">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <h5 class="card-header text-center">Proceso Asignación Usuarios a Perfil</h5>
+            <div class="modal-body">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <table id="table-users">
+                            <thead>
+                                <tr>
+                                    <th data-field="Name">Nombre</th>
+                                    <th data-field="Lastname">Apellido</th>
+                                    <th data-field="Rol">Rol</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <label for="select-perfil">Seleccionar Rol</label>
+                        <select class="form-control" id="select-perfil">
+                        </select>
+                    </div>
+                </div>
+                <hr />
+                <div class="row mt-4">
+                    <div class="col-6">
+                        <h3 class="text-center">Usuarios sin Rol</h3>
+                        <table id="table-users-without-role"
+                               data-search="true"
+                               data-click-to-select="true">
+                            <thead>
+                                <tr>
+                                    <th data-field="state" data-checkbox="true"></th>
+                                    <th data-field="Id" data-visible="false">ID</th>
+                                    <th data-field="IdRol" data-visible="false">ID Rol</th>
+                                    <th data-field="Name">Nombre</th>
+                                    <th data-field="Lastname">Apellido</th>
+                                    <th data-field="Rol">Rol</th>
+                                    <th data-field="Password" data-visible="false">Password</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100" onclick="getSelections()" id="confirmButton">Confirmar Selección</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h3 class="text-center">Usuarios para agregar Rol</h3>
+                        <table id="table-add-users"
+                               data-toolbar="·toolbar"
+                               data-search="true"
+                               data-click-to-select="true">
+                            <thead>
+                                <tr>
+
+                                    <th data-field="Id" data-visible="false"></th>
+                                    <th data-field="IdRol" data-visible="false"></th>
+                                    <th data-field="Name">Nombre</th>
+                                    <th data-field="Lastname">Apellido</th>
+                                    <th data-field="Rol">Rol</th>
+                                    <th data-field="Password" data-visible="false"></th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <button class="btn btn-success w-100" onclick="getUserAddRole()">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+
+    <script type="text/javascript">
+        var captchaGenerate;
+        var user;
+        var roles;
+        var users;
+        var userWithoutRole;
+        var addUsers;
+
+
+        $('#demo').steps({
+            onFinish: function () { console.log("Enviado") }
+        });
+
+        var $tableUsers = $('#table-users');
+        var $tableUsersWithoutRole = $('#table-users-without-role');
+        var $tableAddUsers = $('#table-add-users');
+
+        function getSelections() {
+            addUsers = JSON.parse(JSON.stringify($tableUsersWithoutRole.bootstrapTable('getSelections')));
+            $tableAddUsers.bootstrapTable({ data: addUsers });
+        }
+
+        function getUserAddRole() {
+            var rol = document.getElementById("select-perfil").value;
+            var data = {
+                addUsers,
+                rol
+            }
+            fetch('/Application/AssignRole', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    if (data === "true") {
+                        Swal.fire(
+                            'Cambio exitoso',
+                            '',
+                            'success'
+                        );
+                        setTimeout(function () {
+                            window.location.href = "/Application/Index";
+                        }, 1000);
+                    } else {
+                        Swal.fire(
+                            'Error de asignación de rol',
+                            '',
+                            'error'
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    Swal.fire(
+                        'Error de asignación de rol',
+                        error.message,
+                        'error'
+                    );
+                });
+        }
+
+        function getUser() {
+            return fetch('/Application/GetUser')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .catch(error => console.error(error));
+        }
+
+        function getPerfilUser() {
+            return fetch('/Application/GetPerfilUser')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .catch(error => console.error(error));
+        }
+
+        $(document).ready(function () {
+            getUser().then(data => {
+                user = data;
+                $('#name-lastname').text(user["name"] + " " + user["lastname"]);
+                $('#rol').text(user["descriptionRol"]);
+                $('#identification-card').text(user["identificationCard"]);
+                $('#email').text(user["email"]);
+                $('#phone').text(user["phone"]);
+                asignFunctionsByRole();
+                showModalNewUser();
+            });
+        });
+
+        function showModalNewUser() {
+            if (user["state"] === "2") {
+                $('#update-pass').hide();
+                $('#btn-cancel').hide();
+                $('#staticBackdrop').modal('show');
+            }
+        }
+
+        function showModalUserRol() {
+            getPerfilUser().then(data => {
+                roles = data["roles"];
+                users = data["userWithRole"];
+                userWithoutRole = data["usersWithoutRole"];
+                console.log(users);
+                $tableUsers.bootstrapTable({ data: users })
+                $tableUsersWithoutRole.bootstrapTable({ data: userWithoutRole })
+
+                let select = document.getElementById("select-perfil");
+                roles.forEach(item => {
+                    let option = document.createElement("option");
+                    option.value = item.Id;
+                    option.text = item.Description;
+                    select.appendChild(option);
+                });
+            });
+            $('#modal-user-rol').modal('show');
+        }
+
+        function logOut() {
+            window.location.href = "/Home/Index";
+        }
+
+        function asignFunctionsByRole() {
+            const rol = user["rol"];
+            $(".admin").hide();
+            if (rol === "A") {
+                $(".admin").show();
+            } else if (rol === "E") {
+                $(".employee").show();
+            } else if (rol == "C") {
+                $(".client").show();
+            }
+        }
+
+        function showModalUser() {
+            $('#modal-user').modal('show');
+        }
+
+        function getData() {
+            var email = document.getElementById("user-email").value;
+            var lastname = document.getElementById("lastname").value;
+            var name = document.getElementById("name").value;
+            var birthday = document.getElementById("birthday").value;
+            var departureDate = document.getElementById("departureDate").value;
+            var address = document.getElementById("address").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var identificationCard = document.getElementById("identificationCard").value;
+            var passport = document.getElementById("passport").value;
+            var photo = document.getElementById("photo").value;
+            var role = "N";
+
+            var dataUser = {
+                email,
+                lastname,
+                name,
+                birthday,
+                departureDate,
+                address,
+                phoneNumber,
+                identificationCard,
+                passport,
+                photo,
+                role
+            }
+            return dataUser;
+        }
+
+        function validateData() {
+            const data = getData();
+            if (data["email"].toString() == "") {
+                return false;
+            } else if (data["lastname"].toString() == "") {
+                return false;
+            } else if (data["name"].toString() == "") {
+                return false;
+            } else if (data["birthday"].toString() == "") {
+                return false;
+            } else if (data["departureDate"].toString() == "") {
+                return false;
+            } else if (data["address"].toString() == "") {
+                return false;
+            } else if (data["phoneNumber"].toString() == "") {
+                return false;
+            } else if (data["identificationCard"].toString() == "") {
+                return false;
+            } else if (data["passport"].toString() == "") {
+                return false;
+            } else if (data["photo"].toString() == "") {
+                return false;
+            }
+            return true;
+        }
+
+        function showCaptcha() {
+
+            if (!validateData()) {
+                Swal.fire(
+                    'Ingrese todos los campos',
+                    '',
+                    'error'
+                )
+                return;
+            }
+            $('#modal-user').modal('hide');
+            $('#modal-captcha').modal('show');
+
+            fetch('/Application/GetCaptcha')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    captchaGenerate = data;
+                    $('#text-captcha').text("Captcha: " + captchaGenerate);
+                })
+                .catch(error => console.error(error));
+        }
+
+        function getCaptcha() {
+            var captcha = document.getElementById("captcha").value;
+            return captcha;
+        }
+
+        function sendInformation() {
+            var captcha = getCaptcha();
+            var dataUser = getData();
+            if (captcha !== captchaGenerate) {
+                Swal.fire(
+                    'Captcha incorrecto',
+                    '',
+                    'error'
+                );
+            } else {
+                fetch('/Application/Register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataUser)
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        if (data === "true") {
+                            Swal.fire(
+                                'Registro exitoso',
+                                '',
+                                'success'
+                            );
+                            window.location.href = "/Application/Index";
+                        } else {
+                            Swal.fire(
+                                'Error en el registro',
+                                '',
+                                'error'
+                            );
+                        }
+                    })
+                    .catch(error => console.error(error));
+            }
+        }
+
+        function getPasswords() {
+            var password = document.getElementById("change-password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var passwords = {
+                password,
+                confirmPassword,
+                currentPassword: user["password"],
+            }
+            return passwords;
+        }
+
+        function validatePassword() {
+            var passwords = getPasswords();
+            if (passwords["password"] === "" || passwords["confirmPassword"] === "") {
+                return "0";
+            } else if (passwords["password"] !== passwords["confirmPassword"]) {
+                return "1";
+            }
+            return "2";
+        }
+
+        function changePassword() {
+            const identificationError = validatePassword();
+            const passwords = getPasswords();
+            if (identificationError === "0") {
+                Swal.fire(
+                    'Ingrese todos los campos',
+                    '',
+                    'error'
+                )
+                return;
+            } else if (identificationError === "1") {
+                Swal.fire(
+                    'Las contraseñas no coinciden',
+                    '',
+                    'error'
+                )
+                return;
+            }
+            fetch('/Application/ChangePassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(passwords)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    if (data === "true") {
+                        Swal.fire(
+                            'Cambio exitoso',
+                            '',
+                            'success'
+                        );
+                        setTimeout(function () {
+                            window.location.href = "/";
+                        }, 1000);
+                    } else {
+                        Swal.fire(
+                            'Error de cambio de contraseña',
+                            '',
+                            'error'
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    Swal.fire(
+                        'Error de cambio de contraseña',
+                        error.message,
+                        'error'
+                    );
+                });
+        }
+
+        function showButtonCancel() {
+            $('#change-pass').hide();
+            $('#btn-cancel').show();
+        }
+
+        function showModalUpdate() {
+            getUser().then(data => {
+                user = data;
+                $("#update-name").val(user["name"]);
+                $("#update-lastname").val(user["lastname"]);
+                $("#update-identificationCard").val(user["identificationCard"]);
+                $("#update-phoneNumber").val(user["phone"]);
+                $("#update-user-email").val(user["email"]);
+
+                $('#modal-update').modal('show');
+            });
+        }
+
+        function getDataUpdate() {
+            var name = document.getElementById("update-name").value;
+            var lastname = document.getElementById("update-lastname").value;
+            var identificationCard = document.getElementById("update-identificationCard").value;
+            var phoneNumber = document.getElementById("update-phoneNumber").value;
+            var email = document.getElementById("update-user-email").value;
+
+            var user = {
+                name,
+                lastname,
+                identificationCard,
+                phoneNumber,
+                email
+            }
+            return user;
+        }
+
+        function validateUserUpdate() {
+            var user = getDataUpdate();
+            if (user["name"] === "") {
+                return false;
+            } else if (user["lastname"] === "") {
+                return false;
+            } else if (user["identificationCard"] === "") {
+                return false;
+            } else if (user["phoneNumber"] === "") {
+
+            } else if (user["email"] === "") {
+                return false;
+            }
+            return true;
+        }
+
+        function sendUserUpdate() {
+            var user = getDataUpdate();
+            if (!validateUserUpdate()) {
+                Swal.fire(
+                    'Complete todos los campos',
+                    error.message,
+                    'error'
+                );
+                return;
+            }
+            fetch('/Application/UpdateUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    if (data === "true") {
+                        Swal.fire(
+                            'Actualización exitosa',
+                            '',
+                            'success'
+                        );
+                        window.location.href = "/";
+                    } else {
+                        Swal.fire(
+                            'Error de actualización',
+                            '',
+                            'error'
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    Swal.fire(
+                        'Error de actualización',
+                        error.message,
+                        'error'
+                    );
+                });
+        }
+    </script>
+}

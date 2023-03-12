@@ -1,0 +1,459 @@
+﻿@{
+    ViewData["Title"] = "Gestión";
+}
+@Html.Partial("Navbar")
+<div class="container">
+    <div id="app">
+        <h3 class="text-center text-primary">{{titleSection}}</h3>
+        <hr />
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-home-tab"
+                        data-bs-toggle="pill" data-bs-target="#v-pills-home"
+                        type="button" role="tab" aria-controls="v-pills-home"
+                        aria-selected="true">
+                    Proyectos Existentes
+                </button>
+
+                <button class="nav-link" id="v-pills-profile-tab"
+                        data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+                        type="button" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="false">
+                    Tipos de Proyectos
+                </button>
+
+                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-messages" type="button" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false">
+                    Agregar usuarios a Proyecto
+                </button>
+            </div>
+
+            <div class="tab-content w-100" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                    <h3 class="text-center">{{titleProjects}}</h3>
+                    <div class="table-projects">
+                        <button class="btn btn-success" v-on:click="showModalAddProject()">Agregar</button>
+                        <table class="table mt-4">
+                            <thead>
+                                <tr>
+                                    <th class="text-center" hidden>IdProject</th>
+                                    <th class="text-center" hidden>IdTypeProject</th>
+                                    <th class="text-center">Tipo Proyecto</th>
+                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Descripción</th>
+                                    <th class="text-center">Fecha Inicio</th>
+                                    <th class="text-center">Fecha Fin</th>
+                                    <th class="text-center">Costo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(row, index) in projects" :key="index">
+                                    <td class="text-center" hidden>{{ row.IdProject }}</td>
+                                    <td class="text-center" hidden>{{ row.IdTypeProject }}</td>
+                                    <td class="text-center">{{ row.TypeProject }}</td>
+                                    <td class="text-center">{{ row.Name }}</td>
+                                    <td class="text-center">{{ row.Description }}</td>
+                                    <td class="text-center">{{ row.DateStart }}</td>
+                                    <td class="text-center">{{ row.DateFinish }}</td>
+                                    <td class="text-center">{{ row.Cost }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h3 class="text-center">{{titleProjectType}}</h3>
+                            <table id="table-project-type"
+                                   data-search="true"
+                                   data-click-to-select="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="Id">Código</th>
+                                        <th data-field="Name">Tipos de Proyectos</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">
+                    <h5 class="text-center">Agregar Empleados a Proyecto</h5>
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <h3 class="text-center">{{titleEmployeeWithoutProject}}</h3>
+                            <table id="table-employee-without-project"
+                                   data-search="true"
+                                   data-click-to-select="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="Id" data-visible="false">ID</th>
+                                        <th data-field="IdPosition" data-visible="false">ID Cargo</th>
+                                        <th data-field="IdProject" data-visible="false">ID Project</th>
+                                        <th data-field="Name">Nombre</th>
+                                        <th data-field="Lastname">Apellido</th>
+                                        <th data-field="Rol">Perfil</th>
+                                        <th data-field="Password" data-visible="false">Password</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" v-on:click="getSelections" id="confirmButton">Confirmar Selección</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <label for="select-type-project">Proyectos</label>
+                                <select class="form-control" id="select-project">
+                                </select>
+                            </div>
+                            <div class="row mt-4">
+                                <label for="select-type-project">Cargos</label>
+                                <select class="form-control" id="select-positions">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="text-center">{{titleEmployeeWithProject}}</h3>
+                            <table id="table-employee-asign-project"
+                                   data-search="true"
+                                   data-click-to-select="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="Id" data-visible="false"></th>
+                                        <th data-field="IdPosition" data-visible="false"></th>
+                                        <th data-field="IdProject" data-visible="false"></th>
+                                        <th data-field="Name">Nombre</th>
+                                        <th data-field="Lastname">Apellido</th>
+                                        <th data-field="Rol">Perfil</th>
+                                        <th data-field="Password" data-visible="false"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <button class="btn btn-success w-100" v-on:click="asignEmployeeProject">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-add-project">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <h5 class="card-header text-center">Registro de nuevo proyecto</h5>
+                    <div class="modal-body">
+                        <div class="step-app" id="demo">
+                            <ul class="step-steps">
+                                <li data-step-target="step1">Datos Generales</li>
+                                <li data-step-target="step2">Fechas Inicio - Fin</li>
+                                <li data-step-target="step3">Costos - Tipo</li>
+                            </ul>
+                            <div class="step-content">
+                                <div class="step-tab-panel" data-step="step1">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="name" class="form-label">Nombre*</label>
+                                            <input type="text" class="form-control" id="name" maxlength="50">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="description" class="form-label">Descripción</label>
+                                            <input type="text" class="form-control" id="description" maxlength="150">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-tab-panel" data-step="step2">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="startDate" class="form-label">Fecha de Inicio*</label>
+                                            <input type="date" class="form-control" id="startDate" max="2022-02-15">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="finishDate" class="form-label">Fecha de Finalización</label>
+                                            <input type="date" class="form-control" id="finishDate" max="2022-02-15">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-tab-panel" data-step="step3">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="cost" class="form-label">Costo*</label>
+                                            <input type="number" class="form-control" id="cost" maxlength="4">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="select-type-project">Tipo de Proyecto*</label>
+                                            <select class="form-control" id="select-type-project">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="step-footer">
+                                <button data-step-action="finish" class="btn btn-success mx-2" v-on:click="saveProject">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script type="text/javascript">
+
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    titleSection: 'Proyectos',
+                    titleProjectType: 'Tipos de Proyectos',
+                    titleProjects: 'Proyectos Existentes',
+                    titleEmployeeWithoutProject: 'Empleados sin Proyectos',
+                    titleEmployeeWithProject: 'Empleados Asignados',
+                    typeProjects: [],
+                    projects: [],
+                    employeeWithoutProject: [],
+                    positions: [],
+                    usersAdd: [],
+                }
+            },
+            methods: {
+                getTypeProject() {
+                    fetch('/Management/GetTypeProject')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.typeProjects = data;
+                            $('#table-project-type').bootstrapTable({ data: this.typeProjects });
+                            let select = document.getElementById("select-type-project");
+                            this.typeProjects.forEach(item => {
+                                let option = document.createElement("option");
+                                option.value = item.Id;
+                                option.text = item.Name;
+                                select.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getEmployeeWithoutProject() {
+                    fetch('/Management/GetEmployeeWithoutProject')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.employeeWithoutProject = data;
+                            $('#table-employee-without-project').bootstrapTable({ data: this.employeeWithoutProject });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getProjects() {
+                    fetch('/Management/GetProjects')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.projects = data;
+                            $('#table-projects').bootstrapTable({ data: this.projects });
+                            let select = document.getElementById("select-project");
+                            this.projects.forEach(item => {
+                                let option = document.createElement("option");
+                                option.value = item.IdProject;
+                                option.text = item.Name;
+                                select.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getPositions() {
+                    fetch('/Management/GetPositions')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.positions = data;
+                            let select = document.getElementById("select-positions");
+                            this.positions.forEach(item => {
+                                let option = document.createElement("option");
+                                option.value = item.Id;
+                                option.text = item.Name;
+                                select.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error(error));
+                },
+                showTable() {
+                    $('#table-project-type').bootstrapTable();
+                    $('#table-projects').bootstrapTable();
+                    $('#table-employee-without-project').bootstrapTable();
+                },
+                showModalAddProject() {
+                    $('#modal-add-project').modal('show');
+                    $('#demo').steps({
+                        onFinish: function () { console.log("Enviado") }
+                    });
+                },
+                getDataProject() {
+                    var name = document.getElementById('name').value;
+                    var description = document.getElementById('description').value;
+                    var startDate = document.getElementById('startDate').value;
+                    var finishDate = document.getElementById('finishDate').value;
+                    var cost = document.getElementById('cost').value;
+                    var type = document.getElementById('select-type-project').value;
+                    const project = {
+                        name,
+                        description,
+                        startDate,
+                        finishDate,
+                        cost,
+                        type
+                    }
+                    return project;
+                },
+                validateDataProject() {
+                    const data = this.getDataProject();
+                    if (data["name"].toString() === "") {
+                        return false;
+                    } else if (data["startDate"].toString() === "") {
+                        return false;
+                    } else if (data["cost"] < 0 || data["cost"].toString() === "") {
+                        return false;
+                    } else if (data["type"].toString() === "") {
+                        return false;
+                    }
+                    return true;
+                },
+                saveProject() {
+                    const data = this.getDataProject();
+                    if (!this.validateDataProject()) {
+                        Swal.fire(
+                            'Los campos con "*" son obligatorios',
+                            '',
+                            'error'
+                        )
+                        return;
+                    }
+                    fetch('/Management/Register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            if (data === "true") {
+                                Swal.fire(
+                                    'Registro exitoso',
+                                    '',
+                                    'success'
+                                );
+                                window.location.href = "/Management/Project";
+                            } else {
+                                Swal.fire(
+                                    'Error en el registro',
+                                    '',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(error => console.error(error));
+                },
+                getSelections() {
+                    this.usersAdd = JSON.stringify($('#table-employee-without-project').bootstrapTable('getSelections'));
+                    var usersSelected = JSON.parse(this.usersAdd);
+                    $('#table-employee-asign-project').bootstrapTable({ data: usersSelected });
+                },
+                asignEmployeeProject() {
+                    var project = document.getElementById("select-project").value;
+                    var position = document.getElementById("select-positions").value;
+                    var data = {
+                        usersAdd: JSON.parse(this.usersAdd),
+                        project,
+                        position
+                    }
+                    fetch('/Management/AssignEmployeeProject', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(response.statusText);
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            if (data === "true") {
+                                Swal.fire(
+                                    'Asignación exitosa',
+                                    '',
+                                    'success'
+                                );
+                                setTimeout(function () {
+                                    window.location.href = "/Management/Project";
+                                }, 1000);
+                            } else {
+                                Swal.fire(
+                                    'Error de asignación de proyecto',
+                                    '',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            Swal.fire(
+                                'Error de asignación de rol',
+                                error.message,
+                                'error'
+                            );
+                        });
+                },
+            },
+            created() {
+                this.getTypeProject();
+                this.getProjects();
+                this.getEmployeeWithoutProject();
+                this.getPositions();
+                this.showTable();
+            }
+        }).mount('#app')
+    </script>
+    }

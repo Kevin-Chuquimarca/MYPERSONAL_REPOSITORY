@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTeproProyecTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_teproCodigo}"/>
+                    <h:outputText value="#{teproProyecController.selected.teproCodigo}" title="#{bundle.ViewTeproProyecTitle_teproCodigo}"/>
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_teproNombr}"/>
+                    <h:outputText value="#{teproProyecController.selected.teproNombr}" title="#{bundle.ViewTeproProyecTitle_teproNombr}"/>
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_teproFechai}"/>
+                    <h:outputText value="#{teproProyecController.selected.teproFechai}" title="#{bundle.ViewTeproProyecTitle_teproFechai}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_teproFechaf}"/>
+                    <h:outputText value="#{teproProyecController.selected.teproFechaf}" title="#{bundle.ViewTeproProyecTitle_teproFechaf}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_tetprTeprod}"/>
+                    <h:outputText value="#{teproProyecController.selected.tetprTeprod}" title="#{bundle.ViewTeproProyecTitle_tetprTeprod}"/>
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_teproCosto}"/>
+                    <h:outputText value="#{teproProyecController.selected.teproCosto}" title="#{bundle.ViewTeproProyecTitle_teproCosto}"/>
+                    <h:outputText value="#{bundle.ViewTeproProyecLabel_tetprCodigo}"/>
+                    <h:outputText value="#{teproProyecController.selected.tetprCodigo}" title="#{bundle.ViewTeproProyecTitle_tetprCodigo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{teproProyecController.destroyAndView}" value="#{bundle.ViewTeproProyecDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTeproProyecEditLink}"/>
+                <br />
+                <h:commandLink action="#{teproProyecController.prepareCreate}" value="#{bundle.ViewTeproProyecCreateLink}" />
+                <br />
+                <h:commandLink action="#{teproProyecController.prepareList}" value="#{bundle.ViewTeproProyecShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTeproProyecIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

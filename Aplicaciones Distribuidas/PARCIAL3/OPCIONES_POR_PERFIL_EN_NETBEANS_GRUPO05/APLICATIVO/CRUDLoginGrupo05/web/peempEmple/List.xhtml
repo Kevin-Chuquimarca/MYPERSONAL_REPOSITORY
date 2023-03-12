@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText style="font-size: 2rem; font-weight: bold; display: block; width:100%; text-align:center;" value="GESTIÓN DE EMPLEADOS"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class="card crud-demo">
+                <h:form id="form">
+
+                    <p:toolbar>
+                        <p:toolbarGroup>
+                            <p:linkButton style="margin-right: .5rem" icon="pi pi-arrow-left" styleClass="ui-button-secondary" value="Regresar" outcome="/usuario" />
+                            <p:commandButton value="Registrar Nuevo Empleado" icon="pi pi-plus"
+                                             update=":dialogs:manage-product-content" oncomplete="PF('manageProductDialog').show()"
+                                             styleClass="ui-button-success" >
+                                <p:resetInput target=":dialogs:manage-product-content" />
+                            </p:commandButton>
+
+                        </p:toolbarGroup>
+                    </p:toolbar>
+
+                    <p:growl id="messagePanel" showDetail="true" />
+
+                    <p:dataTable id="dt-emple" var="item" value="#{peempEmpleController.items}" widgetVar="customersTable3"
+                                 emptyMessage="No se encontraron coincidencias."
+                                 filteredValue="#{peempEmpleController.selectedEmpleados}"
+                                 globalFilterFunction="#{peempEmpleController.globalFilterFunction}"
+                                 selection="#{peempEmpleController.selectedEmpleados}" reflow="true"
+                                 rowKey="#{item.peempCodigo}" paginator="true" rows="5" rowSelectMode="add" paginatorPosition="bottom">
+
+                        <!--                        <f:facet name="header">
+                                                    <div class="flex justify-content-end">
+                                                        <span style="font-weight: bold">EMPLEADOS </span>
+                                                        <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                                                            <p:inputText id="globalFilter" onkeyup="PF('customersTable3').filter()" style="width:300px"
+                                                                         placeholder="Buscar" />
+                                                        </span>
+                                                    </div>
+                                                </f:facet>-->
+
+                        <p:column headerText="#" sortBy="#{item.peempCodigo}">
+                            <h:outputText value="#{item.peempCodigo}" />
+                        </p:column>
+
+                        <p:column headerText="Apellido" sortBy="#{item.peempApelli}">
+                            <h:outputText value="#{item.peempApelli}" />
+                        </p:column>
+
+                        <p:column headerText="Nombre" sortBy="#{item.peempNombre}">
+                            <h:outputText value="#{item.peempNombre}" />
+                        </p:column>
+
+                        <p:column headerText="Cédula" sortBy="#{item.peempCedula}">
+                            <h:outputText value="#{item.peempCedula}" />
+                        </p:column>
+
+                        <p:column headerText="Teléfono" sortBy="#{item.peempTelef}">
+                            <h:outputText value="#{item.peempTelef}" />
+                        </p:column>
+
+                        <p:column headerText="Correo electrónico" sortBy="#{item.peempEmail}">
+                            <h:outputText value="#{item.peempEmail}" />
+                        </p:column>
+
+                        <p:column exportable="false">
+                            <p:commandButton style="margin-right: 1vw;" value="Editar" action="#{peempEmpleController.prepareEdit}"
+                                             styleClass="edit-button" process="@this">
+                                <f:setPropertyActionListener value="#{item}" target="#{peempEmpleController.current}" />
+                            </p:commandButton>
+                            <p:commandButton class="ui-button-danger" value="Eliminar"
+                                             process="@this"
+                                             oncomplete="PF('deleteProductDialog').show()">
+                                <f:setPropertyActionListener value="#{item}" target="#{peempEmpleController.current}" />
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+                <h:form id="dialogs" enctype="multipart/form-data">
+                    <p:dialog header="Agregar Usuario" showEffect="fade" modal="true" widgetVar="manageProductDialog" >
+                        <p:outputPanel id="manage-product-content" >
+                            <p:panel >
+                                <h:panelGrid id="grid" columns="6" cellpadding="7">
+                                    <p:outputLabel style="font-weight: bold;" value="Nombre: " for="peempNombre" />
+                                    <p:inputText id="peempNombre" value="#{registroContolador.currentEmple.peempNombre}" required="true" requiredMessage="Ingrese su Nombre"/>
+                                    <p:message for="peempNombre" />
+
+                                    <p:outputLabel style="font-weight: bold;" value="Apellido: " for="peempApelli" />
+                                    <p:inputText id="peempApelli" value="#{registroContolador.currentEmple.peempApelli}" required="true" requiredMessage="Ingrese su Apellido"/>
+                                    <p:message for="peempApelli" />
+                                </h:panelGrid>
+                            </p:panel>
+                            <br></br>
+                            <p:wizard backLabel="Anterior" nextLabel="Siguiente" >
+                                <p:tab id="personalData" title="Datos Generales" >
+                                    <p:panel>
+                                        <h:panelGrid columns="6" cellpadding="7" >
+                                            <p:outputLabel style="font-weight: bold;" value="Cédula: " for="peempCedula" />
+                                            <p:inputText id="peempCedula" value="#{registroContolador.cedula}" required="false" />
+                                            <p:message for="peempCedula" />
+
+                                            <p:outputLabel style="font-weight: bold;" value="Pasaporte: " for="peempPasapo" />
+                                            <p:inputText id="peempPasapo" value="#{registroContolador.pasaporte}" required="false"/>
+                                            <p:message for="peempPasapo" />
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:tab>
+                                <p:tab id="dateDirection" title="Correo - Teléfono">
+                                    <p:panel>
+                                        <h:panelGrid columns="6" cellpadding="7">
+
+                                            <p:outputLabel style="font-weight: bold;" value="Email: " for="peempEmail" />
+                                            <p:inputText id="peempEmail" value="#{registroContolador.currentEmple.peempEmail}" required="true" requiredMessage="Ingrese su email" >
+                                                <f:validator validatorId="emailValidator"/>
+                                            </p:inputText>
+                                            <p:message for="peempEmail" />
+
+                                            <p:outputLabel style="font-weight: bold;" value="Teléfono: " for="peempTelef" />
+                                            <p:inputText id="peempTelef" value="#{registroContolador.currentEmple.peempTelef}" required="true" requiredMessage="Ingrese su Teléfono"/>
+                                            <p:message for="peempTelef" />
+
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:tab>
+                                <p:tab id="emailTelephone" title="Dirección">
+                                    <p:panel>
+                                        <p:outputLabel style="font-weight: bold;" value="Dirección: " for="peempDirec" />
+                                        <p:inputText id="peempDirec" value="#{registroContolador.direccion}" />
+                                        <p:message for="peempDirec" />
+
+                                    </p:panel>
+                                </p:tab>
+                                <p:tab id="resume" title="F. de nacimiento - Foto">
+                                    <p:panel>
+                                        <h:panelGrid class="d-flex justify-content-center align-items-center" columns="1" cellpadding="7">
+
+                                            <h:panelGrid columns="6" cellpadding="7">
+                                                <p:outputLabel style="font-weight: bold;" value="Fecha de nacimiento: " for="peempFecnac" />
+                                                <p:calendar id="peempFecnac" value="#{registroContolador.currentEmple.peempFecnac}" pattern="MM/dd/yyyy" showButtonPanel="true" required="true" requiredMessage="Ingrese su fecha de Nacimiento"/>
+                                                <p:message for="peempFecnac" />
+
+                                                <p:outputLabel style="font-weight: bold;" value="Foto: " for="peempFoto" />
+                                                <p:fileUpload id="peempFoto" value="#{registroContolador.imagenControlador.file}" 
+                                                              mode="simple" skinSimple="true" allowTypes="/(\.|\/)(png)$/"
+                                                              invalidFileMessage="Formato no permitido, solo se permite fotos png."/>
+                                                <p:message id="msmPeempFoto" for="peempFoto"/>
+                                            </h:panelGrid>
+
+                                            <h:panelGrid class="d-flex justify-content-center align-items-center" columns="3">
+                                                <p:outputLabel id="outputCaptcha" style="font-weight: bold;" value="Captcha: #{registroContolador.captcha}" for="captcha"/>
+                                                <p:inputText id="captcha" value="#{registroContolador.verfCaptcha}" required="true" requiredMessage="Ingrese el código" >
+                                                    <f:validator validatorId="captchaValidator"/>
+                                                </p:inputText>
+                                                <p:message id="msmCapcha" for="captcha" />
+                                            </h:panelGrid>
+
+                                        </h:panelGrid>
+                                        <h:panelGrid class="d-flex justify-content-center align-items-center" columns="2" cellpadding="7">
+
+                                            <p:commandButton id="btnRecord" style="width: 15vw" value="Registrar" icon="pi pi-fw pi-check" actionListener="#{registroContolador.registrarNuevoUsuario()}"
+                                                             update="msmBtnRecord msmCapcha msmPeempFoto outputCaptcha" process="manage-product-content @this" 
+                                                             styleClass="ui-button-success">
+                                            </p:commandButton>
+
+                                            <p:commandButton style="width: 15vw" value="Cancel" icon="pi pi-times" onclick="PF('manageProductDialog').hide()"
+                                                             class="ui-button-secondary" type="button" />
+                                        </h:panelGrid>
+                                        <h:panelGrid class="d-flex justify-content-center align-items-center" columns="1">
+                                            <p:message id="msmBtnRecord" for="btnRecord" />
+                                        </h:panelGrid>
+                                    </p:panel>
+                                </p:tab>
+                            </p:wizard>
+                        </p:outputPanel>
+                    </p:dialog>
+
+                    <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300"
+                                     message="Desea borrar este empleado?" header="Confirmar" severity="warn">
+                        <p:commandButton value="Si" icon="pi pi-check" actionListener="#{peempEmpleController.destroy()}"
+                                         process="@this"
+                                         oncomplete="PF('deleteProductDialog').hide()" />
+                        <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                         onclick="PF('deleteProductDialog').hide()" />
+                    </p:confirmDialog>
+
+                    <p:confirmDialog global="true" showEffect="fade" width="300">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                                         icon="pi pi-times" />
+                    </p:confirmDialog>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+
+</html>

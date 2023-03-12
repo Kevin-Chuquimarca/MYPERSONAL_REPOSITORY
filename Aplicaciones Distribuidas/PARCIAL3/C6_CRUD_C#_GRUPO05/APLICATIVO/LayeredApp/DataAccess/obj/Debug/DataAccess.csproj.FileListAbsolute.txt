@@ -1,0 +1,6 @@
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\DataAccess\bin\Debug\DataAccess.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\DataAccess\bin\Debug\DataAccess.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\DataAccess\obj\Debug\DataAccess.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\DataAccess\obj\Debug\DataAccess.pdb

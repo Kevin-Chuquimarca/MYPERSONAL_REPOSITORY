@@ -1,0 +1,26 @@
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\ProjectNetFramework.exe.config
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\ProjectNetFramework.exe
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\ProjectNetFramework.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\BlC_Standar.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\BlC_Standar.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.AssemblyReference.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.SuggestedBindingRedirects.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.CoreCompileInputs.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.CopyComplete
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.exe
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\System.Data.SqlClient.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01\APLICATIVO\ProjectNetFramework\bin\Debug\System.Data.SqlClient.xml
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\ProjectNetFramework.exe.config
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\ProjectNetFramework.exe
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\ProjectNetFramework.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\BlC_Standar.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\System.Data.SqlClient.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\BlC_Standar.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\bin\Debug\System.Data.SqlClient.xml
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.AssemblyReference.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.SuggestedBindingRedirects.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.CoreCompileInputs.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.csproj.CopyComplete
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.exe
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\01. INTRODUCCION_DOTNET_GRUPO05\APLICATIVO\ProjectNetFramework\obj\Debug\ProjectNetFramework.pdb

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewXeuxpUsupeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewXeuxpUsupeLabel_xeuxpUsupePK_xeuxpFecasi}"/>
+                    <h:outputText value="#{xeuxpUsupeController.selected.xeuxpUsupePK.xeuxpFecasi}" title="#{bundle.ViewXeuxpUsupeTitle_xeuxpUsupePK_xeuxpFecasi}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewXeuxpUsupeLabel_xeuxpFecret}"/>
+                    <h:outputText value="#{xeuxpUsupeController.selected.xeuxpFecret}" title="#{bundle.ViewXeuxpUsupeTitle_xeuxpFecret}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewXeuxpUsupeLabel_xeperPerfi}"/>
+                    <h:outputText value="#{xeuxpUsupeController.selected.xeperPerfi}" title="#{bundle.ViewXeuxpUsupeTitle_xeperPerfi}"/>
+                    <h:outputText value="#{bundle.ViewXeuxpUsupeLabel_xeusuUsuar}"/>
+                    <h:outputText value="#{xeuxpUsupeController.selected.xeusuUsuar}" title="#{bundle.ViewXeuxpUsupeTitle_xeusuUsuar}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{xeuxpUsupeController.destroyAndView}" value="#{bundle.ViewXeuxpUsupeDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewXeuxpUsupeEditLink}"/>
+                <br />
+                <h:commandLink action="#{xeuxpUsupeController.prepareCreate}" value="#{bundle.ViewXeuxpUsupeCreateLink}" />
+                <br />
+                <h:commandLink action="#{xeuxpUsupeController.prepareList}" value="#{bundle.ViewXeuxpUsupeShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewXeuxpUsupeIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

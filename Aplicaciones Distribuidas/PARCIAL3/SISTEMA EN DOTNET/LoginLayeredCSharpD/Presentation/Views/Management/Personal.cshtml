@@ -1,0 +1,465 @@
+﻿@{
+    ViewData["Title"] = "Gestión";
+}
+@Html.Partial("Navbar")
+<div class="container">
+    <div id="app">
+        <h3 class="text-center text-primary">{{titleSection}}</h3>
+        <hr />
+        <div class="table-users">
+            <button class="btn btn-success" v-on:click="showModalAddUser()">Agregar</button>
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Apellido</th>
+                        <th class="text-center">Nombre</th>
+                        <th class="text-center">Cédula</th>
+                        <th class="text-center">Teléfono</th>
+                        <th class="text-center">Correo electrónico</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(row, index) in users" :key="index">
+                        <td class="text-center">{{ row.Id }}</td>
+                        <td class="text-center">{{ row.Lastname }}</td>
+                        <td class="text-center">{{ row.Name }}</td>
+                        <td class="text-center">{{ row.Cedula }}</td>
+                        <td class="text-center">{{ row.Telefono }}</td>
+                        <td class="text-center">{{ row.Email }}</td>
+                        <td class="text-center">
+                            <button class="btn btn-primary mx-2" v-on:click="edit(row, index)">Editar</button>
+                            <button class="btn btn-danger mx-2" v-on:click="showModalDeleteUser(row, index)">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="modal-add-user">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <h5 class="card-header text-center">Agregar Usuario</h5>
+                    <div class="modal-body">
+                        <div class="step-app mt-4" id="demo">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Nombre*</label>
+                                    <input type="text" class="form-control" id="name" maxlength="50">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastname" class="form-label">Apellido*</label>
+                                    <input type="text" class="form-control" id="lastname" maxlength="50">
+                                </div>
+                            </div>
+                            <hr class="mt-4" />
+                            <ul class="step-steps mt-4">
+                                <li data-step-target="step1">Datos generales</li>
+                                <li data-step-target="step2">F. de nacimiento - Foto</li>
+                                <li data-step-target="step2">Dirección</li>
+                                <li data-step-target="step3">Correo - Teléfono</li>
+                            </ul>
+                            <div class="step-content">
+                                <div class="step-tab-panel" data-step="step1">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="identificationCard" class="form-label">Cédula</label>
+                                            <input type="text" class="form-control" id="identificationCard" maxlength="10">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="passport" class="form-label">Pasaporte</label>
+                                            <input type="text" class="form-control" id="passport" maxlength="15">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-tab-panel" data-step="step2">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="birthday" class="form-label">Fecha de nacimiento*</label>
+                                            <input type="date" class="form-control" id="birthday" max="2022-03-08">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="photo" class="form-label">Foto</label>
+                                            <input type="file" class="form-control" id="photo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-tab-panel" data-step="step3">
+                                    <div class="row mt-2">
+                                        <div class="col-md-12">
+                                            <label for="address" class="form-label">Dirección</label>
+                                            <input type="text" class="form-control" id="address" maxlength="200">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-tab-panel" data-step="step4">
+                                    <div class="row mt-2">
+                                        <div class="col-md-6">
+                                            <label for="email" class="form-label">Correo Electrónico*</label>
+                                            <input type="email" class="form-control" id="user-email" maxlength="100">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phoneNumber" class="form-label">Teléfono*</label>
+                                            <input type="text" class="form-control" id="phoneNumber" maxlength="15">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-footer">
+                                <button data-step-action="finish" class="btn btn-success mx-2" v-on:click="showCaptcha">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade" id="modal-captcha">
+            <div class="modal-sm modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <p id="text-captcha"></p>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="captcha">
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-success w-100" v-on:click="sendInformation">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal-update">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <h5 class="card-header text-center">Editar información</h5>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="update-name" v-model="updateId" v-if="false">
+                                <label for="name" class="form-label">Nombre*</label>
+                                <input type="text" class="form-control" id="update-name" maxlength="50" v-model="updateName">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastname" class="form-label">Apellido*</label>
+                                <input type="text" class="form-control" id="update-lastname" maxlength="50" v-model="updateLastname">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="identificationCard" class="form-label">Cédula</label>
+                                <input type="text" class="form-control" id="update-identificationCard" maxlength="10" v-model="updateIdentificationCard">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phoneNumber" class="form-label">Teléfono*</label>
+                                <input type="text" class="form-control" id="update-phoneNumber" maxlength="15" v-model="updatePhoneNumber">
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
+                                <label for="email" class="form-label">Correo Electrónico*</label>
+                                <input type="email" class="form-control" id="update-user-email" maxlength="100" v-model="updateEmail">
+                            </div>
+
+                        </div>
+                        <div class="row mt-4">
+                            <button class="btn btn-success" v-on:click="saveEdit()">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal fade" id="modal-delete-user">
+            <div class="modal modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <h3 class="text-center">¿Seguro desea eliminar al usuario {{this.userDelete}}?</h3>
+                            <div class="col-md-12 mt-4">
+                                <button class="btn btn-danger w-100" v-on:click="deleteUser()">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script type="text/javascript">
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    titleSection: 'Gestión de Usuarios',
+                    captchaGenerate: '',
+                    users: [],
+                    updateId: '',
+                    updateName: '',
+                    updateLastname: '',
+                    updateIdentificationCard: '',
+                    updatePhoneNumber: '',
+                    updateEmail: '',
+                    userUpdate: [],
+                    userDelete: '',
+                    userDeleteId: '',
+                }
+            },
+            methods: {
+                showForm() {
+                    $('#demo').steps({
+                        onFinish: function () { console.log("Enviado") }
+                    });
+                },
+                getUsers() {
+                    fetch('/Management/GetUsers')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.users = data;
+                        })
+                        .catch(error => console.error(error));
+                },
+                getData() {
+                    var email = document.getElementById("user-email").value;
+                    var lastname = document.getElementById("lastname").value;
+                    var name = document.getElementById("name").value;
+                    var birthday = document.getElementById("birthday").value;
+                    var address = document.getElementById("address").value;
+                    var phoneNumber = document.getElementById("phoneNumber").value;
+                    var identificationCard = document.getElementById("identificationCard").value;
+                    var passport = document.getElementById("passport").value;
+                    var photo = document.getElementById("photo").value;
+
+                    var dataUser = {
+                        email,
+                        lastname,
+                        name,
+                        birthday,
+                        address,
+                        phoneNumber,
+                        identificationCard,
+                        passport,
+                        photo
+                    }
+                    return dataUser;
+                },
+                validateData() {
+                    const data = this.getData();
+                    if (data["email"].toString() == "") {
+                        return false;
+                    } else if (data["lastname"].toString() == "") {
+                        return false;
+                    } else if (data["name"].toString() == "") {
+                        return false;
+                    } else if (data["birthday"].toString() == "") {
+                        return false;
+                    } else if (data["phoneNumber"].toString() == "") {
+                        return false;
+                    }
+                    return true;
+                },
+                showCaptcha() {
+                    if (!this.validateData()) {
+                        Swal.fire(
+                            'Los campos con "*" son obligatorios',
+                            '',
+                            'error'
+                        )
+                        return;
+                    }
+                    $('#modal-user').modal('hide');
+                    $('#modal-captcha').modal('show');
+
+                    fetch('/Management/GetCaptcha')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.captchaGenerate = data;
+                            $('#text-captcha').text("Captcha: " + this.captchaGenerate);
+                        })
+                        .catch(error => console.error(error));
+                },
+                getCaptcha() {
+                    var captcha = document.getElementById("captcha").value;
+                    return captcha;
+                },
+                sendInformation() {
+                    var captcha = this.getCaptcha();
+                    var dataUser = this.getData();
+                    if (captcha !== this.captchaGenerate) {
+                        Swal.fire(
+                            'Captcha incorrecto',
+                            '',
+                            'error'
+                        );
+                    } else {
+                        fetch('/Management/RegisterUser', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(dataUser)
+                        })
+                            .then(response => response.text())
+                            .then(data => {
+                                if (data === "true") {
+                                    Swal.fire(
+                                        'Registro exitoso',
+                                        '',
+                                        'success'
+                                    );
+                                    window.location.href = "/Management/Personal";
+                                } else {
+                                    Swal.fire(
+                                        'Error en el registro',
+                                        '',
+                                        'error'
+                                    );
+                                }
+                            })
+                            .catch(error => console.error(error));
+                    }
+                },
+                edit(row, index) {
+                    $('#modal-update').modal('show');
+                    this.updateId = row.Id;
+                    this.updateName = row.Name;
+                    this.updateLastname = row.Lastname;
+                    this.updateIdentificationCard = row.Cedula;
+                    this.updatePhoneNumber = row.Telefono;
+                    this.updateEmail = row.Email;
+                },
+                validateDataUpdate() {
+                    if (this.updateName === '') {
+                        return false;
+                    } else if (this.updateLastname === '') {
+                        return false;
+                    } else if (this.updateEmail === '') {
+                        return false;
+                    }
+                    return true;
+                },
+                saveEdit() {
+                    if (this.validateDataUpdate()) {
+                        const user = {
+                            id: this.updateId,
+                            name: this.updateName,
+                            lastname: this.updateLastname,
+                            identificationCard: this.updateIdentificationCard,
+                            phoneNumber: this.updatePhoneNumber,
+                            email: this.updateEmail
+                        };
+                        fetch('/Management/UpdateUser', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(user)
+                        })
+                            .then(response => response.text())
+                            .then(data => {
+                                if (data === "true") {
+                                    Swal.fire(
+                                        'Actualización exitosa',
+                                        '',
+                                        'success'
+                                    );
+                                    $('#modal-update').modal('hide');
+                                } else {
+                                    Swal.fire(
+                                        'Error en el registro',
+                                        '',
+                                        'error'
+                                    );
+                                }
+                            })
+                            .catch(error => console.error(error));
+                    } else {
+                        Swal.fire(
+                            'Los campos con "*" son obligatorios',
+                            '',
+                            'error'
+                        )
+                    }
+                },
+                showModalAddUser() {
+                    $('#modal-add-user').modal('show');
+                },
+                showModalDeleteUser(row, index) {
+                    this.userDelete = row.Name + " " + row.Lastname;
+                    this.userDeleteId = row.Id;
+                    $('#modal-delete-user').modal('show');
+                },
+                deleteUser() {
+                    if (this.userDeleteId != '') {
+                        const userDelete = {
+                            id: this.userDeleteId
+                        };
+                        fetch('/Management/DeleteUser', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(userDelete)
+                        })
+                            .then(response => response.text())
+                            .then(data => {
+                                if (data === "true") {
+                                    Swal.fire(
+                                        'Se eliminó con exito',
+                                        '',
+                                        'success'
+                                    );
+                                    $('#modal-delete-user').modal('hide');
+                                } else {
+                                    Swal.fire(
+                                        'Error en eliminar al usuario',
+                                        '',
+                                        'error'
+                                    );
+                                }
+                            })
+                            .catch(error => console.error(error));
+                    } else {
+                        console.log("no hay dato");
+                    }
+                }
+            },
+            created() {
+                this.getUsers();
+                this.showForm();
+            },
+            watch: {
+                users(newValue, oldValue) {
+                    this.getUsers();
+                }
+            },
+            mounted() {
+                this.showForm();
+            }
+        }).mount('#app')
+    </script>
+}

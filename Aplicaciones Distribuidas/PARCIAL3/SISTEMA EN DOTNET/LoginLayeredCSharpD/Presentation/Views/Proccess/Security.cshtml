@@ -1,0 +1,364 @@
+﻿@{
+    ViewData["Title"] = "Gestión";
+}
+@Html.Partial("Navbar")
+<div class="container">
+    <div id="app">
+        <h1 class="text-center text-primary">{{titleSection}}</h1>
+        <hr />
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-home-tab"
+                        data-bs-toggle="pill" data-bs-target="#v-pills-home"
+                        type="button" role="tab" aria-controls="v-pills-home"
+                        aria-selected="true">
+                    Perfiles de usuarios
+                </button>
+
+                <button class="nav-link" id="v-pills-profile-tab"
+                        data-bs-toggle="pill" data-bs-target="#v-pills-profile"
+                        type="button" role="tab" aria-controls="v-pills-profile"
+                        aria-selected="false">
+                    Perfil de usuarios
+                </button>
+
+                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill"
+                        data-bs-target="#v-pills-messages" type="button" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false">
+                    Cambiar contraseña
+                </button>
+            </div>
+
+            <div class="tab-content w-100" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                    <table id="table"
+                           data-filter-control="true"
+                           data-pagination="true"
+                           data-show-search-clear-button="true">
+                        <thead>
+                            <tr>
+                                <th data-field="Name" data-filter-control="input">Nombre</th>
+                                <th data-field="Lastname" data-filter-control="input">Apellido</th>
+                                <th data-field="Rol" data-filter-control="input">Perfil</th>
+
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <h3 class="text-center">{{titleUserWithoutRol}}</h3>
+                            <table id="table-users-without-role"
+                                   data-search="true"
+                                   data-click-to-select="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="Id" data-visible="false">ID</th>
+                                        <th data-field="IdRol" data-visible="false">ID Rol</th>
+                                        <th data-field="Name">Nombre</th>
+                                        <th data-field="Lastname">Apellido</th>
+                                        <th data-field="Rol">Perfil</th>
+                                        <th data-field="Password" data-visible="false">Password</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" v-on:click="getSelections()" id="confirmButton">Confirmar Selección</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="select-perfil">{{SelectRol}}</label>
+                            <select class="form-control" id="select-perfil">
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="text-center">{{titleUserWithRol}} {{rol}}</h3>
+                            <table id="table-add-users"
+                                   data-search="true"
+                                   data-click-to-select="true">
+                                <thead>
+                                    <tr>
+                                        <th data-field="Id" data-visible="false"></th>
+                                        <th data-field="IdRol" data-visible="false"></th>
+                                        <th data-field="Name">Nombre</th>
+                                        <th data-field="Lastname">Apellido</th>
+                                        <th data-field="Rol">Perfil</th>
+                                        <th data-field="Password" data-visible="false"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <button class="btn btn-success w-100" v-on:click="sendUsers()">Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">
+                    <h5 class="text-center">{{ProccessChangePassword}}</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="rol" class="form-label">Contraseña nueva</label>
+                            <input type="password" class="form-control" id="change-password">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="rol" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="confirm-password">
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-4">
+                        <button class="btn btn-success w-100" v-on:click="changePassword()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script type="text/javascript">
+
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    titleSection: 'Procesos de Seguridad',
+                    titleUserWithoutRol: 'Usuarios Sin Perfil',
+                    titleUserWithRol: 'Perfil Asignar ',
+                    SelectRol: 'Seleccionar Perfil',
+                    ProccessChangePassword: 'Proceso de cambio de contraseña',
+                    rol: '',
+                    user: [],
+                    roles: [],
+                    users: [],
+                    usersWithoutRol: [],
+                    usersAdd: [],
+                }
+            },
+            methods: {
+                getUser() {
+                    fetch('/Proccess/GetUser')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.user = data;
+                        })
+                        .catch(error => console.error(error));
+                },
+                showTable() {
+                    $('#table').bootstrapTable();
+                    $('#table-users-without-role').bootstrapTable();
+                    $('#table-add-users').bootstrapTable();
+                },
+                getRoles() {
+                    fetch('/Proccess/GetRoles')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.roles = data;
+                            let select = document.getElementById("select-perfil");
+                            this.roles.forEach(item => {
+                                let option = document.createElement("option");
+                                option.value = item.Id;
+                                option.text = item.Description;
+                                select.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getUsers() {
+                    fetch('/Proccess/GetUsers')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.users = data;
+                            console.log(this.users);
+                            $('#table').bootstrapTable({ data: this.users });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getUsersWithoutRol() {
+                    fetch('/Proccess/GetUsersWithoutRol')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.userWithoutRol = data;
+                            $('#table-users-without-role').bootstrapTable({ data: data });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getSelections() {
+                    this.usersAdd = JSON.stringify($('#table-users-without-role').bootstrapTable('getSelections'));
+                    var usersSelected = JSON.parse(this.usersAdd);
+                    this.rol = document.getElementById("select-perfil").selectedOptions[0].textContent;
+
+                    $('#table-add-users').bootstrapTable({ data: usersSelected });
+                },
+                sendUsers() {
+                    var rol = document.getElementById("select-perfil").value;
+                    var data = {
+                        usersAdd: JSON.parse(this.usersAdd),
+                        rol
+                    }
+                    fetch('/Proccess/AssignRole', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(response.statusText);
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            if (data === "true") {
+                                Swal.fire(
+                                    'Cambio exitoso',
+                                    '',
+                                    'success'
+                                );
+                                setTimeout(function () {
+                                    window.location.href = "/Proccess/Security";
+                                }, 1000);
+                            } else {
+                                Swal.fire(
+                                    'Error de asignación de rol',
+                                    '',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            Swal.fire(
+                                'Error de asignación de rol',
+                                error.message,
+                                'error'
+                            );
+                        });
+                },
+                getPasswords() {
+                    var password = document.getElementById("change-password").value;
+                    var confirmPassword = document.getElementById("confirm-password").value;
+                    var passwords = {
+                        password,
+                        confirmPassword,
+                        currentPassword: this.user["password"],
+                    }
+                    return passwords;
+                },
+                validatePassword() {
+                    var passwords = this.getPasswords();
+                    if (passwords["password"] === "" || passwords["confirmPassword"] === "") {
+                        return "0";
+                    } else if (passwords["password"] !== passwords["confirmPassword"]) {
+                        return "1";
+                    }
+                    return "2";
+                },
+                changePassword() {
+                    const identificationError = this.validatePassword();
+                    const passwords = this.getPasswords();
+                    if (identificationError === "0") {
+                        Swal.fire(
+                            'Ingrese todos los campos',
+                            '',
+                            'error'
+                        )
+                        return;
+                    } else if (identificationError === "1") {
+                        Swal.fire(
+                            'Las contraseñas no coinciden',
+                            '',
+                            'error'
+                        )
+                        return;
+                    }
+                    fetch('/Proccess/ChangePassword', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(passwords)
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(response.statusText);
+                            }
+                            return response.text();
+                        })
+                        .then(data => {
+                            if (data === "true") {
+                                Swal.fire(
+                                    'Cambio exitoso',
+                                    '',
+                                    'success'
+                                );
+                                setTimeout(function () {
+                                    window.location.href = "/";
+                                }, 1000);
+                            } else {
+                                Swal.fire(
+                                    'Error de cambio de contraseña',
+                                    '',
+                                    'error'
+                                );
+                            }
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            Swal.fire(
+                                'Error de cambio de contraseña',
+                                error.message,
+                                'error'
+                            );
+                        });
+                },
+
+            },
+            created() {
+                this.getUser();
+                this.showTable();
+                this.getRoles();
+                this.getUsers();
+                this.getUsersWithoutRol();
+            }
+        }).mount('#app')
+    </script>
+}

@@ -1,0 +1,34 @@
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Common.dll
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Common.pdb
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Utils.dll
+C:\Users\Michael\Documents\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Utils.pdb
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Common.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Utils.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Common.pdb
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\bin\Debug\net6.0\Utils.pdb
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\LOGIN EN DOTNET\LoginLayeredCSharpD\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

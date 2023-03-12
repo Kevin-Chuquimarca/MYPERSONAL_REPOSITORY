@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\FORMULARIOS CHINLLE\\SEGUNDO PARCIAL\\HILOS_DOTNET_GRUPO05\\TALLER_HILOS_PRACTICA2\\APLICATIVO\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05.csproj": {}
+  },
+  "projects": {
+    "C:\\FORMULARIOS CHINLLE\\SEGUNDO PARCIAL\\HILOS_DOTNET_GRUPO05\\TALLER_HILOS_PRACTICA2\\APLICATIVO\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FORMULARIOS CHINLLE\\SEGUNDO PARCIAL\\HILOS_DOTNET_GRUPO05\\TALLER_HILOS_PRACTICA2\\APLICATIVO\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05.csproj",
+        "projectName": "171_TALLER_HILOS_GRUPO05",
+        "projectPath": "C:\\FORMULARIOS CHINLLE\\SEGUNDO PARCIAL\\HILOS_DOTNET_GRUPO05\\TALLER_HILOS_PRACTICA2\\APLICATIVO\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05.csproj",
+        "packagesPath": "C:\\Users\\Steven\\.nuget\\packages\\",
+        "outputPath": "C:\\FORMULARIOS CHINLLE\\SEGUNDO PARCIAL\\HILOS_DOTNET_GRUPO05\\TALLER_HILOS_PRACTICA2\\APLICATIVO\\171_TALLER_HILOS_GRUPO05\\171_TALLER_HILOS_GRUPO05\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Steven\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

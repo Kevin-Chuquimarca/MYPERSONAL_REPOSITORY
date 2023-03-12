@@ -1,0 +1,122 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Common\\Common.csproj": {}
+  },
+  "projects": {
+    "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Common\\Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Common\\Common.csproj",
+        "projectName": "Common",
+        "projectPath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+        "outputPath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Utils\\Utils.csproj": {
+                "projectPath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Utils\\Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Utils\\Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Utils\\Utils.csproj",
+        "projectName": "Utils",
+        "projectPath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Utils\\Utils.csproj",
+        "packagesPath": "C:\\Users\\santi\\.nuget\\packages\\",
+        "outputPath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\LOGIN EN DOTNET\\LoginLayeredCSharpD\\Utils\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\santi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

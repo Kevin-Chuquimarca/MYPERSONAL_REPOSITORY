@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <StartupObject>Sub Main</StartupObject>
+    <UseWindowsForms>true</UseWindowsForms>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="My Project\Application.Designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Update="My Project\Resources.Designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="modelo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OperacionesCSharpGrupo05\OperacionesCSharpGrupo05.csproj" />
+    <ProjectReference Include="..\OperacionesFSharpGrupo05\OperacionesFSharpGrupo05.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="OperacionesFSharpExternoDLLGrupo05">
+      <HintPath>..\..\OperacionesFSharpExternoDLLGrupo05\OperacionesFSharpExternoDLLGrupo05\bin\Debug\net6.0\OperacionesFSharpExternoDLLGrupo05.dll</HintPath>
+    </Reference>
+    <Reference Include="OperacionesFSharpExternoEXEGrupo05">
+      <HintPath>..\..\OperacionesFSharpExternoEXEGrupo05\OperacionesFSharpExternoEXEGrupo05\bin\Debug\net6.0\OperacionesFSharpExternoEXEGrupo05.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="My Project\Resources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

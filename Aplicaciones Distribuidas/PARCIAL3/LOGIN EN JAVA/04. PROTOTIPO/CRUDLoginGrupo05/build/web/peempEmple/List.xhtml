@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPeempEmpleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+        <h:form styleClass="jsfcrud_list_form">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListPeempEmpleEmpty}" rendered="#{peempEmpleController.items.rowCount == 0}"/>
+            <h:panelGroup rendered="#{peempEmpleController.items.rowCount > 0}">
+                <h:outputText value="#{peempEmpleController.pagination.pageFirstItem + 1}..#{peempEmpleController.pagination.pageLastItem + 1}/#{peempEmpleController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{peempEmpleController.previous}" value="#{bundle.Previous} #{peempEmpleController.pagination.pageSize}" rendered="#{peempEmpleController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{peempEmpleController.next}" value="#{bundle.Next} #{peempEmpleController.pagination.pageSize}" rendered="#{peempEmpleController.pagination.hasNextPage}"/>&nbsp;
+                <h:dataTable value="#{peempEmpleController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempCodigo}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempCodigo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempApelli}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempApelli}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempNombre}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempNombre}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempFecnac}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempFecnac}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempFecsal}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempFecsal}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempDirec}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempDirec}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempTelef}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempTelef}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempEmail}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempEmail}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempCedula}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempCedula}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempFoto}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempFoto}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempCarfam}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempCarfam}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{bundle.ListPeempEmpleTitle_peempPasapo}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.peempPasapo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{peempEmpleController.prepareView}" value="#{bundle.ListPeempEmpleViewLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{peempEmpleController.prepareEdit}" value="#{bundle.ListPeempEmpleEditLink}"/>
+                        <h:outputText value=" "/>
+                        <h:commandLink action="#{peempEmpleController.destroy}" value="#{bundle.ListPeempEmpleDestroyLink}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:panelGroup>
+            <br />
+            <h:commandLink action="#{peempEmpleController.prepareCreate}" value="#{bundle.ListPeempEmpleCreateLink}"/>
+            <br />
+            <br />
+            <h:link outcome="/index" value="#{bundle.ListPeempEmpleIndexLink}"/>
+        </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

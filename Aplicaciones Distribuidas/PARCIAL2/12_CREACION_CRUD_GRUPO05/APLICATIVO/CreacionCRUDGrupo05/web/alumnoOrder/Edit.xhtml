@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAlumnoOrderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAlumnoOrderLabel_alumnoOrderId}" for="alumnoOrderId" />
+                    <h:inputText id="alumnoOrderId" value="#{alumnoOrderController.selected.alumnoOrderId}" title="#{bundle.EditAlumnoOrderTitle_alumnoOrderId}" required="true" requiredMessage="#{bundle.EditAlumnoOrderRequiredMessage_alumnoOrderId}"/>
+                    <h:outputLabel value="#{bundle.EditAlumnoOrderLabel_alumnoId}" for="alumnoId" />
+                    <h:inputText id="alumnoId" value="#{alumnoOrderController.selected.alumnoId}" title="#{bundle.EditAlumnoOrderTitle_alumnoId}" />
+                    <h:outputLabel value="#{bundle.EditAlumnoOrderLabel_orderNumero}" for="orderNumero" />
+                    <h:inputText id="orderNumero" value="#{alumnoOrderController.selected.orderNumero}" title="#{bundle.EditAlumnoOrderTitle_orderNumero}" />
+                    <h:outputLabel value="#{bundle.EditAlumnoOrderLabel_orderDescription}" for="orderDescription" />
+                    <h:inputText id="orderDescription" value="#{alumnoOrderController.selected.orderDescription}" title="#{bundle.EditAlumnoOrderTitle_orderDescription}" />
+                    <h:outputLabel value="#{bundle.EditAlumnoOrderLabel_itemId}" for="itemId" />
+                    <h:inputText id="itemId" value="#{alumnoOrderController.selected.itemId}" title="#{bundle.EditAlumnoOrderTitle_itemId}" />
+                </h:panelGrid>
+                <h:commandLink action="#{alumnoOrderController.update}" value="#{bundle.EditAlumnoOrderSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAlumnoOrderViewLink}"/>
+                <br />
+                <h:commandLink action="#{alumnoOrderController.prepareList}" value="#{bundle.EditAlumnoOrderShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAlumnoOrderIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

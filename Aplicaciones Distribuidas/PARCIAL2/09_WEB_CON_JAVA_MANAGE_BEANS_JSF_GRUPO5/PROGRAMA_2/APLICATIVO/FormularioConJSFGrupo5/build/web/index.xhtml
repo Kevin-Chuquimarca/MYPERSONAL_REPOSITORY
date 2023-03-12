@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./plantilla.xhtml">
+
+            <ui:define name="top">
+                <h2>Bienvenido a nuestro sitio</h2>
+            </ui:define>
+
+            <ui:define name="left">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li>
+                        <h:outputLink value="https://www.java.com/es/">
+                            <h:outputText value="Página oficial de Java"/>
+                        </h:outputLink>
+                    </li>
+                    <li>
+                        <h:outputLink value="https://docs.oracle.com/en/java/">
+                            <h:outputText value="Tutorial de Java de la página oficial de Oracle"/>
+                        </h:outputLink>
+                    </li>
+                    <li>
+                        <h:outputLink value="https://docs.oracle.com/en/java/javase/index.html">
+                            <h:outputText value="Java Trail en la página oficial de Oracle"/>
+                        </h:outputLink>
+                    </li>
+                    <li>
+                        <h:outputLink value="https://www.oracle.com/java/technologies/java-server-faces.html">
+                            <h:outputText value="Página oficial de JSF"/>
+                        </h:outputLink>
+                    </li>
+                    <li>
+                        <h:outputLink value="https://docs.oracle.com/javaee/6/tutorial/doc/gjsf5.html">
+                            <h:outputText value="Tutorial de JSF de la página oficial de Oracle"/>
+                        </h:outputLink>
+                    </li>
+                </ul>
+            </ui:define>
+
+            <ui:define name="content">
+                <p>JSF (JavaServer Faces) es un framework de desarrollo de aplicaciones web basado en Java que proporciona un conjunto de componentes y herramientas para facilitar el desarrollo de interfaces de usuario para aplicaciones web. Una de las características clave de JSF es la utilización de plantillas, que permiten a los desarrolladores crear una estructura de diseño reutilizable y separar la lógica de la interfaz de usuario de la presentación visual de la aplicación.</p>
+                <p>Las plantillas en JSF se definen mediante archivos de vista XHTML que contienen marcado y contenido estático, así como elementos de enlace a componentes dinámicos del framework. Estos elementos de enlace se denominan "etiquetas JSF" y se utilizan para insertar componentes JSF en la plantilla. Los componentes JSF pueden ser de diferentes tipos, como formularios, botones, menús o grillas de datos, y se utilizan para gestionar la interacción del usuario con la aplicación y para mostrar datos dinámicos en la interfaz de usuario.</p>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

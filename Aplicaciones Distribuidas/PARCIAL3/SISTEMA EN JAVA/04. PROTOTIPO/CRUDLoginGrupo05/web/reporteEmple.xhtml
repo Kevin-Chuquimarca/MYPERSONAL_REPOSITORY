@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h2>Reporte de Empleados</h2>
+        <h:form>
+            <p:toolbar>
+                <p:toolbarGroup>
+                    <p:linkButton style="margin-right: .5rem" icon="pi pi-arrow-left" styleClass="ui-button-secondary" value="Regresar" outcome="/usuario" />
+                    <p:commandButton value="Generar Reporte" icon="pi pi-file-pdf" action="#{reporteEmpleContolador.generarReportePdf}" />
+                </p:toolbarGroup>
+            </p:toolbar>
+
+            <p:panel>
+
+                <p:dataTable id="empleados" var="emple" value="#{reporteEmpleContolador.empleados}" widgetVar="customersTable3"
+                             emptyMessage="No se encontraron coincidencias."
+                             filteredValue="#{reporteEmpleContolador.selectedEmpleados}"
+                             globalFilterFunction="#{reporteEmpleContolador.globalFilterFunction}"
+                             selection="#{reporteEmpleContolador.selectedEmpleados}" reflow="true"
+                             rowKey="#{emple.peempCodigo}" paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom">
+
+                    <f:facet name="header">
+                        <div class="flex justify-content-end">
+                            <span style="font-weight: bold">EMPLEADOS </span>
+                            <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                                <p:inputText id="globalFilter" onkeyup="PF('customersTable3').filter()" style="width:300px"
+                                             placeholder="Buscar" />
+                            </span>
+                        </div>
+                    </f:facet>
+
+                    <p:column headerText="Apellido">
+                        <h:outputText value="#{emple.peempApelli}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{emple.peempNombre}" />
+                    </p:column>
+                    <p:column headerText="Fecha de Nacimiento">
+                        <h:outputText value="#{emple.peempFecnac.year + 1900}" />
+                    </p:column>
+                    <p:column headerText="Correo Electrónico">
+                        <h:outputText value="#{emple.peempEmail}" />
+                    </p:column>
+                    <p:column headerText="Cédula">
+                        <h:outputText value="#{emple.peempCedula}" />
+                    </p:column>
+                    <p:column headerText="Carga Familiar">
+                        <h:outputText value="#{emple.peempCarfam}" />
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAlumnoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAlumnoLabel_alumnoId}"/>
+                    <h:outputText value="#{alumnoController.selected.alumnoId}" title="#{bundle.ViewAlumnoTitle_alumnoId}"/>
+                    <h:outputText value="#{bundle.ViewAlumnoLabel_nombre}"/>
+                    <h:outputText value="#{alumnoController.selected.nombre}" title="#{bundle.ViewAlumnoTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewAlumnoLabel_primerApellido}"/>
+                    <h:outputText value="#{alumnoController.selected.primerApellido}" title="#{bundle.ViewAlumnoTitle_primerApellido}"/>
+                    <h:outputText value="#{bundle.ViewAlumnoLabel_segundoApellido}"/>
+                    <h:outputText value="#{alumnoController.selected.segundoApellido}" title="#{bundle.ViewAlumnoTitle_segundoApellido}"/>
+                    <h:outputText value="#{bundle.ViewAlumnoLabel_email}"/>
+                    <h:outputText value="#{alumnoController.selected.email}" title="#{bundle.ViewAlumnoTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{alumnoController.destroyAndView}" value="#{bundle.ViewAlumnoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAlumnoEditLink}"/>
+                <br />
+                <h:commandLink action="#{alumnoController.prepareCreate}" value="#{bundle.ViewAlumnoCreateLink}" />
+                <br />
+                <h:commandLink action="#{alumnoController.prepareList}" value="#{bundle.ViewAlumnoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAlumnoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

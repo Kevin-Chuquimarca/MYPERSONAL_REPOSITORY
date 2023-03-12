@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./template.xhtml">
+        <ui:define name="top">
+            <h2>Datos personalizados del alumno</h2>
+        </ui:define>
+        <ui:define name="content">
+            <h:form id="form">
+                <h:panelGrid columns="1" style="width: 100%">
+                    <p:wizard id="wizard">
+                        <p:tab title="Información Personal" id="infoPersonal">
+                            <p:panel header="Información Personal">
+                                <p:messages/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel for="nombre" value="Nombre" styleClass="requiredLbl"/>
+                                    <h:inputText id="nombre" label="Nombre" value="#{alumno.nombre}" required="true"/>
+                                    <h:outputLabel for="primerApellido" value="Primer Apellido" styleClass="optionalLbl"/>
+                                    <h:inputText id="primerApellido" label="Primer Apellido" value="#{alumno.primerApellido}"/>
+                                    <h:outputLabel for="segundoApellido" value="Segundo Apellido" styleClass="requiredLbl"/>
+                                    <h:inputText id="segundoApellido" label="Segundo Apellido" value="#{alumno.segundoApellido}" required="true"/>
+                                    <h:outputLabel for="fechaNacimiento" value="Fecha de Nacimiento" styleClass="optionalLbl"/>
+                                    <p:calendar id="fechaNacimiento" value="#{alumno.fechaNacimiento}" showOn="button" inputStyle="width:100px;" navigator="true"/>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab title="Dirección" id="direccion">
+                            <p:panel header="Dirección">
+                                <p:messages/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel for="linea1" value="Linea 1" styleClass="requiredLbl"/>
+                                    <h:inputText id="linea1" value="#{alumno.dirLinea1}" required="true"/>
+                                    <h:outputLabel for="linea2" value="Linea 2" styleClass="optionalLbl"/>
+                                    <h:inputText id="linea2" value="#{alumno.dirLinea2}"/>
+                                    <h:outputLabel for="ciudad" value="Ciudad" styleClass="requiredLbl"/>
+                                    <h:inputText id="ciudad" value="#{alumno.dirCiudad}" required="true"/>
+                                    <h:outputLabel for="provincia" value="Provincia" styleClass="requiredLbl"/>
+                                    <h:selectOneMenu id="provincia" value="#{alumno.dirProvincia}" required="true">
+                                        <f:selectItem itemValue="" itemLabel=""/>
+                                        <f:selectItem itemValue="MA" itemLabel="Madrid"/>
+                                        <f:selectItem itemValue="BA" itemLabel="Barcelona"/>
+                                        <f:selectItem itemValue="SE" itemLabel="Sevilla"/>
+                                        <f:selectItem itemValue="ZA" itemLabel="Zaragoza"/>
+                                    </h:selectOneMenu>
+                                    <h:outputLabel for="cp" value="cp" styleClass="requiredLbl"/>
+                                    <h:inputText id="cp" value="#{alumno.dirCp}" required="true"/>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab title="Número Teléfono" id="telefono">
+                            <p:panel header="Números Teléfono">
+                                <p:messages/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel for="telefonoCasa" value="Casa"/>
+                                    <p:inputMask id="telefonoCasa" mask="(999)-999-9999" value="#{alumno.telefonoCasa}" size="12" styleClass="optionalLbl"/>
+                                    <h:outputLabel for="telefonoMovil" value="Móvil"/>
+                                    <p:inputMask id="telefonoMovil" mask="(999)-999-9999" value="#{alumno.telefonoMovil}" size="12" styleClass="optionalLbl"/>
+                                    <h:outputLabel for="telefonoTrabajo" value="Trabajo"/>
+                                    <p:inputMask id="workPhone" mask="(999)-999-9999" value="#{alumno.telefonoTrabajo}" size="12" styleClass="optionalLbl"/>
+                                </h:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab title="Confirmación" id="confirmacion">
+                            <p:messages/>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Nombre" styleClass="optionalLbl"/>
+                                <h:outputText id="nombreTxt" value="#{alumno.nombre}"/>
+                                <h:outputText value="Primer Apellido" styleClass="optionalLbl"/>
+                                <h:outputText id="primerApellidoTxt" value="#{alumno.primerApellido}"/>
+                                <h:outputText value="Segundo Apellido" styleClass="optionalLbl"/>
+                                <h:outputText id="segundoApellidoTxt" value="#{alumno.segundoApellido}"/>
+                                <h:outputText value="Fecha de Nacimiento" styleClass="optionalLbl"/>
+                                <h:outputText id="fechaNacimientoTxt" value="#{alumno.fechaNacimiento}"/>
+                                <h:outputText value="Teléfono Casa" styleClass="optionalLbl"/>
+                                <h:outputText id="telefonoCasaTxt" value="#{alumno.telefonoCasa}"/>
+                                <h:outputText value="Teléfono Móvil" styleClass="optionalLbl"/>
+                                <h:outputText id="telefonoMovilTxt" value="#{alumno.telefonoMovil}"/>
+                                <h:outputText value="Teléfono Trabajo" styleClass="optionalLbl"/>
+                                <h:outputText id="telefonoTrabajoTxt" value="#{alumno.telefonoTrabajo}"/>
+                                <h:panelGroup/>
+                                <h:inputHidden value="#{alumno.dirProvincia}"/>
+                                <p:commandButton id="submitButton" value="Guardar" actionListener="#{alumnoControlador.guardarAlumno}" ajax="false"/>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:wizard>
+                </h:panelGrid>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

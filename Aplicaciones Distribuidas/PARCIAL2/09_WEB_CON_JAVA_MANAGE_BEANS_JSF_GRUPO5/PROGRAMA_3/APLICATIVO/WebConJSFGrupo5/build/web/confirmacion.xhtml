@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Página de confirmación</title>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+    </h:head>
+    <h:body>
+        <h2>Página de confirmación</h2>
+        <h:panelGrid columns="2" columnClasses=".alinder-bold,normal">
+            <h:outputText value="Saludo: "/>
+            <h:outputText value="#{registrationBeanController.getRegistrationBean().saludo}"/>
+            <h:outputText value="Nombre: "/>
+            <h:outputText value="#{registrationBeanController.getRegistrationBean().nombre}"/>
+            <h:outputText value="Apellido: "/>
+            <h:outputText value="#{registrationBeanController.getRegistrationBean().apellido}"/>
+            <h:outputText value="Edad: "/>
+            <h:outputText value="#{registrationBeanController.getRegistrationBean().edad}"/>
+            <h:outputText value="Email: "/>
+            <h:outputText value="#{registrationBeanController.getRegistrationBean().email}"/>
+        </h:panelGrid>
+    </h:body>
+</html>

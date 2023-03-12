@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Página de bienvenida</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    </h:head>
+    <h:body>
+        <div class="card">
+            <h:form>
+                <p:growl id="messages"/>
+
+                <p:menubar>
+                    <p:submenu label="Archivo" icon="pi pi-fw pi-users">
+                        <p:menuitem value="Conectar" icon="pi pi-fw pi-trash"/>
+                        <p:menuitem value="Desconectar" icon="pi pi-fw pi-trash"/>
+                        <p:divider />
+                        <p:menuitem value="Importar" icon="pi pi-fw pi-window-minimize"/>
+                        <p:menuitem value="Exportar" icon="pi pi-fw pi-external-link"/>
+                        <p:divider />
+                        <p:menuitem value="Salir" icon="pi pi-power-off"/>
+                    </p:submenu>
+
+                    <p:submenu label="Edición" icon="pi pi-fw pi-briefcase">
+                        <p:menuitem value="Copiar" icon="pi pi-fw pi-copy"/>
+                        <p:menuitem value="Cortar" icon="pi pi-fw pi-times"/>
+                        <p:menuitem value="Pegar" icon="pi pi-fw pi-check"/>
+                        <p:menuitem value="Buscar" icon="pi pi-fw pi-search"/>
+                        <p:menuitem value="Remplazar" icon="pi pi-fw pi-refresh"/>
+                    </p:submenu>
+
+                    <p:submenu label="Gestión" icon="pi pi-fw pi-lock">
+                        <p:submenu label="Personal" icon="pi pi-fw pi-users">
+                            <p:menuitem value="Empleado" onclick="PF('recordUserModal').show()" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Sexo" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Departamento" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Cargo" icon="pi pi-fw pi-bars"/>
+                        </p:submenu>
+                        <p:submenu label="Finanzas" icon="pi pi-fw pi-users">
+                            <p:menuitem value="Plan de cuentas" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Clientes" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Bancos" icon="pi pi-fw pi-bars"/>
+                        </p:submenu>
+                        <p:submenu label="Seguridad" icon="pi pi-fw pi-users">
+                            <p:menuitem value="Usuario" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Perfiles" action="asignacionPerfiles" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Sistemas" icon="pi pi-fw pi-bars"/>
+                        </p:submenu>
+                        <p:submenu label="Proyecto" icon="pi pi-fw pi-users">
+                            <p:menuitem value="Proyectos" icon="pi pi-fw pi-bars"/>
+                            <p:menuitem value="Tipos de Proyecto" icon="pi pi-fw pi-bars"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Proceso" icon="pi pi-fw pi-th-large">
+                        <p:submenu label="Personal" icon="pi pi-fw pi-pencil">
+                            <p:menuitem value="Rol de pagos" icon="pi pi-fw pi-calendar-plus"/>
+                        </p:submenu>
+                        <p:submenu label="Finanzas" icon="pi pi-fw pi-calendar-times">
+                            <p:menuitem value="Presupuesto" icon="pi pi-fw pi-calendar-minus"/>
+                            <p:menuitem value="Incentivo" icon="pi pi-fw pi-calendar-minus"/>
+                        </p:submenu>
+                        <p:submenu label="Seguridad" icon="pi pi-fw pi-calendar-times">
+                        </p:submenu>
+                        <p:submenu label="Proyecto" icon="pi pi-fw pi-calendar-times">
+                            <p:menuitem value="Planificación de proyectos" icon="pi pi-fw pi-calendar-minus"/>
+                        </p:submenu>
+                    </p:submenu>
+
+                    <p:submenu label="Reportes" icon="pi pi-fw pi-th-large">
+                        <p:menuitem value="Personal" action="reporteEmple" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Finzanzas" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Seguridad" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Proyectos" icon="pi pi-fw pi-calendar-plus"/>
+                    </p:submenu>
+
+                    <p:submenu label="Ayuda" icon="pi pi-fw pi-th-large">
+                        <p:menuitem value="Acera de" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Índice" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Ayuda en línea" icon="pi pi-fw pi-calendar-plus"/>
+                    </p:submenu>
+
+                    <p:divider layout="vertical"/>
+
+                    <f:facet name="options">
+                        <p:menuitem>
+                            <p:splitButton styleClass="ui-button-secondary" value="#{usuarioControlador.currentEmple.peempNombre} #{usuarioControlador.currentEmple.peempApelli}" action="usuario" update="messages" icon="pi pi-user">
+                                <p:submenu label="#{usuarioControlador.cargo}">
+                                    <p:menuitem value="Acerda de" action="usuario" update="messages" icon="pi pi-refresh"/>
+                                    <p:menuitem value="Cambio de contraseña" action="usuario" ajax="false" icon="pi pi-times"/>
+                                </p:submenu>
+                                <p:divider />
+                                <p:menuitem value="Cerrar Sesión" icon="pi pi-sign-out" action="#{usuarioControlador.salir()}" />
+                            </p:splitButton>
+                        </p:menuitem>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+
+        <h:form>
+            <h2 style="font-weight: bold; font-size: 4rem;" class="text-center">Grupo 05</h2>
+            <h:panelGrid class="border-0" columns="2">
+
+                <h:panelGrid class="m-5 d-flex justify-content-center align-items-center flex-direction-column" columns="1">
+                    <p:graphicImage class="rounded-circle m-3" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/img/#{usuarioControlador.currentEmple.peempFoto}.png" height="200" width="200" title="Foto de perfil" />
+                    <br/>
+                    <h:outputText style="font-weight: bold;" value="Bienvenido #{usuarioControlador.currentEmple.peempNombre} #{usuarioControlador.currentEmple.peempApelli}" />
+                    <h:panelGrid class="d-flex justify-content-center align-items-center flex-direction-column" rendered="#{usuarioControlador.mostrarPanels[0]}" columns="1">
+                        <p:commandButton style="width: 8vw" value="Ventas" type="button" onclick="PF('recordUserModal').show();" />
+                        <p:outputPanel style="border-bottom: 1px solid #000;" />
+                        <p:commandButton style="width: 8vw" value="Proyectos"/>
+                        <p:outputPanel style="border-bottom: 1px solid #000;" />
+                        <p:commandButton style="width: 8vw" value="Productos" />
+                        <p:outputPanel style="border-bottom: 1px solid #000;" />
+                        <p:commandButton style="width: 8vw" styleClass="ui-button-secondary" value="Salir" action="#{usuarioControlador.salir}" />
+                    </h:panelGrid>
+                    <h:panelGrid rendered="#{usuarioControlador.mostrarPanels[1]}" columns="1">
+                        <h:commandButton style="width: 8vw" value="Ventas" />
+                        <p:outputPanel style="border-bottom: 1px solid #000;" />
+                        <h:commandButton style="width: 8vw" value="Proyectos"/>
+                        <p:outputPanel style="border-bottom: 1px solid #000;" />
+                    </h:panelGrid>
+                    <h:panelGrid rendered="#{usuarioControlador.mostrarPanels[2]}" columns="1">
+                        <h:commandButton style="width: 8vw" value="Productos" />
+                        <p:outputPanel style="border-bottom: 1px solid #000;" />
+                    </h:panelGrid>
+                </h:panelGrid>
+
+                <h:panelGrid style="margin: 0 0vw;" columns="1">
+                    <p:outputLabel style="font-weight: bold;" value="Cargo: "/>
+                    <h:outputText value="#{usuarioControlador.cargo}" />
+                    <br/>
+                    <p:outputLabel style="font-weight: bold;" value="Cédula: "/>
+                    <h:outputText value="#{usuarioControlador.currentEmple.peempCedula}" />
+                    <br/>
+                    <p:outputLabel style="font-weight: bold;" value="Correo electrónico: "/>
+                    <h:outputText value="#{usuarioControlador.currentEmple.peempEmail}" />
+                    <br/>
+                    <p:outputLabel style="font-weight: bold;" value="Teléfono: "/>
+                    <h:outputText value="#{usuarioControlador.currentEmple.peempTelef}" />
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+
+        <h:form id="form" enctype="multipart/form-data">
+            <p:dialog header="Registro de usuarios" widgetVar="recordUserModal" showEffect="fade" modal="true">
+                <p:panelGrid columns="2" >
+                    <h:panelGrid id="grid" columns="3" cellpadding="7">
+                        <p:outputLabel style="font-weight: bold;" value="Código: " for="peempCodigo" />
+                        <p:inputText id="peempCodigo" value="#{registroContolador.currentEmple.peempCodigo}" required="true" requiredMessage="Ingrese su Codigo"/>
+                        <p:message for="peempCodigo" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Apellido: " for="peempApelli" />
+                        <p:inputText id="peempApelli" value="#{registroContolador.currentEmple.peempApelli}" required="true" requiredMessage="Ingrese su Apellido"/>
+                        <p:message for="peempApelli" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Nombre: " for="peempNombre" />
+                        <p:inputText id="peempNombre" value="#{registroContolador.currentEmple.peempNombre}" required="true" requiredMessage="Ingrese su Nombre"/>
+                        <p:message for="peempNombre" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Fecha de nacimiento: " for="peempFecnac" />
+                        <p:calendar id="peempFecnac" value="#{registroContolador.currentEmple.peempFecnac}" pattern="MM/dd/yyyy" showButtonPanel="true" required="true" requiredMessage="Ingrese su fecha de Nacimiento"/>
+                        <p:message for="peempFecnac" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Dirección: " for="peempDirec" />
+                        <p:inputText id="peempDirec" value="#{registroContolador.currentEmple.peempDirec}" required="true" requiredMessage="Ingrese su Dirección"/>
+                        <p:message for="peempDirec" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Email: " for="peempEmail" />
+                        <p:inputText id="peempEmail" value="#{registroContolador.currentEmple.peempEmail}" required="true" requiredMessage="Ingrese su email" >
+                            <f:validator validatorId="emailValidator"/>
+                        </p:inputText>
+                        <p:message for="peempEmail" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Teléfono: " for="peempTelef" />
+                        <p:inputText id="peempTelef" value="#{registroContolador.currentEmple.peempTelef}" required="true" requiredMessage="Ingrese su Teléfono"/>
+                        <p:message for="peempTelef" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Cédula: " for="peempCedula" />
+                        <p:inputText id="peempCedula" value="#{registroContolador.currentEmple.peempCedula}" required="true" requiredMessage="Ingrese su Cédula" >
+                            <f:validator validatorId="cDValidator"/>
+                        </p:inputText>
+                        <p:message for="peempCedula" />
+                    </h:panelGrid>
+                    <h:panelGrid id="grid1" columns="3" cellpadding="7">
+                        <p:outputLabel style="font-weight: bold;" value="Foto: " for="peempFoto" />
+                        <p:fileUpload id="peempFoto" value="#{registroContolador.imagenControlador.file}" 
+                                      mode="simple" skinSimple="true" allowTypes="/(\.|\/)(png)$/"
+                                      invalidFileMessage="Formato no permitido, solo se permite fotos png."
+                                      required="true" requiredMessage="Ingrese su foto de Perfil"/>
+
+                        <p:message for="peempFoto"/>
+
+                        <p:outputLabel style="font-weight: bold;" value="Fecha de salida: " for="peempFecsal" />
+                        <p:calendar id="peempFecsal" value="#{registroContolador.currentEmple.peempFecsal}" pattern="MM/dd/yyyy" showButtonPanel="true" required="true" requiredMessage="Ingrese su fecha de Salida"/>
+                        <p:message for="peempFecsal" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Carga Familiar: " for="peempCarfam" />
+                        <p:inputText id="peempCarfam" value="#{registroContolador.currentEmple.peempCarfam}" required="true" requiredMessage="Ingrese su Carga Familiar"/>
+                        <p:message for="peempCarfam" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Pasaporte: " for="peempPasapo" />
+                        <p:inputText id="peempPasapo" value="#{registroContolador.currentEmple.peempPasapo}" required="true" requiredMessage="Ingrese su Pasaporte"/>
+                        <p:message for="peempPasapo" />
+
+                        <p:outputLabel style="font-weight: bold;" value="Rol" for="xeperPerfi"/>
+                        <p:selectOneMenu id="xeperPerfi" value="#{registroContolador.currentPerfi}" required="true" requiredMessage="Selecione el perfil del usuario" >
+                            <f:selectItems value="#{registroContolador.roles}"/>
+                        </p:selectOneMenu>
+                        <p:message for="xeperPerfi" />
+                    </h:panelGrid>
+                    <h:panelGrid id="grid2" columns="3" cellpadding="7">
+                        <p:outputLabel style="font-weight: bold;" value="Captcha: #{registroContolador.captcha}" for="captcha"/>
+                        <p:inputText id="captcha" value="#{registroContolador.verfCaptcha}" required="true" requiredMessage="Ingrese el código" >
+                            <f:validator validatorId="captchaValidator"/>
+                        </p:inputText>
+                        <p:message for="captcha" />
+                    </h:panelGrid>
+                    <h:panelGrid class="border-0 d-flex justify-content-center align-items-center">
+                        <p:commandButton id="btnRecord" style="width: 20vw" styleClass="ui-button-success" update="grid grid1 grid2 messagesA" value="Registrar" action="#{registroContolador.registrarNuevoUsuario}" />
+                    </h:panelGrid>
+                </p:panelGrid>
+                <p:messages for="btnRecord" id="messagesA"/>
+            </p:dialog>
+        </h:form>
+
+        <h:form>
+            <p:dialog header="Cambiar Contraseña" widgetVar="miModal" modal="true">
+                <h:panelGrid columns="1">
+                    <p:outputLabel value="Nueva Contraseña" for="nuevaContrasenia" />
+                    <p:password id="nuevaContrasenia" value="#{usuarioControlador.nuevaContrasenia}" required="true" requiredMessage="Ingrese su nueva contraseña"/>
+                    <p:outputLabel value="Verficar Contraseña" for="verfContrasenia" />
+                    <p:password id="verfContrasenia" value="#{usuarioControlador.verfContrasenia}" required="true" requiredMessage="Ingrese su nueva contraseña"/>
+                    <p:commandButton value="Confirmar" action="#{usuarioControlador.cambiarContrasenia()}" />
+                </h:panelGrid>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

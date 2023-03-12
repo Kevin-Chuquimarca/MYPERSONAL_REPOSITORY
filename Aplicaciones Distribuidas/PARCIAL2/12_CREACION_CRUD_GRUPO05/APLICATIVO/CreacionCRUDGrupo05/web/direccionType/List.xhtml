@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDireccionTypeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDireccionTypeEmpty}" rendered="#{direccionTypeController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{direccionTypeController.items.rowCount > 0}">
+                    <h:outputText value="#{direccionTypeController.pagination.pageFirstItem + 1}..#{direccionTypeController.pagination.pageLastItem + 1}/#{direccionTypeController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{direccionTypeController.previous}" value="#{bundle.Previous} #{direccionTypeController.pagination.pageSize}" rendered="#{direccionTypeController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{direccionTypeController.next}" value="#{bundle.Next} #{direccionTypeController.pagination.pageSize}" rendered="#{direccionTypeController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{direccionTypeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDireccionTypeTitle_direccionTypeId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionTypeId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDireccionTypeTitle_direccionTypeCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionTypeCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDireccionTypeTitle_direccionTypeText}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionTypeText}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{direccionTypeController.prepareView}" value="#{bundle.ListDireccionTypeViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{direccionTypeController.prepareEdit}" value="#{bundle.ListDireccionTypeEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{direccionTypeController.destroy}" value="#{bundle.ListDireccionTypeDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{direccionTypeController.prepareCreate}" value="#{bundle.ListDireccionTypeCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDireccionTypeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

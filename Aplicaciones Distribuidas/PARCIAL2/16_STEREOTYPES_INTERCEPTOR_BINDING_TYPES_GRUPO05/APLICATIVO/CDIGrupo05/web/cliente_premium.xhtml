@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Crear nuevo cliente Premium</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel for="nombre" value="Nombre:" />
+                <h:inputText id="nombre" value="#{clientePremium.nombre}" />
+                <h:message for="nombre" />
+                <h:outputLabel for="primerApellido" value="Primer Apellido:" />
+                <h:inputText id="primerApellido" value="#{clientePremium.primerApellido}" />
+                <h:message for="primerApellido" />
+                <h:outputLabel for="segundoApellido" value="Segundo Apellido:" />
+                <h:inputText id="segundoApellido" value="#{clientePremium.segundoApellido}" />
+                <h:message for="segundoApellido" />
+                <h:outputLabel for="email" value="Email:" />
+                <h:inputText id="email" value="#{clientePremium.email}" />
+                <h:message for="email" />
+                 <h:outputLabel for="codigoDescuento" value="Código Descuento:" />
+                <h:inputText id="codigoDescuento" value="#{clientePremium.codigoDescuento}" />
+                <h:message for="email" />
+                <h:panelGroup />
+                <h:commandButton value="Enviar" action="#{clientePremiumControlador.salvarCliente}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

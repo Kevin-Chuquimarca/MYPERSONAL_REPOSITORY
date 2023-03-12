@@ -1,0 +1,131 @@
+﻿@using Common.Cache;
+<div class="container">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Application" asp-action="Index">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item dropdown">
+                        @for (int i = 0; i < Common.Cache.Positions.Id.Count; i++)
+                        {
+                            if (Common.Cache.Positions.Id[i].ToString() == "A")
+                            {
+                                <a class="nav-link dropdown-toggle"
+                                   id="navbarScrollingDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    Archivo
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Archive" asp-action="Index">Conectar</a></li>
+                                    <li><a class="dropdown-item">Desconectar</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item">Importar</a></li>
+                                    <li><a class="dropdown-item">Exportar</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Salir</a></li>
+                                </ul>
+                            }
+                        }
+                    </li>
+                    <li class="nav-item dropdown">
+                        @for (int i = 0; i < Common.Cache.Positions.Id.Count; i++)
+                        {
+                            if (Common.Cache.Positions.Id[i].ToString() == "E")
+                            {
+                                <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Edición
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item">Copiar</a></li>
+                                    <li><a class="dropdown-item">Cortar</a></li>
+                                    <li><a class="dropdown-item">Pegar</a></li>
+                                    <li><a class="dropdown-item">Buscar</a></li>
+                                    <li><a class="dropdown-item">Reemplazar</a></li>
+
+                                </ul>
+                            }
+                        }
+                    </li>
+                    <li class="nav-item dropdown">
+                        @for (int i = 0; i < Common.Cache.Positions.Id.Count; i++)
+                        {
+                            if (Common.Cache.Positions.Id[i].ToString() == "G")
+                            {
+                                <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Gestión
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Management" asp-action="Personal">Personal</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Management" asp-action="Roles">Perfiles</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Management" asp-action="Finance">Finanzas</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Management" asp-action="Security">Seguridad</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Management" asp-action="Project">Proyectos</a></li>
+                                </ul>
+                            }
+                        }
+                    </li>
+                    <li class="nav-item dropdown">
+                        @for (int i = 0; i < Common.Cache.Positions.Id.Count; i++)
+                        {
+                            if (Common.Cache.Positions.Id[i].ToString() == "P")
+                            {
+                                <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Procesos
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Proccess" asp-action="Personal">Personal</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Proccess" asp-action="Finance">Finanzas</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Proccess" asp-action="Security">Seguridad</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Proccess" asp-action="Project">Proyectos</a></li>
+                                </ul>
+                            }
+                        }
+                    </li>
+                    <li class="nav-item dropdown">
+                        @for (int i = 0; i < Common.Cache.Positions.Id.Count; i++)
+                        {
+                            if (Common.Cache.Positions.Id[i].ToString() == "R")
+                            {
+                                <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Reportes
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Reports" asp-action="Personal">Personal</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Reports" asp-action="Finance">Finanzas</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Reports" asp-action="Security">Seguridad</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Reports" asp-action="Project">Proyectos</a></li>
+
+                                </ul>
+                            }
+                        }
+                    </li>
+                    <li class="nav-item dropdown">
+                        @for (int i = 0; i < Common.Cache.Positions.Id.Count; i++)
+                        {
+                            if (Common.Cache.Positions.Id[i].ToString() == "H")
+                            {
+                                <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ayuda
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" asp-controller="Help" asp-action="AboutUs">Acerca De</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Help" asp-action="Index">Índice</a></li>
+                                    <li><a class="dropdown-item" asp-controller="Help" asp-action="Help">Ayuda en línea</a></li>
+                                </ul>
+                            }
+                        }
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,11 @@
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\bin\Debug\net6.0\OperacionesFSharpGrupo05.deps.json
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\bin\Debug\net6.0\OperacionesFSharpGrupo05.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\bin\Debug\net6.0\OperacionesFSharpGrupo05.pdb
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\bin\Debug\net6.0\OperacionesFSharpGrupo05.xml
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.fsproj.AssemblyReference.cache
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.AssemblyInfoInputs.cache
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.AssemblyInfo.fs
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.fsproj.CoreCompileInputs.cache
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.dll
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.xml
+C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\01\APLICATIVO\CalculadoraGrupo05\OperacionesFSharpGrupo05\obj\Debug\net6.0\OperacionesFSharpGrupo05.pdb

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateXeusuUsuarTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateXeusuUsuarLabel_xeusuPaswd}" for="xeusuPaswd" />
+                    <h:inputText id="xeusuPaswd" value="#{xeusuUsuarController.selected.xeusuPaswd}" title="#{bundle.CreateXeusuUsuarTitle_xeusuPaswd}" required="true" requiredMessage="#{bundle.CreateXeusuUsuarRequiredMessage_xeusuPaswd}"/>
+                    <h:outputLabel value="#{bundle.CreateXeusuUsuarLabel_xeusuFeccre}" for="xeusuFeccre" />
+                    <h:inputText id="xeusuFeccre" value="#{xeusuUsuarController.selected.xeusuFeccre}" title="#{bundle.CreateXeusuUsuarTitle_xeusuFeccre}" required="true" requiredMessage="#{bundle.CreateXeusuUsuarRequiredMessage_xeusuFeccre}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateXeusuUsuarLabel_xeusuFecmod}" for="xeusuFecmod" />
+                    <h:inputText id="xeusuFecmod" value="#{xeusuUsuarController.selected.xeusuFecmod}" title="#{bundle.CreateXeusuUsuarTitle_xeusuFecmod}" required="true" requiredMessage="#{bundle.CreateXeusuUsuarRequiredMessage_xeusuFecmod}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateXeusuUsuarLabel_xeusuPiefir}" for="xeusuPiefir" />
+                    <h:inputText id="xeusuPiefir" value="#{xeusuUsuarController.selected.xeusuPiefir}" title="#{bundle.CreateXeusuUsuarTitle_xeusuPiefir}" required="true" requiredMessage="#{bundle.CreateXeusuUsuarRequiredMessage_xeusuPiefir}"/>
+                    <h:outputLabel value="#{bundle.CreateXeusuUsuarLabel_peempCodigo}" for="peempCodigo" />
+                    <h:selectOneMenu id="peempCodigo" value="#{xeusuUsuarController.selected.peempCodigo}" title="#{bundle.CreateXeusuUsuarTitle_peempCodigo}" required="true" requiredMessage="#{bundle.CreateXeusuUsuarRequiredMessage_peempCodigo}">
+                        <f:selectItems value="#{peempEmpleController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateXeusuUsuarLabel_xeestCodigo}" for="xeestCodigo" />
+                    <h:selectOneMenu id="xeestCodigo" value="#{xeusuUsuarController.selected.xeestCodigo}" title="#{bundle.CreateXeusuUsuarTitle_xeestCodigo}" required="true" requiredMessage="#{bundle.CreateXeusuUsuarRequiredMessage_xeestCodigo}">
+                        <f:selectItems value="#{xeestEstadController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{xeusuUsuarController.create}" value="#{bundle.CreateXeusuUsuarSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{xeusuUsuarController.prepareList}" value="#{bundle.CreateXeusuUsuarShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateXeusuUsuarIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

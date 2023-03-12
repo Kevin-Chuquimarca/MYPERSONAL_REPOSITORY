@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "WxgYcT4OFDWvuG/XkSMMvHSiVGDvuHpdf7nUFN0k+GznVsWfi8jsyUss5OOSECO0xYNi60Ri2hq6+5TLcTIzuw==",
+  "success": true,
+  "projectFilePath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\01\\APLICATIVO\\OperacionesFSharpExternoDLLGrupo05\\OperacionesFSharpExternoDLLGrupo05\\OperacionesFSharpExternoDLLGrupo05.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\santi\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

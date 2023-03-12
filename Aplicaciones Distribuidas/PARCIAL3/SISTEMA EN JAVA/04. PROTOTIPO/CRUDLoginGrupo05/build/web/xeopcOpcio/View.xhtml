@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewXeopcOpcioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewXeopcOpcioLabel_xeopcCodigo}"/>
+                    <h:outputText value="#{xeopcOpcioController.selected.xeopcCodigo}" title="#{bundle.ViewXeopcOpcioTitle_xeopcCodigo}"/>
+                    <h:outputText value="#{bundle.ViewXeopcOpcioLabel_xeopcDescri}"/>
+                    <h:outputText value="#{xeopcOpcioController.selected.xeopcDescri}" title="#{bundle.ViewXeopcOpcioTitle_xeopcDescri}"/>
+                    <h:outputText value="#{bundle.ViewXeopcOpcioLabel_xesisCodigo}"/>
+                    <h:outputText value="#{xeopcOpcioController.selected.xesisCodigo}" title="#{bundle.ViewXeopcOpcioTitle_xesisCodigo}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{xeopcOpcioController.destroyAndView}" value="#{bundle.ViewXeopcOpcioDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewXeopcOpcioEditLink}"/>
+                <br />
+                <h:commandLink action="#{xeopcOpcioController.prepareCreate}" value="#{bundle.ViewXeopcOpcioCreateLink}" />
+                <br />
+                <h:commandLink action="#{xeopcOpcioController.prepareList}" value="#{bundle.ViewXeopcOpcioShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewXeopcOpcioIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

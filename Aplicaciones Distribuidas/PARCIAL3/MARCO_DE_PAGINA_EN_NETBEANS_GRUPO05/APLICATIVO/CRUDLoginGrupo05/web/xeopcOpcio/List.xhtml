@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListXeopcOpcioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListXeopcOpcioEmpty}" rendered="#{xeopcOpcioController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{xeopcOpcioController.items.rowCount > 0}">
+                    <h:outputText value="#{xeopcOpcioController.pagination.pageFirstItem + 1}..#{xeopcOpcioController.pagination.pageLastItem + 1}/#{xeopcOpcioController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{xeopcOpcioController.previous}" value="#{bundle.Previous} #{xeopcOpcioController.pagination.pageSize}" rendered="#{xeopcOpcioController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{xeopcOpcioController.next}" value="#{bundle.Next} #{xeopcOpcioController.pagination.pageSize}" rendered="#{xeopcOpcioController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{xeopcOpcioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeopcOpcioTitle_xeopcCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xeopcCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeopcOpcioTitle_xeopcDescri}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xeopcDescri}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeopcOpcioTitle_xesisCodigo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xesisCodigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{xeopcOpcioController.prepareView}" value="#{bundle.ListXeopcOpcioViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{xeopcOpcioController.prepareEdit}" value="#{bundle.ListXeopcOpcioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{xeopcOpcioController.destroy}" value="#{bundle.ListXeopcOpcioDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{xeopcOpcioController.prepareCreate}" value="#{bundle.ListXeopcOpcioCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListXeopcOpcioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

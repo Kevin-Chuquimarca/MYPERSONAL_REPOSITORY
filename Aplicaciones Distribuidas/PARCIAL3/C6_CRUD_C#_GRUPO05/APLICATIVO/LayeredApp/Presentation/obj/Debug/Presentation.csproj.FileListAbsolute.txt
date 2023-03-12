@@ -1,0 +1,16 @@
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\Presentation.exe.config
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\Presentation.exe
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\Presentation.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\Domain.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\DataAccess.dll
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\Domain.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\bin\Debug\DataAccess.pdb
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.csproj.AssemblyReference.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.csproj.SuggestedBindingRedirects.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.Forms.FormEmployee.resources
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.csproj.GenerateResource.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.csproj.CoreCompileInputs.cache
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.csproj.CopyComplete
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.exe
+C:\FORMULARIOS CHINLLE\TERCER PARCIAL\C6_CRUD\APLICATIVO\LayeredApp\Presentation\obj\Debug\Presentation.pdb

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h2>Reporte de Empleados</h2>
+        <h:form>
+            <p:panel>
+                <p:outputLabel for="peempEmple" value="Año de nacimiento" />
+                <p:calendar id="peempEmple" value="#{reporteEmpleContolador.fechaNacimiento}"/>
+                <p:commandButton value="Buscar" action="#{reporteEmpleContolador.filtrarPorFechaNac}" />
+                <p:commandButton value="Generar Reporte" action="#{reporteEmpleContolador.generarReportePdf}" />
+            </p:panel>
+            <p:panel>
+                <p:dataTable id="empleados" var="emple" value="#{reporteEmpleContolador.empleados}" rowKey="#{emple.peempCodigo}">
+                    <f:facet name="header">
+                        Tabla de Empleados
+                    </f:facet>
+                    <p:column headerText="Apellido">
+                        <h:outputText value="#{emple.peempApelli}" />
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{emple.peempNombre}" />
+                    </p:column>
+                    <p:column headerText="Fecha de Nacimiento">
+                        <h:outputText value="#{emple.peempFecnac.year + 1900}" />
+                    </p:column>
+                    <p:column headerText="Correo Electrónico">
+                        <h:outputText value="#{emple.peempEmail}" />
+                    </p:column>
+                    <p:column headerText="Cédula">
+                        <h:outputText value="#{emple.peempCedula}" />
+                    </p:column>
+                    <p:column headerText="Carga Familiar">
+                        <h:outputText value="#{emple.peempCarfam}" />
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>

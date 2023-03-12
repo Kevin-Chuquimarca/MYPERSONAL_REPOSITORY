@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Gestión";
+}
+@Html.Partial("Navbar")
+<div class="container">
+    <div id="app">
+        <h3 class="text-center text-primary">{{titleSection}}</h3>
+        <hr />
+        <div class="table-roles">
+            <button class="btn btn-success" v-on:click="showModalAddRol()">Agregar</button>
+            <table class="table mt-4">
+                <thead>
+                    <tr>
+                        <th class="text-center" hidden>#</th>
+                        <th class="text-center">Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(row, index) in roles" :key="index">
+                        <td class="text-center" hidden>{{ row.Id }}</td>
+                        <td class="text-center">{{ row.Description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="modal-add-role">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <h5 class="card-header text-center">Agregar Rol</h5>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="name" class="form-label">Nombre Rol</label>
+                                <input type="text" class="form-control" maxlength="50" v-model="rolName">
+                            </div>
+                        </div>
+                        <button class="btn btn-success mt-4 w-100" v-on:click="save()">Confirmar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script type="text/javascript">
+
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    titleSection: 'Agregar Roles',
+                    roles: [],
+                    rolName: ''
+                }
+            },
+            methods: {
+                getRoles() {
+                    fetch('/Management/GetRoles')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.roles = data;
+                        })
+                        .catch(error => console.error(error));
+                },
+                showModalAddRol() {
+                    $('#modal-add-role').modal('show');
+                },
+                save() {
+                    if (this.rolName != "") {
+                        const role = {
+                            name: this.rolName
+                        };
+                        fetch('/Management/RegisterRol', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(role)
+                        })
+                            .then(response => response.text())
+                            .then(data => {
+                                if (data === "true") {
+                                    Swal.fire(
+                                        'Registro exitoso',
+                                        '',
+                                        'success'
+                                    );
+                                    $('#modal-add-role').modal('hide');
+                                } else {
+                                    Swal.fire(
+                                        'Error en el registro',
+                                        '',
+                                        'error'
+                                    );
+                                }
+                            })
+                            .catch(error => console.error(error));
+                    } else {
+                        Swal.fire(
+                            'Ingrese el nombre del Rol',
+                            '',
+                            'error'
+                        )
+                    }
+                },
+
+            },
+            watch: {
+                roles(newValue, oldValue) {
+                    this.getRoles();
+                }
+            },
+            created() {
+                this.getRoles();
+            }
+        }).mount('#app')
+    </script>
+}

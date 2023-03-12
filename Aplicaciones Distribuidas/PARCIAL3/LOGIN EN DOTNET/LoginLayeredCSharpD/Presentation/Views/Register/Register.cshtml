@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<div class="container">
+    <div class="card">
+        <h5 class="card-header text-center">Registro de nuevo usuario</h5>
+        <div class="card-body">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="col-md-4">
+                    <label for="lastname" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="lastname">
+                </div>
+                <div class="col-md-4">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="row mt-4">
+               
+               
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <label for="birthday" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="departureDate" class="form-label">Fecha de salida</label>
+                        <input type="date" class="form-control" id="departureDate">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <label for="address" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="phoneNumber" class="form-label">Teléfono</label>
+                        <input type="text" class="form-control" id="phoneNumber">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <label for="identificationCard" class="form-label">Cédula</label>
+                        <input type="text" class="form-control" id="identificationCard">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="passport" class="form-label">Pasaporte</label>
+                        <input type="text" class="form-control" id="passport">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="photo" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="photo">
+                    </div>
+                </div>
+                <button class="btn btn-success" onclick="getData()">Registrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <script type="text/javascript">
+
+        function getData() {
+            var code = document.getElementById("code").value;
+            var email = document.getElementById("email").value;
+            var lastname = document.getElementById("lastname").value;
+            var name = document.getElementById("name").value;
+            var birthday = document.getElementById("birthday").value;
+            var departureDate = document.getElementById("departureDate").value;
+            var address = document.getElementById("address").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var identificationCard = document.getElementById("identificationCard").value;
+            var passport = document.getElementById("passport").value;
+            var photo = document.getElementById("photo").value;
+
+            var dataUser = {
+                code,
+                email,
+                lastname,
+                name,
+                birthday,
+                departureDate,
+                address,
+                phoneNumber,
+                identificationCard,
+                passport,
+                photo
+            }
+            return dataUser;
+        }
+
+        function validateData() {
+            const data = getData();
+            if (data["code"].toString() == "") {
+                return false;
+            } else if (data["email"].toString() == "") {
+                return false;
+            } else if (data["lastname"].toString() == "") {
+                return false;
+            } else if (data["name"].toString() == "") {
+                return false;
+            } else if (data["birthday"].toString() == "") {
+                return false;
+            } else if (data["departureDate"].toString() == "") {
+                return false;
+            } else if (data["address"].toString() == "") {
+                return false;
+            } else if (data["phoneNumber"].toString() == "") {
+                return false;
+            } else if (data["identificationCard"].toString() == "") {
+                return false;
+            } else if (data["passport"].toString() == "") {
+                return false;
+            } else if (data["photo"].toString() == "") {
+                return false;
+            }
+            return true;
+        }
+
+        function addUser() {
+            var dataUser = getData();
+            if (!validateData()) {
+                Swal.fire(
+                    'Ingrese todos los campos',
+                    '',
+                    'error'
+                )
+                return;
+            }
+            fetch('/Register/Register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataUser)
+            })
+                .then(response => response.text())
+                .then(data => {
+                    Swal.fire(
+                        'Registro exitoso',
+                        '',
+                        'success'
+                    )
+                    window.location.href = "/";
+                })
+                .catch(error => console.error(error));
+        }
+
+    </script>
+}

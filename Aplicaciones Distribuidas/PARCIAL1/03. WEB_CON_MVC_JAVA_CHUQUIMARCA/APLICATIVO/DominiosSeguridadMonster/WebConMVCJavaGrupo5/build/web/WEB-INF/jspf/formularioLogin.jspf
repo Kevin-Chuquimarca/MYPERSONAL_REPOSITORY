@@ -1,0 +1,21 @@
+<%@ page pageEncoding="UTF-8" %>
+<form action="j_security_check" method="POST">
+    <table cellpadding="2" cellspacing="0" border="1">
+        <tr>
+            <td align="right">Nombre Usuario:&nbsp;</td>
+            <td>
+                <input type="text" name="j_username">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Contraseña: &nbsp;</td>
+            <td>
+                <input type="password" name="j_password">
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td> <input type="submit" value="Login" /></td>
+        </tr>
+    </table>
+</form>

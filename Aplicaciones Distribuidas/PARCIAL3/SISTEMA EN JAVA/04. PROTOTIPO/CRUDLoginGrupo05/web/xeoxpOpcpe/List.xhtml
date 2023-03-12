@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListXeoxpOpcpeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListXeoxpOpcpeEmpty}" rendered="#{xeoxpOpcpeController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{xeoxpOpcpeController.items.rowCount > 0}">
+                    <h:outputText value="#{xeoxpOpcpeController.pagination.pageFirstItem + 1}..#{xeoxpOpcpeController.pagination.pageLastItem + 1}/#{xeoxpOpcpeController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{xeoxpOpcpeController.previous}" value="#{bundle.Previous} #{xeoxpOpcpeController.pagination.pageSize}" rendered="#{xeoxpOpcpeController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{xeoxpOpcpeController.next}" value="#{bundle.Next} #{xeoxpOpcpeController.pagination.pageSize}" rendered="#{xeoxpOpcpeController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{xeoxpOpcpeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeoxpOpcpeTitle_xeoxpOpcpePK_xeoxpFecasi}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xeoxpOpcpePK.xeoxpFecasi}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeoxpOpcpeTitle_xeoxpFecret}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xeoxpFecret}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeoxpOpcpeTitle_xeopcOpcio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xeopcOpcio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListXeoxpOpcpeTitle_xeperPerfi}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.xeperPerfi}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{xeoxpOpcpeController.prepareView}" value="#{bundle.ListXeoxpOpcpeViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{xeoxpOpcpeController.prepareEdit}" value="#{bundle.ListXeoxpOpcpeEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{xeoxpOpcpeController.destroy}" value="#{bundle.ListXeoxpOpcpeDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{xeoxpOpcpeController.prepareCreate}" value="#{bundle.ListXeoxpOpcpeCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListXeoxpOpcpeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

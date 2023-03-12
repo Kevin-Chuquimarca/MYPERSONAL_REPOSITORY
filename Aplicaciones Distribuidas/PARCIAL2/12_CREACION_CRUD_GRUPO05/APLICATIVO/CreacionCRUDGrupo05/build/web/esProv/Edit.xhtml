@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEsProvTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEsProvLabel_esProvId}" for="esProvId" />
+                    <h:inputText id="esProvId" value="#{esProvController.selected.esProvId}" title="#{bundle.EditEsProvTitle_esProvId}" required="true" requiredMessage="#{bundle.EditEsProvRequiredMessage_esProvId}"/>
+                    <h:outputLabel value="#{bundle.EditEsProvLabel_esProvCd}" for="esProvCd" />
+                    <h:inputText id="esProvCd" value="#{esProvController.selected.esProvCd}" title="#{bundle.EditEsProvTitle_esProvCd}" required="true" requiredMessage="#{bundle.EditEsProvRequiredMessage_esProvCd}"/>
+                    <h:outputLabel value="#{bundle.EditEsProvLabel_esProvNm}" for="esProvNm" />
+                    <h:inputText id="esProvNm" value="#{esProvController.selected.esProvNm}" title="#{bundle.EditEsProvTitle_esProvNm}" required="true" requiredMessage="#{bundle.EditEsProvRequiredMessage_esProvNm}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{esProvController.update}" value="#{bundle.EditEsProvSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEsProvViewLink}"/>
+                <br />
+                <h:commandLink action="#{esProvController.prepareList}" value="#{bundle.EditEsProvShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEsProvIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

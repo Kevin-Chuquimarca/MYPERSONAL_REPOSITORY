@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAppUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAppUsuarioLabel_appUsuarioId}" for="appUsuarioId" />
+                    <h:inputText id="appUsuarioId" value="#{appUsuarioController.selected.appUsuarioId}" title="#{bundle.CreateAppUsuarioTitle_appUsuarioId}" required="true" requiredMessage="#{bundle.CreateAppUsuarioRequiredMessage_appUsuarioId}"/>
+                    <h:outputLabel value="#{bundle.CreateAppUsuarioLabel_usuarioName}" for="usuarioName" />
+                    <h:inputText id="usuarioName" value="#{appUsuarioController.selected.usuarioName}" title="#{bundle.CreateAppUsuarioTitle_usuarioName}" />
+                    <h:outputLabel value="#{bundle.CreateAppUsuarioLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{appUsuarioController.selected.password}" title="#{bundle.CreateAppUsuarioTitle_password}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{appUsuarioController.create}" value="#{bundle.CreateAppUsuarioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{appUsuarioController.prepareList}" value="#{bundle.CreateAppUsuarioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAppUsuarioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

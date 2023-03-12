@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "kUsecB1B0nIXTr2sPhiZZ5EqkwjqOuap9spjOi7W0+fCmcUrijQSOXf/vQANxzMftUyYrA9e6VgauRMj85LQKg==",
+  "success": true,
+  "projectFilePath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\01\\APLICATIVO\\CalculadoraGrupo05\\CalculadoraGrupo05\\CalculadoraGrupo05.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\santi\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

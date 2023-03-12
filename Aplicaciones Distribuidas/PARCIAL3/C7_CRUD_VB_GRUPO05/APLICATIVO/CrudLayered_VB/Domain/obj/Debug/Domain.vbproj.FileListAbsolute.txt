@@ -1,0 +1,16 @@
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\Domain.dll
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\Domain.pdb
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\Domain.xml
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\DataAccess.dll
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\DataAccess.pdb
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\DataAccess.xml
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.vbproj.AssemblyReference.cache
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.Resources.resources
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.vbproj.GenerateResource.cache
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.vbproj.CoreCompileInputs.cache
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.vbproj.CopyComplete
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.dll
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.xml
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\obj\Debug\Domain.pdb
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Michael\Documents\C7_CRUD_VB_GRUPO05\APLICATIVO\CrudLayered_VB\Domain\bin\Debug\System.Data.SqlClient.xml

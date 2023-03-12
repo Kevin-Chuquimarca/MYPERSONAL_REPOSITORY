@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDireccionTypeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDireccionTypeLabel_direccionTypeId}" for="direccionTypeId" />
+                    <h:inputText id="direccionTypeId" value="#{direccionTypeController.selected.direccionTypeId}" title="#{bundle.CreateDireccionTypeTitle_direccionTypeId}" required="true" requiredMessage="#{bundle.CreateDireccionTypeRequiredMessage_direccionTypeId}"/>
+                    <h:outputLabel value="#{bundle.CreateDireccionTypeLabel_direccionTypeCode}" for="direccionTypeCode" />
+                    <h:inputText id="direccionTypeCode" value="#{direccionTypeController.selected.direccionTypeCode}" title="#{bundle.CreateDireccionTypeTitle_direccionTypeCode}" />
+                    <h:outputLabel value="#{bundle.CreateDireccionTypeLabel_direccionTypeText}" for="direccionTypeText" />
+                    <h:inputText id="direccionTypeText" value="#{direccionTypeController.selected.direccionTypeText}" title="#{bundle.CreateDireccionTypeTitle_direccionTypeText}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{direccionTypeController.create}" value="#{bundle.CreateDireccionTypeSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{direccionTypeController.prepareList}" value="#{bundle.CreateDireccionTypeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDireccionTypeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

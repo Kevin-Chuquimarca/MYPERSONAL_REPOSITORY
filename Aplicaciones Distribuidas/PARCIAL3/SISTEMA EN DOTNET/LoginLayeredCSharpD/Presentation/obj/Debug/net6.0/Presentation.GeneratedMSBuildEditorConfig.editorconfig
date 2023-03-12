@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Presentation
+build_property.RootNamespace = Presentation
+build_property.ProjectDir = C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\SISTEMA EN DOTNET\LoginLayeredCSharpD\Presentation\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\FORMULARIOS_CHUQUIMARCA\PARCIAL3\SISTEMA EN DOTNET\LoginLayeredCSharpD\Presentation
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Application/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Archive/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXJjaGl2ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Edition/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRWRpdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Help/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVscFxBYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Help/Help.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVscFxIZWxwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Help/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVscFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Home/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Management/Finance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlbWVudFxGaW5hbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Management/Personal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlbWVudFxQZXJzb25hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Management/Project.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlbWVudFxQcm9qZWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Management/Roles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlbWVudFxSb2xlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Management/Security.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlbWVudFxTZWN1cml0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Proccess/Finance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Nlc3NcRmluYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Proccess/Personal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Nlc3NcUGVyc29uYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Proccess/Project.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Nlc3NcUHJvamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Proccess/Security.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvY2Nlc3NcU2VjdXJpdHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Reports/Finance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xGaW5hbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Reports/Personal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xQZXJzb25hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Reports/Project.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xQcm9qZWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Reports/Security.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xTZWN1cml0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Shared/Navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5hdmJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FORMULARIOS_CHUQUIMARCA/PARCIAL3/SISTEMA EN DOTNET/LoginLayeredCSharpD/Presentation/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fhvjq1vla1

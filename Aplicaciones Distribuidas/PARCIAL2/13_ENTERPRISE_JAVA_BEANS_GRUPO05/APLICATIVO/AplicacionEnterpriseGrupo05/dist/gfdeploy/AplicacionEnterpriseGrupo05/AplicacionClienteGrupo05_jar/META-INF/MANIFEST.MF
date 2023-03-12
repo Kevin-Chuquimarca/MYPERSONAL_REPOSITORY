@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.8
+Created-By: 17.0.5+9-LTS-191 (Oracle Corporation)
+X-COMMENT: Main-Class will be added automatically by build
+Class-Path: SessionBeanPrimeroClientLib.jar lib/SessionBeanPrimeroClie
+ ntLib.jar AplicacionLibreriaClienteGrupo05.jar lib/AplicacionLibreria
+ ClienteGrupo05.jar 
+Main-Class: aplicacionclientegrupo05.Main
+

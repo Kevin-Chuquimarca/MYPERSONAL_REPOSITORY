@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8xhnBM+Ui4Y8t+4W1jM7zvi2iQzY7lt3ZnSjOvTF5GfylEaKjl7M4kMK1Xl5VaM6hOZwd+KbHKRIcHZGFOvYyg==",
+  "success": true,
+  "projectFilePath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\01\\APLICATIVO\\EjemploLenguajeFSharpGrupo05\\EjemploLenguajeFSharpGrupo05\\EjemploLenguajeFSharpGrupo05.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\santi\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

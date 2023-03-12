@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Página de bienvenida</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    </h:head>
+    <h:body>
+        <div class="card">
+            <h:form id="frm">
+                <p:growl id="messages"/>
+
+                <p:menubar id="mnuBar">
+                    <p:submenu rendered="#{usuarioControlador.showOptionsBtn[0]}" label="Archivo" icon="pi pi-fw pi-users">
+                        <p:menuitem value="Conectar" icon="pi pi-fw pi-trash"/>
+                        <p:menuitem value="Desconectar" icon="pi pi-fw pi-trash"/>
+                        <p:divider />
+                        <p:menuitem value="Importar" icon="pi pi-fw pi-window-minimize"/>
+                        <p:menuitem value="Exportar" icon="pi pi-fw pi-external-link"/>
+                        <p:divider />
+                        <p:menuitem value="Salir" icon="pi pi-power-off"/>
+                    </p:submenu>
+
+                    <p:submenu rendered="#{usuarioControlador.showOptionsBtn[1]}" label="Edición" icon="pi pi-fw pi-briefcase">
+                        <p:menuitem value="Copiar" icon="pi pi-fw pi-copy"/>
+                        <p:menuitem value="Cortar" icon="pi pi-fw pi-times"/>
+                        <p:menuitem value="Pegar" icon="pi pi-fw pi-check"/>
+                        <p:menuitem value="Buscar" icon="pi pi-fw pi-search"/>
+                        <p:menuitem value="Remplazar" icon="pi pi-fw pi-refresh"/>
+                    </p:submenu>
+
+                    <p:submenu rendered="#{usuarioControlador.showOptionsBtn[2]}" label="Gestión" icon="pi pi-fw pi-lock">
+                        <p:menuitem value="Personal" icon="pi pi-fw pi-users" outcome="/peempEmple/List" />
+                        <p:menuitem value="Finanzas" icon="pi pi-fw pi-users" />
+                        <p:menuitem value="Seguridad" icon="pi pi-fw pi-users" outcome="/asignOptionsPerfi" />
+                        <p:menuitem value="Proyecto" icon="pi pi-fw pi-users" outcome="teproProyec/List" />
+                    </p:submenu>
+
+                    <p:submenu rendered="#{usuarioControlador.showOptionsBtn[3]}" label="Proceso" icon="pi pi-fw pi-th-large">
+                        <p:menuitem value="Personal" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Finanzas" icon="pi pi-fw pi-calendar-minus"/>
+                        <p:menuitem value="Seguridad" icon="pi pi-fw pi-calendar-times" outcome="/asignacionPerfiles"/>
+                        <p:menuitem value="Proyecto" icon="pi pi-fw pi-calendar-minus"/>
+                    </p:submenu>
+
+                    <p:submenu rendered="#{usuarioControlador.showOptionsBtn[4]}" label="Reportes" icon="pi pi-fw pi-th-large">
+                        <p:menuitem value="Personal" action="reporteEmple" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Finanzas" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Seguridad" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Proyectos" icon="pi pi-fw pi-calendar-plus"/>
+                    </p:submenu>
+
+                    <p:submenu rendered="#{usuarioControlador.showOptionsBtn[5]}" label="Ayuda" icon="pi pi-fw pi-th-large">
+                        <p:menuitem value="Acerca de" icon="pi pi-fw pi-calendar-plus" outcome="/acerdaDe"/>
+                        <p:menuitem value="Índice" icon="pi pi-fw pi-calendar-plus"/>
+                        <p:menuitem value="Ayuda en línea" icon="pi pi-fw pi-calendar-plus" outcome="/ayudaEnLinea"/>
+                    </p:submenu>
+
+                    <p:divider layout="vertical"/>
+
+                    <f:facet name="options">
+                        <p:menuitem>
+                            <p:splitButton styleClass="ui-button-secondary" value="#{usuarioControlador.currentEmple.peempNombre} #{usuarioControlador.currentEmple.peempApelli}" action="usuario" update="messages" icon="pi pi-user">
+                                <p:submenu label="#{usuarioControlador.cargo}">
+                                    <p:menuitem value="Acerca de" action="usuario" update="messages" icon="pi pi-refresh"/>
+                                    <p:menuitem value="Cambio de contraseña" action="usuario" ajax="false" icon="pi pi-times"/>
+                                </p:submenu>
+                                <p:divider />
+                                <p:menuitem value="Cerrar Sesión" icon="pi pi-sign-out" action="#{usuarioControlador.salir()}" />
+                            </p:splitButton>
+                        </p:menuitem>
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+        </div>
+
+        <h:form>
+            <h:panelGrid class="d-flex justify-content-center align-items-center flex-direction-column" columns="1">
+                <h2 style="font-weight: bold; font-size: 4rem;" class="text-center">BIENVENIDO A ECUASOFT</h2>
+                <h:panelGrid class="d-flex justify-content-center align-items-center flex-direction-column" columns="1">
+                    <p:graphicImage class="rounded-circle m-3" value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/img/#{usuarioControlador.currentEmple.peempFoto}.png" height="200" width="200" title="Foto de perfil" />
+                </h:panelGrid>
+                <h:panelGrid class="d-flex justify-content-center align-items-center flex-direction-column" columns="1">
+                    <h:outputText style="font-weight: bold;" value="Bienvenido #{usuarioControlador.currentEmple.peempNombre} #{usuarioControlador.currentEmple.peempApelli}" />
+                </h:panelGrid>
+            </h:panelGrid>
+            <h:panelGrid class="d-flex justify-content-center align-items-center flex-direction-column" columns="2">
+                <p:outputLabel style="font-weight: bold;" value="Perfil: "/>
+                <h:outputText value="#{usuarioControlador.cargo}" />
+                <p:outputLabel style="font-weight: bold;" value="Cédula: "/>
+                <h:outputText value="#{usuarioControlador.currentEmple.peempCedula}" />
+                <p:outputLabel style="font-weight: bold;" value="Correo electrónico: "/>
+                <h:outputText value="#{usuarioControlador.currentEmple.peempEmail}" />
+                <p:outputLabel style="font-weight: bold;" value="Teléfono: "/>
+                <h:outputText value="#{usuarioControlador.currentEmple.peempTelef}" />
+            </h:panelGrid>
+        </h:form>
+
+        <h:form>
+            <p:dialog header="Cambiar Contraseña" widgetVar="miModal" modal="true">
+                <h:panelGrid columns="1" cellpadding="7">
+                    <p:outputLabel value="Nueva Contraseña" for="nuevaContrasenia" />
+                    <p:password id="nuevaContrasenia" value="#{usuarioControlador.nuevaContrasenia}" required="true" requiredMessage="Ingrese su nueva contraseña"/>
+                    <p:outputLabel value="Verficar Contraseña" for="verfContrasenia" />
+                    <p:password id="verfContrasenia" value="#{usuarioControlador.verfContrasenia}" required="true" requiredMessage="Ingrese su nueva contraseña"/>
+                    <p:commandButton value="Confirmar" action="#{usuarioControlador.cambiarContrasenia()}" />
+                </h:panelGrid>
+            </p:dialog>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "oaRH1u3EspP8z1KXg34a+TnWFGdRyf4YhISCJb/JoEaUICJ7YmNr+kEDveYtLRdxt4JRDjDjpOkv+3oIzpUfAA==",
+  "success": true,
+  "projectFilePath": "C:\\FORMULARIOS_CHUQUIMARCA\\PARCIAL3\\01\\APLICATIVO\\CalculadoraGrupo05\\OperacionesFSharpGrupo05\\OperacionesFSharpGrupo05.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\santi\\.nuget\\packages\\fsharp.core\\7.0.0\\fsharp.core.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

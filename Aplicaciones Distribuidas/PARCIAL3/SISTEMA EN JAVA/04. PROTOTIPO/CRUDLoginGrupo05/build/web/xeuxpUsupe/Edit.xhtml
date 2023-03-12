@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditXeuxpUsupeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditXeuxpUsupeLabel_xeuxpUsupePK_xeuxpFecasi}" for="xeuxpUsupePK_xeuxpFecasi" />
+                    <h:inputText id="xeuxpUsupePK_xeuxpFecasi" value="#{xeuxpUsupeController.selected.xeuxpUsupePK.xeuxpFecasi}" title="#{bundle.EditXeuxpUsupeTitle_xeuxpUsupePK_xeuxpFecasi}" required="true" requiredMessage="#{bundle.EditXeuxpUsupeRequiredMessage_xeuxpUsupePK_xeuxpFecasi}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditXeuxpUsupeLabel_xeuxpFecret}" for="xeuxpFecret" />
+                    <h:inputText id="xeuxpFecret" value="#{xeuxpUsupeController.selected.xeuxpFecret}" title="#{bundle.EditXeuxpUsupeTitle_xeuxpFecret}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditXeuxpUsupeLabel_xeperPerfi}" for="xeperPerfi" />
+                    <h:selectOneMenu id="xeperPerfi" value="#{xeuxpUsupeController.selected.xeperPerfi}" title="#{bundle.EditXeuxpUsupeTitle_xeperPerfi}" required="true" requiredMessage="#{bundle.EditXeuxpUsupeRequiredMessage_xeperPerfi}">
+                        <f:selectItems value="#{xeperPerfiController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditXeuxpUsupeLabel_xeusuUsuar}" for="xeusuUsuar" />
+                    <h:selectOneMenu id="xeusuUsuar" value="#{xeuxpUsupeController.selected.xeusuUsuar}" title="#{bundle.EditXeuxpUsupeTitle_xeusuUsuar}" required="true" requiredMessage="#{bundle.EditXeuxpUsupeRequiredMessage_xeusuUsuar}">
+                        <f:selectItems value="#{xeusuUsuarController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{xeuxpUsupeController.update}" value="#{bundle.EditXeuxpUsupeSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditXeuxpUsupeViewLink}"/>
+                <br />
+                <h:commandLink action="#{xeuxpUsupeController.prepareList}" value="#{bundle.EditXeuxpUsupeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditXeuxpUsupeIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

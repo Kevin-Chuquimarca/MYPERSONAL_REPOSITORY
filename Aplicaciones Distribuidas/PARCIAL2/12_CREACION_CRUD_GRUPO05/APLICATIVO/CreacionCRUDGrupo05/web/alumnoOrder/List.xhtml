@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAlumnoOrderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAlumnoOrderEmpty}" rendered="#{alumnoOrderController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{alumnoOrderController.items.rowCount > 0}">
+                    <h:outputText value="#{alumnoOrderController.pagination.pageFirstItem + 1}..#{alumnoOrderController.pagination.pageLastItem + 1}/#{alumnoOrderController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{alumnoOrderController.previous}" value="#{bundle.Previous} #{alumnoOrderController.pagination.pageSize}" rendered="#{alumnoOrderController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{alumnoOrderController.next}" value="#{bundle.Next} #{alumnoOrderController.pagination.pageSize}" rendered="#{alumnoOrderController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{alumnoOrderController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlumnoOrderTitle_alumnoOrderId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alumnoOrderId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlumnoOrderTitle_alumnoId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.alumnoId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlumnoOrderTitle_orderNumero}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderNumero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlumnoOrderTitle_orderDescription}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.orderDescription}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAlumnoOrderTitle_itemId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.itemId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{alumnoOrderController.prepareView}" value="#{bundle.ListAlumnoOrderViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alumnoOrderController.prepareEdit}" value="#{bundle.ListAlumnoOrderEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{alumnoOrderController.destroy}" value="#{bundle.ListAlumnoOrderDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{alumnoOrderController.prepareCreate}" value="#{bundle.ListAlumnoOrderCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAlumnoOrderIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

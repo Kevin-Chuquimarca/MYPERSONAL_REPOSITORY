@@ -1,0 +1,209 @@
+﻿@{
+    ViewData["Title"] = "Gestión";
+}
+@Html.Partial("Navbar")
+<div class="container">
+    <div id="app">
+        <h3 class="text-center text-primary">{{titleSection}}</h3>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <label for="select-perfil">{{SelectPerfil}}</label>
+                <select class="form-control" id="select-perfil" v-model="idPerfil">
+                </select>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center">{{Options}}</h3>
+                <table id="table-options"
+                       data-search="true"
+                       data-click-to-select="true">
+                    <thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true"></th>
+                            <th data-field="Id"></th>
+                            <th data-field="IdSystem" data-visible="false"></th>
+                            <th data-field="Description">Opción</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <button class="btn btn-success w-100" v-on:click="sendInformation()">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <link href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.1/dist/jquery-steps.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script type="text/javascript">
+
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    titleSection: 'Asignación Opciones a Perfiles',
+                    SelectPerfil: 'Seleccione el perfil',
+                    Options: 'Opciones del Sistema',
+                    roles: [],
+                    idPerfil: 'A',
+                    options: [],
+                    optionsPerfil: [],
+                    idOptionsArray: [],
+                    optionsSelected: []
+                }
+            },
+            methods: {
+                getRoles() {
+                    fetch('/Management/GetRoles')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.roles = data;
+                            let select = document.getElementById("select-perfil");
+                            this.roles.forEach(item => {
+                                let option = document.createElement("option");
+                                option.value = item.Id;
+                                option.text = item.Description;
+                                select.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error(error));
+                },
+                showTables() {
+                    $('#table-options').bootstrapTable();
+                },
+                getOptions() {
+                    fetch('/Management/GetOptions')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.options = data;
+                            $('#table-options').bootstrapTable({ data: data });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getOptionsPerfil() {
+                    fetch(`/Management/GetOptionsPerfil?idPerfil=${this.idPerfil}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Error: ${response.statusText}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            this.optionsPerfil = data;
+                            const jsonArray = JSON.parse(JSON.stringify(this.optionsPerfil));
+                            this.idOptionsArray = jsonArray.map(x => x.IdOption);
+                            $('#table-options').bootstrapTable('checkBy', { field: 'Id', values: this.idOptionsArray });
+                        })
+                        .catch(error => console.error(error));
+                },
+                getSelections() {
+                    this.optionsSelected = JSON.stringify($('#table-options').bootstrapTable('getSelections'));
+                    var options = JSON.parse(this.optionsSelected);
+                    var perfil = this.idPerfil;
+                    var data = {
+                        perfil,
+                        options
+                    }
+                    return data;
+                },
+                validateData() {
+                    var data = this.getSelections();
+                    if (data.perfil === '') {
+                        return false;
+                    } else if (data.options.length === 0) {
+                        return false;
+                    }
+                    return true;
+                },
+                sendInformation() {
+                    const data = this.getSelections();
+                    if (this.validateData()) {
+                        console.log("Datos completos");
+                        fetch('/Management/AssignOption', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                            .then(response => {
+                                if (!response.ok) {
+                                    throw new Error(response.statusText);
+                                }
+                                return response.text();
+                            })
+                            .then(data => {
+                                if (data === "true") {
+                                    Swal.fire(
+                                        'Asignación exitosa',
+                                        '',
+                                        'success'
+                                    );
+                                    setTimeout(function () {
+                                        window.location.href = "/Management/Security";
+                                    }, 1000);
+                                } else {
+                                    Swal.fire(
+                                        'Error de asignación de opción',
+                                        '',
+                                        'error'
+                                    );
+                                }
+                            })
+                            .catch(error => {
+                                console.error(error);
+                                Swal.fire(
+                                    'Error de asignación de opción',
+                                    error.message,
+                                    'error'
+                                );
+                            });
+                    } else {
+                        Swal.fire(
+                            'Ingrese todos los datos',
+                            '',
+                            'error'
+                        );
+                    }
+                }
+            },
+            watch: {
+                idPerfil(newValue, oldValue) {
+                    $('#table-options').bootstrapTable('uncheckAll');
+                    this.getOptionsPerfil();
+                },
+            },
+            mounted() {
+            },
+            created() {
+                this.getRoles();
+                this.showTables();
+                this.getOptions();
+                this.getOptionsPerfil();
+            }
+        }).mount('#app')
+    </script>
+}

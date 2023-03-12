@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAlumnoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAlumnoLabel_alumnoId}" for="alumnoId" />
+                    <h:inputText id="alumnoId" value="#{alumnoController.selected.alumnoId}" title="#{bundle.EditAlumnoTitle_alumnoId}" required="true" requiredMessage="#{bundle.EditAlumnoRequiredMessage_alumnoId}"/>
+                    <h:outputLabel value="#{bundle.EditAlumnoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{alumnoController.selected.nombre}" title="#{bundle.EditAlumnoTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditAlumnoLabel_primerApellido}" for="primerApellido" />
+                    <h:inputText id="primerApellido" value="#{alumnoController.selected.primerApellido}" title="#{bundle.EditAlumnoTitle_primerApellido}" />
+                    <h:outputLabel value="#{bundle.EditAlumnoLabel_segundoApellido}" for="segundoApellido" />
+                    <h:inputText id="segundoApellido" value="#{alumnoController.selected.segundoApellido}" title="#{bundle.EditAlumnoTitle_segundoApellido}" />
+                    <h:outputLabel value="#{bundle.EditAlumnoLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{alumnoController.selected.email}" title="#{bundle.EditAlumnoTitle_email}" />
+                </h:panelGrid>
+                <h:commandLink action="#{alumnoController.update}" value="#{bundle.EditAlumnoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAlumnoViewLink}"/>
+                <br />
+                <h:commandLink action="#{alumnoController.prepareList}" value="#{bundle.EditAlumnoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAlumnoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
